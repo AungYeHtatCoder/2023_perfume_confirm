@@ -12,7 +12,7 @@
  <meta name="keywords"
   content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
  <meta name="author" content="PIXINVENT">
- <title>In Scents Perfume</title>
+ <title>In Scents</title>
  <link rel="icon" href="{{ asset('assets/img/logo.png') }}">
  {{-- <link rel="apple-touch-icon" href="{{ asset('admin_app/app-assets/images/ico/apple-icon-120.png') }}"> --}}
  {{-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin_app/app-assets/images/ico/favicon.ico') }}">

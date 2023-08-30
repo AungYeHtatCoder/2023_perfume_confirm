@@ -14,8 +14,12 @@
                             <img src="images/logo/logo-1.png" alt=""></a> -->
 
      <div>
-      <a href="index.html">
-       <h2>In Scents</h2>
+      <a href="{{ url('/') }}">
+        <div class="logo">
+            <img src="{{ asset('assets/img/logo.png') }}" width="50px" height="50px" alt="">
+            <h2>In Scents</h2>
+        </div>
+
       </a>
      </div>
      <!--====== End - Main Logo ======-->
@@ -54,30 +58,32 @@
 
          <span class="js-menu-toggle"></span>
          <ul style="width:120px">
-          <li>
-
-           <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
-
-            <span>Account</span></a>
-          </li>
-          <li>
-
-           <a href="signup.html"><i class="fas fa-user-plus u-s-m-r-6"></i>
-
-            <span>Signup</span></a>
-          </li>
-          <li>
-
-           <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
-
-            <span>Signin</span></a>
-          </li>
-          <li>
-
-           <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
-
-            <span>Signout</span></a>
-          </li>
+            @auth
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                        <span>Account</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                        <i class="fas fa-lock-open u-s-m-r-6"></i>
+                        <span>Signout</span>
+                    </a>
+                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            @endauth
+            @guest
+                <li>
+                    <a href="{{ url('/register') }}"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                        <span>Signup</span></a>
+                </li>
+                <li>
+                    <a href="{{ url('/login') }}"><i class="fas fa-lock u-s-m-r-6"></i>
+                        <span>Signin</span></a>
+                </li>
+            @endguest
          </ul>
          <!--====== End - Dropdown ======-->
         </li>
@@ -104,7 +110,7 @@
 
 
   <!--====== Nav 2 ======-->
-  <nav class="secondary-nav-wrapper">
+  <nav class="secondary-nav-wrapper" style="box-shadow: 1px 2px 3px rgb(210, 210, 210);">
    <div class="container">
 
     <!--====== Secondary Nav ======-->

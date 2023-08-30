@@ -7,8 +7,8 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  <meta name="description" content="">
  <meta name="author" content="">
- <link href="{{ asset('user_app/assets/images/favicon.png')}}" rel="shortcut icon">
- <title>Ludus - Electronics, Apparel, Computers, Books, DVDs & more</title>
+ <link href="{{ asset('assets/img/logo.png')}}" rel="icon">
+ <title>In Scents - @yield('title')</title>
 
  <!--====== Google Font ======-->
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
@@ -21,4 +21,17 @@
 
  <!--====== App ======-->
  <link rel="stylesheet" href="{{ asset('user_app/assets/css/app.css')}}">
+ <style>
+    .logo{
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    .logo h2{
+        margin: 0;
+        padding: 0;
+        margin-top: 5px;
+        font-size: 20px;
+    }
+ </style>
 </head>

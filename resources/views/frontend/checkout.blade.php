@@ -1,8 +1,8 @@
 @extends('user_layouts.master')
 
-@section('content')
+@section('title', 'Checkout')
 
-@include('user_layouts.navbar')
+@section('content')
 
 <div class="app-content">
 
@@ -551,14 +551,10 @@
 </div>
 <!--====== End - App Content ======-->
 
-@include('user_layouts.footer')
-
 @endsection
 
 
 <!--====== Modal Section ======-->
-
-
 <!--====== Shipping Address Add Modal ======-->
 <div class="modal fade" id="edit-ship-address">
  <div class="modal-dialog modal-dialog-centered">

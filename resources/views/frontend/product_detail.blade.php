@@ -1,9 +1,8 @@
  @extends('user_layouts.master')
 
+ @section('title', 'Product Detail')
+
  @section('content')
-
- @include('user_layouts.navbar')
-
  <div class="app-content">
 
   <!--====== Section 1 ======-->
@@ -40,13 +39,13 @@
       <!-- <div class="pd u-s-m-b-30">
                                 <div class="slider-fouc pd-wrap">
                                     <div id="pd-o-initiate">
-                                        
+
                                         <div class="pd-o-img-wrap" data-src="images/product/product_d_2.jpg">
 
                                             <img class="u-img-fluid" src="images/product/product_d_2.jpg" data-zoom-image="images/product/product_d_2.jpg" alt="">
 
                                         </div>
-                                        
+
                                     </div>
 
                                     <span class="pd-text">Click for larger zoom</span>
@@ -57,7 +56,7 @@
                                             <div>
 
                                                 <img class="u-img-fluid" src="images/product/product_d_2.jpg" alt=""></div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -904,10 +903,4 @@
   <!--====== End - Section 1 ======-->
  </div>
 
- @include('user_layouts.footer')
-
  @endsection
-
- @include('user_layouts.quick_model')
-
- @include('user_layouts.add_to_cart')
