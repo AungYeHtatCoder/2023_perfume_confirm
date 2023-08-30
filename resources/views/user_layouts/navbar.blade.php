@@ -58,32 +58,30 @@
 
          <span class="js-menu-toggle"></span>
          <ul style="width:120px">
-            @auth
-                <li>
-                    <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
-                        <span>Account</span></a>
-                </li>
-                <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                        <i class="fas fa-lock-open u-s-m-r-6"></i>
-                        <span>Signout</span>
-                    </a>
-                </li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            @endauth
-            @guest
-                <li>
-                    <a href="{{ url('/register') }}"><i class="fas fa-user-plus u-s-m-r-6"></i>
-                        <span>Signup</span></a>
-                </li>
-                <li>
-                    <a href="{{ url('/login') }}"><i class="fas fa-lock u-s-m-r-6"></i>
-                        <span>Signin</span></a>
-                </li>
-            @endguest
+          <li>
+
+           <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+
+            <span>Account</span></a>
+          </li>
+          <li>
+
+           <a href="signup.html"><i class="fas fa-user-plus u-s-m-r-6"></i>
+
+            <span>Signup</span></a>
+          </li>
+          <li>
+
+           <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
+
+            <span>Signin</span></a>
+          </li>
+          {{-- <li>
+
+           <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+
+            <span>Signout</span></a>
+          </li> --}}
          </ul>
          <!--====== End - Dropdown ======-->
         </li>

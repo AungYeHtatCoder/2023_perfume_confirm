@@ -376,6 +376,21 @@
         }
     };
 
+    // Bind countdown plugin
+    RESHOP.timerCountDown = function() {
+        // Check if Count Down on the page
+        if ($collectionCountDown.length) {
+            $collectionCountDown.each(function () {
+                var $this = $(this),
+                    finalDate = $(this).data('countdown');
+                $this.countdown(finalDate, function (event) {
+                      $this.html(event.strftime('<div class="countdown__content"><div><span class="countdown__value">%D</span><span class="countdown__key">Days</span></div></div><div class="countdown__content"><div><span class="countdown__value">%H</span><span class="countdown__key">Hours</span></div></div><div class="countdown__content"><div><span class="countdown__value">%M</span><span class="countdown__key">Mins</span></div></div><div class="countdown__content"><div><span class="countdown__value">%S</span><span class="countdown__key">Secs</span></div></div>'));
+                });
+            });
+        }
+
+    };
+
 
     // Product Detail Init
     RESHOP.productDetailInit = function() {
