@@ -1446,5 +1446,12 @@
    </div>
    <!--====== End - Section 1 ======-->
   </div>
+    <!--====== Quick Look Modal ======-->
+    @include('user_layouts.quick_model')
+    <!--====== End - Quick Look Modal ======-->
 
+    <!--====== Add to Cart Modal ======-->
+    @include('user_layouts.add_to_cart')
+    <!--====== End - Add to Cart Modal ======-->
+    <!--====== End - Modal Section ======-->
   @endsection

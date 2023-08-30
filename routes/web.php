@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
+use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
 
 // Route::get('/', function () {
@@ -60,7 +61,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/shop', [WelcomeController::class, 'shop']);
     Route::get('/contact', [WelcomeController::class, 'contact']);
     Route::get('/aboutus', [WelcomeController::class, 'aboutus']);
-    Route::get('/product_detail', [WelcomeController::class, 'product_detail']);
+    Route::get('/product_detail{id}', [WelcomeController::class, 'product_detail']);
+    Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart']);
 
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {

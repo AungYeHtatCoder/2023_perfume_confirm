@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('profile', 2000)->nullable();
             $table->string('profile_mime')->nullable();
             $table->integer('profile_size')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

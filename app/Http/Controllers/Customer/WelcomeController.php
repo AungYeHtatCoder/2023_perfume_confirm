@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Cart;
+use App\Models\Admin\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
 {
@@ -12,8 +15,19 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        
-        return view('welcome');
+        $newArrival = Product::latest()->take(5)->get();
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('welcome', compact('newArrival', 'carts'));
+        }else{
+            return view('welcome', compact('newArrival'));
+        }
+        // $cartProducts = Product::with('carts', )
+        // foreach($carts as $cart){
+        //     return $cart->products;
+        // }
+        // return $carts;
+
     }
 
     public function checkout() {

@@ -33,9 +33,9 @@
 
         <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
 
-        <a class="s-option__link btn--e-white-brand-shadow" href="cart.html">VIEW CART</a>
+        <a class="s-option__link btn--e-white-brand-shadow" href="{{ url('/cart') }}">VIEW CART</a>
 
-        <a class="s-option__link btn--e-brand-shadow" href="checkout.html">PROCEED TO CHECKOUT</a>
+        <a class="s-option__link btn--e-brand-shadow" href="{{ url('/checkout') }}">PROCEED TO CHECKOUT</a>
        </div>
       </div>
      </div>
