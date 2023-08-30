@@ -840,7 +840,7 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Men Clothing</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
@@ -888,11 +888,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Women Clothing</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">New Dress A Nice Elegant</a>
+              <a href="{{url('/product_detail') }}">Eternity</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -936,7 +936,7 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Women Clothing</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
@@ -984,11 +984,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Women Clothing</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">New Dress C Nice Elegant</a>
+              <a href="{{url('/product_detail') }}">Obsession</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -1032,11 +1032,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Men Clothing</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">New Fashion E Nice Elegant</a>
+              <a href="{{url('/product_detail') }}">Versace Eros</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -1080,11 +1080,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Men Clothing</a>
+              <a href="shop-side-version-2.html">Category</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">New Fashion F Nice Elegant</a>
+              <a href="{{url('/product_detail') }}">Cool Water</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -1128,11 +1128,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Electronics</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">Red Wireless Headphone</a>
+              <a href="{{url('/product_detail') }}">RMontblanc Explorer</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -1176,11 +1176,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Electronics</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">Yellow Wireless Headphone</a>
+              <a href="{{url('/product_detail') }}">Acqua Di Gio</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -1227,11 +1227,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Electronics</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">Hover Skateboard Scooter</a>
+              <a href="{{url('/product_detail') }}">L'eau D'issey (issey Miyake)</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -1278,11 +1278,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Electronics</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">Hover Red Skateboard Scooter</a>
+              <a href="{{url('/product_detail') }}">SVersace Man</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -1329,11 +1329,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Electronics</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">Canon DSLR Camera 4k</a>
+              <a href="{{url('/product_detail') }}">Nautica Voyage</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -1380,11 +1380,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">Electronics</a>
+              <a href="shop-side-version-2.html">Category Name</a>
              </div>
              <div class="product-m__name">
 
-              <a href="{{url('/product_detail') }}">Nikon DSLR Camera 4k</a>
+              <a href="{{url('/product_detail') }}">SVersace Man</a>
              </div>
              <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>

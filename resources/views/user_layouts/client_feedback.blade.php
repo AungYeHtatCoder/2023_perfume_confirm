@@ -27,7 +27,7 @@
       <div class="testimonial">
        <div class="testimonial__img-wrap">
 
-        <img class="testimonial__img" src="{{ asset('user_app/assets/images/about/test-1.jpg')}}" alt="">
+        <img class="testimonial__img" src="{{ asset('user_app/assets/images/about/c_1.jpg')}}" alt="">
        </div>
        <div class="testimonial__content-wrap">
 
@@ -44,7 +44,7 @@
       <div class="testimonial">
        <div class="testimonial__img-wrap">
 
-        <img class="testimonial__img" src="{{ asset('user_app/assets/images/about/test-2.jpg')}}" alt="">
+        <img class="testimonial__img" src="{{ asset('user_app/assets/images/about/c_2.jpg')}}" alt="">
        </div>
        <div class="testimonial__content-wrap">
 
@@ -61,7 +61,7 @@
       <div class="testimonial">
        <div class="testimonial__img-wrap">
 
-        <img class="testimonial__img" src="{{ asset('user_app/assets/images/about/test-3.jpg')}}" alt="">
+        <img class="testimonial__img" src="{{ asset('user_app/assets/images/about/c_3.jpg')}}" alt="">
        </div>
        <div class="testimonial__content-wrap">
 
@@ -78,7 +78,7 @@
       <div class="testimonial">
        <div class="testimonial__img-wrap">
 
-        <img class="testimonial__img" src="{{ asset('user_app/assets/images/about/test-4.jpg')}}" alt="">
+        <img class="testimonial__img" src="{{ asset('user_app/assets/images/about/c_3.jpg')}}" alt="">
        </div>
        <div class="testimonial__content-wrap">
 

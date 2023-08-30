@@ -118,8 +118,12 @@
 
      <!--====== Dropdown Main plugin ======-->
      <div class="menu-init" id="navigation1">
-      <button class="btn btn--icon--home" type="button"><i class="fas fa-home u-c-brand"></i></button>
-     </div>
+        <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
+            <li>
+                <a href="/"><i class="fas fa-home"></i></a>
+            </li>
+        </ul>
+      </div>
      <!--====== End - Dropdown Main plugin ======-->
 
 
