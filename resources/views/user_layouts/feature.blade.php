@@ -48,11 +48,11 @@
 
        <span class="product-o__category">
 
-        <a href="shop-side-version-2.html">Electronics</a></span>
+        <a href="shop-side-version-2.html">Category Name</a></span>
 
        <span class="product-o__name">
 
-        <a href="product-detail.html">Tablet 14inch Screen</a></span>
+        <a href="product-detail.html">Obsession</a></span>
 
 
        <span class="product-o__price">$125.00
@@ -87,11 +87,11 @@
 
        <span class="product-o__category">
 
-        <a href="shop-side-version-2.html">Electronics</a></span>
+        <a href="shop-side-version-2.html">Category Name</a></span>
 
        <span class="product-o__name">
 
-        <a href="product-detail.html">Tablet 18inch Screen</a></span>
+        <a href="product-detail.html">Versace Eros</a></span>
 
 
        <span class="product-o__price">$125.00
@@ -126,11 +126,11 @@
 
        <span class="product-o__category">
 
-        <a href="shop-side-version-2.html">Electronics</a></span>
+        <a href="shop-side-version-2.html">Category Name</a></span>
 
        <span class="product-o__name">
 
-        <a href="product-detail.html">Tablet 13inch Screen Ram 16GB</a></span>
+        <a href="product-detail.html">Cool Water</a></span>
 
        <span class="product-o__price">$125.00
 
@@ -164,11 +164,11 @@
 
        <span class="product-o__category">
 
-        <a href="shop-side-version-2.html">Electronics</a></span>
+        <a href="shop-side-version-2.html">Category Name</a></span>
 
        <span class="product-o__name">
 
-        <a href="product-detail.html">Tablet 12inch Screen Ram 16GB</a></span>
+        <a href="product-detail.html">Montblanc Explorer</a></span>
 
 
        <span class="product-o__price">$125.00
