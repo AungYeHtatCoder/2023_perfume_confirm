@@ -22,240 +22,83 @@
    <div class="container">
     <div class="slider-fouc">
      <div class="owl-carousel product-slider" data-item="4">
-      <div class="u-s-m-b-30">
-       <div class="product-o product-o--hover-on">
-        <div class="product-o__wrap">
-
-         <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-          <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_19.jpg')}}"
-           alt=""></a>
-         <div class="product-o__action-wrap">
-          <ul class="product-o__action-list">
-           <li>
-
-            <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-             title="Quick View"><i class="fas fa-search-plus"></i></a>
-           </li>
-           <li>
-
-            <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-             title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-           </li>
-
-          </ul>
-         </div>
-        </div>
-
-        <span class="product-o__category">
-
-         <a href="shop-side-version-2.html">Category Name</a></span>
-
-        <span class="product-o__name">
-
-         <a href="product-detail.html">Eternity</a></span>
-
-
-        <span class="product-o__price">$125.00
-
-         <span class="product-o__discount">$160.00</span></span>
-       </div>
-      </div>
-      <div class="u-s-m-b-30">
-       <div class="product-o product-o--hover-on">
-        <div class="product-o__wrap">
-
-         <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-          <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_20.jpg')}}"
-           alt=""></a>
-         <div class="product-o__action-wrap">
-          <ul class="product-o__action-list">
-           <li>
-
-            <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-             title="Quick View"><i class="fas fa-search-plus"></i></a>
-           </li>
-           <li>
-
-            <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-             title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-           </li>
-
-          </ul>
-         </div>
-        </div>
-
-        <span class="product-o__category">
-
-         <a href="shop-side-version-2.html">Category Name</a></span>
-
-        <span class="product-o__name">
-
-         <a href="product-detail.html">Obsession</a></span>
-
-
-        <span class="product-o__price">$125.00
-
-         <span class="product-o__discount">$160.00</span></span>
-       </div>
-      </div>
-      <div class="u-s-m-b-30">
-       <div class="product-o product-o--hover-on">
-        <div class="product-o__wrap">
-
-         <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-          <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_21.jpg')}}"
-           alt=""></a>
-         <div class="product-o__action-wrap">
-          <ul class="product-o__action-list">
-           <li>
-
-            <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-             title="Quick View"><i class="fas fa-search-plus"></i></a>
-           </li>
-           <li>
-
-            <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-             title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-           </li>
-
-          </ul>
-         </div>
-        </div>
-
-        <span class="product-o__category">
-
-         <a href="shop-side-version-2.html">Category Name</a></span>
-
-        <span class="product-o__name">
-
-         <a href="product-detail.html">Versace Eros</a></span>
-
-
-        <span class="product-o__price">$125.00
-
-         <span class="product-o__discount">$160.00</span></span>
-       </div>
-      </div>
-      <div class="u-s-m-b-30">
-       <div class="product-o product-o--hover-on">
-        <div class="product-o__wrap">
-
-         <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-          <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_22.jpg')}}"
-           alt=""></a>
-         <div class="product-o__action-wrap">
-          <ul class="product-o__action-list">
-           <li>
-
-            <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-             title="Quick View"><i class="fas fa-search-plus"></i></a>
-           </li>
-           <li>
-
-            <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-             title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-           </li>
-
-          </ul>
-         </div>
-        </div>
-
-        <span class="product-o__category">
-
-         <a href="shop-side-version-2.html">Category Name</a></span>
-
-        <span class="product-o__name">
-
-         <a href="product-detail.html">Cool Water</a></span>
-
-
-        <span class="product-o__price">$125.00
-
-         <span class="product-o__discount">$160.00</span></span>
-       </div>
-      </div>
-      <div class="u-s-m-b-30">
-       <div class="product-o product-o--hover-on">
-        <div class="product-o__wrap">
-
-         <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-          <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_23.jpg')}}"
-           alt=""></a>
-         <div class="product-o__action-wrap">
-          <ul class="product-o__action-list">
-           <li>
-
-            <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-             title="Quick View"><i class="fas fa-search-plus"></i></a>
-           </li>
-           <li>
-
-            <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-             title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-           </li>
-
-          </ul>
-         </div>
-        </div>
-
-        <span class="product-o__category">
-
-         <a href="shop-side-version-2.html">Category Name</a></span>
-
-        <span class="product-o__name">
-
-         <a href="product-detail.html">Montblanc Explorer</a></span>
-
-
-        <span class="product-o__price">$125.00
-
-         <span class="product-o__discount">$160.00</span></span>
-       </div>
-      </div>
-      <div class="u-s-m-b-30">
-       <div class="product-o product-o--hover-on">
-        <div class="product-o__wrap">
-
-         <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-          <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product18.jpg')}}"
-           alt=""></a>
-         <div class="product-o__action-wrap">
-          <ul class="product-o__action-list">
-           <li>
-
-            <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-             title="Quick View"><i class="fas fa-search-plus"></i></a>
-           </li>
-           <li>
-
-            <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-             title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-           </li>
-
-          </ul>
-         </div>
-        </div>
-
-        <span class="product-o__category">
-
-         <a href="shop-side-version-2.html">Category Name</a></span>
-
-        <span class="product-o__name">
-
-         <a href="product-detail.html">Acqua Di Gio</a></span>
-
-
-        <span class="product-o__price">$125.00
-
-         <span class="product-o__discount">$160.00</span></span>
-       </div>
-      </div>
+        {{-- new arrival data --}}
+        @foreach ($newArrival as $product)
+            <div class="u-s-m-b-30">
+                <div class="product-o product-o--hover-on">
+                    <div class="product-o__wrap">
+                        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{{ url('/product-detail/'.$product->id) }}">
+                            <img class="aspect__img" src="{{ asset('assets/img/products/'.$product->image)}}"
+                            alt="">
+                        </a>
+                        <div class="product-o__action-wrap">
+                            <ul class="product-o__action-list">
+                                <li>
+                                    <a data-modal="modal" data-modal-id="#quick-look-new-arrival-{{ $product->id }}" data-tooltip="tooltip" data-placement="top"
+                                    title="Quick View">
+                                        <i class="fas fa-search-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    @auth
+                                        <a
+                                            {{-- data-modal="modal"
+                                            data-modal-id="#cart-new-arrival-{{ $product->id }}"
+                                            data-tooltip="tooltip"
+                                            data-placement="top"
+                                            title="Add to Cart" --}}
+                                            onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();"
+                                        >
+                                            <i class="fas fa-plus-circle"></i>
+                                        </a>
+                                        <form
+                                            action="{{ url('/add-to-cart/'.$product->id) }}"
+                                            id="addToCart-form-{{ $product->id }}"
+                                            method="post"
+                                            class="d-none"
+                                        >
+                                            @csrf
+                                            <input type="hidden" name="size_id" value="{{ $product->sizes[0]->id }}">
+                                            <input type="hidden" name="total_price" value="{{ $product->sizes[0]->pivot->discount_price <= 0 ? $product->sizes[0]->pivot->normal_price : $product->sizes[0]->pivot->discount_price }}">
+                                            <input type="hidden" name="qty" value="1">
+                                        </form>
+                                    @endauth
+
+                                    @guest
+                                        <a href="{{ url('/login') }}">
+                                            <i class="fas fa-plus-circle"></i>
+                                        </a>
+                                    @endguest
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <span class="product-o__category">
+                        <a href="{{ url('/brand/'.$product->brand->id) }}">{{ $product->brand->brand_name }}</a>
+                    </span>
+
+                    <span class="product-o__name">
+                        <a href="{{ url('/product/'.$product->id) }}">{{ $product->name }}</a>
+                    </span>
+                    <br>
+                    @foreach ($product->sizes as $size)
+                    @if ($size->pivot->discount_price <= 0 || NULL)
+                    <span style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+                    <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
+                    </span>
+                    @else
+                    <span style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+                    <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
+                        <span class="product-o__discount" style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
+                    </span>
+                    @endif
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
+        {{-- new arrival data --}}
      </div>
     </div>
    </div>

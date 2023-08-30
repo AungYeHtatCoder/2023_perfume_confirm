@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Admin\Cart;
+use App\Models\Admin\Order;
 use Carbon\Carbon;
 use App\Models\Admin\Role;
 use App\Models\Admin\Permission;
@@ -114,4 +117,11 @@ class User extends Authenticatable
         return $this->hasMany(Product::class);
     }
 
+    public function carts(){
+        return $this->hasMany(Cart::class);
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }
