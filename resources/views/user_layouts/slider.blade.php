@@ -36,7 +36,7 @@
         <span class="content-span-3 u-c-secondary">Find electronics on best prices, Also Discover most selling products of
          electronics</span>
 
-        <span class="content-span-4 u-c-white">Starting At
+        <span class="content-span-4 u-c-secondary">Starting At
 
          <span class="u-c-secondary">$380.00</span></span>
 
