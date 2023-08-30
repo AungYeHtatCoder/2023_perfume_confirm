@@ -15,7 +15,7 @@
 
         <span class="content-span-4 u-c-secondary">Starting At
 
-         <span class="u-c-brand">$1050.00</span></span>
+         <span class="u-c-secondary">$1050.00</span></span>
 
         <a class="shop-now-link btn--e-brand" href="shop-side-version-2.html">SHOP NOW</a>
        </div>
@@ -29,16 +29,16 @@
       <div class="col-12">
        <div class="slider-content slider-content--animation">
 
-        <span class="content-span-1 u-c-white">Find Top Brands</span>
+        <span class="content-span-1 u-c-secondary">Find Top Brands</span>
 
-        <span class="content-span-2 u-c-white">10% Off On Electronics</span>
+        <span class="content-span-2 u-c-secondary">10% Off On Electronics</span>
 
-        <span class="content-span-3 u-c-white">Find electronics on best prices, Also Discover most selling products of
+        <span class="content-span-3 u-c-secondary">Find electronics on best prices, Also Discover most selling products of
          electronics</span>
 
         <span class="content-span-4 u-c-white">Starting At
 
-         <span class="u-c-brand">$380.00</span></span>
+         <span class="u-c-secondary">$380.00</span></span>
 
         <a class="shop-now-link btn--e-brand" href="shop-side-version-2.html">SHOP NOW</a>
        </div>
@@ -61,7 +61,7 @@
 
         <span class="content-span-4 u-c-secondary">Starting At
 
-         <span class="u-c-brand">$550.00</span></span>
+         <span class="u-c-secondary">$550.00</span></span>
 
         <a class="shop-now-link btn--e-brand" href="shop-side-version-2.html">SHOP NOW</a>
        </div>

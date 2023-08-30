@@ -326,19 +326,19 @@
     };
 
     // Bind countdown plugin
-    RESHOP.timerCountDown = function() {
-        // Check if Count Down on the page
-        if ($collectionCountDown.length) {
-            $collectionCountDown.each(function () {
-                var $this = $(this),
-                    finalDate = $(this).data('countdown');
-                $this.countdown(finalDate, function (event) {
-                      $this.html(event.strftime('<div class="countdown__content"><div><span class="countdown__value">%D</span><span class="countdown__key">Days</span></div></div><div class="countdown__content"><div><span class="countdown__value">%H</span><span class="countdown__key">Hours</span></div></div><div class="countdown__content"><div><span class="countdown__value">%M</span><span class="countdown__key">Mins</span></div></div><div class="countdown__content"><div><span class="countdown__value">%S</span><span class="countdown__key">Secs</span></div></div>'));
-                });
-            });
-        }
+    // RESHOP.timerCountDown = function() {
+    //     // Check if Count Down on the page
+    //     if ($collectionCountDown.length) {
+    //         $collectionCountDown.each(function () {
+    //             var $this = $(this),
+    //                 finalDate = $(this).data('countdown');
+    //             $this.countdown(finalDate, function (event) {
+    //                   $this.html(event.strftime('<div class="countdown__content"><div><span class="countdown__value">%D</span><span class="countdown__key">Days</span></div></div><div class="countdown__content"><div><span class="countdown__value">%H</span><span class="countdown__key">Hours</span></div></div><div class="countdown__content"><div><span class="countdown__value">%M</span><span class="countdown__key">Mins</span></div></div><div class="countdown__content"><div><span class="countdown__value">%S</span><span class="countdown__key">Secs</span></div></div>'));
+    //             });
+    //         });
+    //     }
 
-    };
+    // };
 
     // Input Counter
     RESHOP.initInputCounter = function() {
@@ -375,77 +375,6 @@
             });
         }
     };
-
-
-    // Blog Post Gallery
-    RESHOP.blogPostGallery = function() {
-        if ($collectionPostGallery.length) {
-            $collectionPostGallery.on('initialize.owl.carousel', function () {
-                $(this).closest('.slider-fouc').removeAttr('class');
-            }).each(function () {
-                $(this).owlCarousel({
-                    items:1,
-                    autoplay: false,
-                    loop: false,
-                    dots: false,
-                    rewind: true,
-                    smartSpeed: 1500,
-                    nav: true,
-                    navElement: 'div',
-                    navClass: ['post-prev', 'post-next'],
-                    navText: ['<i class="fas fa-long-arrow-alt-left"></i>', '<i class="fas fa-long-arrow-alt-right"></i>'],
-                });
-            });
-        }
-    };
-
-    // Blog Post Masonry
-    RESHOP.blogPostMasonry = function() {
-        if ($blogMasonry.length) {
-            $blogMasonry.find('.blog-m-init').isotope({
-                itemSelector: '.blog-m__element',
-                layoutMode: 'masonry'
-            });
-        }
-    };
-
-    // Blog Post Video
-    RESHOP.blogPostVideo = function() {
-        if ($collectionPostVideo.length) {
-            $collectionPostVideo.on('click',function (e) {
-                e.preventDefault();
-                var $this = $(this);
-                // Find immediate child that has .bp__video class
-                var myVideo = $this.find('.post-video')[0];
-                // Add ended event
-                $(myVideo).on('ended',function () {
-                    $this.removeClass('process');// Add play icon
-                });
-                // By default it is paused
-                if (myVideo.paused) {
-                    // Play Video
-                    myVideo.play();
-                    $(this).addClass('process');
-                    if ($(this).hasClass('pause')) {
-                        $(this).removeClass('pause');
-                    }
-                } // if user again click that block just pause the video and add icon
-                else {
-                    myVideo.pause();
-                    $(this).addClass('pause');
-                }
-            });
-        }
-    };
-
-    // Blog Post Embed Video
-    RESHOP.blogPostEmbedVideo = function() {
-        if ($collectionEmbedVideo.length) {
-            $collectionEmbedVideo.parent().fitVids();
-        }
-    };
-
-
 
 
     // Product Detail Init
@@ -674,10 +603,6 @@
         RESHOP.isotopeFilter();
         RESHOP.timerCountDown();
         RESHOP.initInputCounter();
-        RESHOP.blogPostGallery();
-        RESHOP.blogPostVideo();
-        RESHOP.blogPostEmbedVideo();
-        RESHOP.blogPostMasonry();
         RESHOP.productDetailInit();
         RESHOP.modalProductDetailInit();
         RESHOP.shopCategoryToggle();
