@@ -54,7 +54,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 });
 
 // Customer Routes goes here
-Route::get('/', [WelcomeController::class, 'index'])->name('home');
+    Route::get('/', [WelcomeController::class, 'index'])->name('home');
     Route::get('/checkout', [WelcomeController::class, 'checkout']);
     Route::get('/cart', [WelcomeController::class, 'cart']);
     Route::get('/shop', [WelcomeController::class, 'shop']);

@@ -1,8 +1,8 @@
   @extends('user_layouts.master')
 
-  @section('content')
+  @section('title', 'Cart')
 
-  @include('user_layouts.navbar')
+  @section('content')
 
   <div class="app-content">
 
@@ -320,7 +320,5 @@
    </div>
    <!--====== End - Section 3 ======-->
   </div>
-
-  @include('user_layouts.footer')
 
   @endsection

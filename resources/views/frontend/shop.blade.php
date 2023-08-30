@@ -1,9 +1,8 @@
   @extends('user_layouts.master')
 
+  @section('title', 'Shop')
+
   @section('content')
-
-  @include('user_layouts.navbar')
-
 
   <div class="app-content">
 
@@ -1448,10 +1447,4 @@
    <!--====== End - Section 1 ======-->
   </div>
 
-  @include('user_layouts.footer')
-
   @endsection
-
-  @include('user_layouts.quick_model')
-
-  @include('user_layouts.add_to_cart')
