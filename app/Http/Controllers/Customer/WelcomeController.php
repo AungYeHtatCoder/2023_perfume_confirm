@@ -34,6 +34,15 @@ class WelcomeController extends Controller
     public function aboutus() {
         return view('frontend.aboutus');
     }
+    public function signin() {
+        return view('frontend.signin');
+    }
+    public function signup() {
+        return view('frontend.signup');
+    }
+    public function lost_password() {
+        return view('frontend.lost_password');
+    }
 
 
     /**

@@ -61,6 +61,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/contact', [WelcomeController::class, 'contact']);
     Route::get('/aboutus', [WelcomeController::class, 'aboutus']);
     Route::get('/product_detail', [WelcomeController::class, 'product_detail']);
+    Route::get('/signin', [WelcomeController::class, 'signin']);
+    Route::get('/signup', [WelcomeController::class, 'signup']);
+    Route::get('/lost-password', [WelcomeController::class, 'lost_password']);
 
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {
