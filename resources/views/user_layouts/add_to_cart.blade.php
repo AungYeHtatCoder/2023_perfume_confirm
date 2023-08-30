@@ -17,7 +17,7 @@
        </div>
        <div class="success__info-wrap">
 
-        <span class="success__name">Beats Bomb Wireless Headphone</span>
+        <span class="success__name">Acqua Di Gio</span>
 
         <span class="success__quantity">Quantity: 1</span>
 

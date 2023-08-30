@@ -78,7 +78,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Red Wireless Headphone</a></span>
+           <a href="product-detail.html">Eternity</a></span>
 
 
           <span class="product-o__price">$125.00
@@ -117,7 +117,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Yellow Wireless Headphone</a></span>
+           <a href="product-detail.html">Obsession</a></span>
 
 
           <span class="product-o__price">$125.00
@@ -156,7 +156,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Hover Skateboard Scooter</a></span>
+           <a href="product-detail.html">Versace Eros</a></span>
 
 
           <span class="product-o__price">$125.00
@@ -195,7 +195,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Hover Red Skateboard Scooter</a></span>
+           <a href="product-detail.html">Cool Water</a></span>
 
 
           <span class="product-o__price">$125.00
@@ -234,7 +234,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Canon DSLR Camera 4k</a></span>
+           <a href="product-detail.html">Montblanc Explorer</a></span>
 
 
           <span class="product-o__price">$125.00
@@ -273,7 +273,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Nikon DSLR Camera 4k</a></span>
+           <a href="product-detail.html">Acqua Di Gio</a></span>
 
 
           <span class="product-o__price">$125.00
@@ -312,7 +312,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Smartphone RAM 4GB New</a></span>
+           <a href="product-detail.html">L'eau D'issey (issey Miyake)</a></span>
 
           <span class="product-o__price">$125.00
 
@@ -350,7 +350,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Smartphone RAM 8GB New</a></span>
+           <a href="product-detail.html">SVersace Man</a></span>
 
 
           <span class="product-o__price">$125.00
@@ -389,7 +389,7 @@
 
           <span class="product-o__name">
 
-           <a href="product-detail.html">Smartphone RAM 16GB New</a></span>
+           <a href="product-detail.html">Nautica Voyage</a></span>
 
 
           <span class="product-o__price">$125.00

@@ -72,11 +72,11 @@
 
                <span class="table-p__name">
 
-                <a href="product-detail.html">Yellow Wireless Headphone</a></span>
+                <a href="product-detail.html">Cool Water</a></span>
 
                <span class="table-p__category">
 
-                <a href="shop-side-version-2.html">Electronics</a></span>
+                <a href="shop-side-version-2.html">Category Name</a></span>
                <ul class="table-p__variant-list">
                 <li>
 
@@ -133,11 +133,11 @@
 
                <span class="table-p__name">
 
-                <a href="product-detail.html">New Dress D Nice Elegant</a></span>
+                <a href="product-detail.html">Acqua Di Gio</a></span>
 
                <span class="table-p__category">
 
-                <a href="shop-side-version-2.html">Women Clothing</a></span>
+                <a href="shop-side-version-2.html">Category Name</a></span>
                <ul class="table-p__variant-list">
                 <li>
 
@@ -194,11 +194,11 @@
 
                <span class="table-p__name">
 
-                <a href="product-detail.html">New Fashion D Nice Elegant</a></span>
+                <a href="product-detail.html">Acqua Di Gio</a></span>
 
                <span class="table-p__category">
 
-                <a href="shop-side-version-2.html">Men Clothing</a></span>
+                <a href="shop-side-version-2.html">Category Name</a></span>
                <ul class="table-p__variant-list">
                 <li>
 

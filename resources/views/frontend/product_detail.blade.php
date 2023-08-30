@@ -21,15 +21,15 @@
         </li>
         <li class="has-separator">
 
-         <a href="shop-side-version-2.html">Electronics</a>
+         <a href="shop-side-version-2.html">Popular</a>
         </li>
         <li class="has-separator">
 
-         <a href="shop-side-version-2.html">DSLR Cameras</a>
+         <a href="shop-side-version-2.html">Category</a>
         </li>
         <li class="is-marked">
 
-         <a href="shop-side-version-2.html">Nikon Cameras</a>
+         <a href="shop-side-version-2.html">Men Perfume</a>
         </li>
        </ul>
       </div>
