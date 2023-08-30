@@ -49,11 +49,11 @@
 
         <span class="product-o__category">
 
-         <a href="shop-side-version-2.html">Electronics</a></span>
+         <a href="shop-side-version-2.html">Category Name</a></span>
 
         <span class="product-o__name">
 
-         <a href="product-detail.html">Nikon DSLR 4K Camera</a></span>
+         <a href="product-detail.html">Eternity</a></span>
 
 
         <span class="product-o__price">$125.00
@@ -88,11 +88,11 @@
 
         <span class="product-o__category">
 
-         <a href="shop-side-version-2.html">Electronics</a></span>
+         <a href="shop-side-version-2.html">Category Name</a></span>
 
         <span class="product-o__name">
 
-         <a href="product-detail.html">Nikon DSLR 2K Camera</a></span>
+         <a href="product-detail.html">Obsession</a></span>
 
 
         <span class="product-o__price">$125.00
@@ -127,11 +127,11 @@
 
         <span class="product-o__category">
 
-         <a href="shop-side-version-2.html">Electronics</a></span>
+         <a href="shop-side-version-2.html">Category Name</a></span>
 
         <span class="product-o__name">
 
-         <a href="product-detail.html">Sony DSLR 4K Camera</a></span>
+         <a href="product-detail.html">Versace Eros</a></span>
 
 
         <span class="product-o__price">$125.00
@@ -166,11 +166,11 @@
 
         <span class="product-o__category">
 
-         <a href="shop-side-version-2.html">Electronics</a></span>
+         <a href="shop-side-version-2.html">Category Name</a></span>
 
         <span class="product-o__name">
 
-         <a href="product-detail.html">Sony DSLR 2K Camera</a></span>
+         <a href="product-detail.html">Cool Water</a></span>
 
 
         <span class="product-o__price">$125.00
@@ -205,11 +205,11 @@
 
         <span class="product-o__category">
 
-         <a href="shop-side-version-2.html">Electronics</a></span>
+         <a href="shop-side-version-2.html">Category Name</a></span>
 
         <span class="product-o__name">
 
-         <a href="product-detail.html">Canon DSLR 4K Camera</a></span>
+         <a href="product-detail.html">Montblanc Explorer</a></span>
 
 
         <span class="product-o__price">$125.00
@@ -244,11 +244,11 @@
 
         <span class="product-o__category">
 
-         <a href="shop-side-version-2.html">Electronics</a></span>
+         <a href="shop-side-version-2.html">Category Name</a></span>
 
         <span class="product-o__name">
 
-         <a href="product-detail.html">Canon DSLR 2K Camera</a></span>
+         <a href="product-detail.html">Acqua Di Gio</a></span>
 
 
         <span class="product-o__price">$125.00

@@ -72,12 +72,12 @@
 
             <span>Signin</span></a>
           </li>
-          <li>
+          {{-- <li>
 
            <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
 
             <span>Signout</span></a>
-          </li>
+          </li> --}}
          </ul>
          <!--====== End - Dropdown ======-->
         </li>

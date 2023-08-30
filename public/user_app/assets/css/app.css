@@ -3257,7 +3257,7 @@ hr {
 .banner-bg {
   padding: 7em 0;
   position: relative;
-  background: #f5f5f5 url(../images/banners/banner-bg5.jpg) repeat fixed center center;
+  background: #f5f5f5 url(../images/banners/banner_bg1.jpg) repeat fixed center center;
   background-size: cover;
 }
 
@@ -8177,11 +8177,11 @@ hr {
 }
 
 .hero-slide--2 {
-  background-image: url(../images/slider/slider_2.jpg);
+  background-image: url(../images/slider/banner_1.jpg);
 }
 
 .hero-slide--3 {
-  background-image: url(../images/slider/slider_3.jpg);
+  background-image: url(../images/slider/slider3.jpg);
 }
 
 .hero-slide--4 {
