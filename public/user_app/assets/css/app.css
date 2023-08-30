@@ -8173,15 +8173,15 @@ hr {
 }
 
 .hero-slide--1 {
-  background-image: url(../images/slider/slider.jpg);
-}
-
-.hero-slide--2 {
   background-image: url(../images/slider/banner_bg.jpg);
 }
 
+.hero-slide--2 {
+  background-image: url(../images/slider/slider_2.jpg);
+}
+
 .hero-slide--3 {
-  background-image: url(../images/slider/slider3.jpg);
+  background-image: url(../images/slider/slider_3.jpg);
 }
 
 .hero-slide--4 {
