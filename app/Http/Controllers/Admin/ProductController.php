@@ -114,7 +114,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
         $request->validate([
             'name' => 'required',
@@ -122,17 +122,17 @@ class ProductController extends Controller
             'description' => 'required',
         ]);
 
-        $product = Product::find($id);
+        if ($request->hasFile('image')) {
+            // Delete old image
+            File::delete(public_path('assets/img/products/' . $product->image));
 
-        if(!$request->file('image')){
-            $filename = $product->image;
-        }else{
-            File::delete(public_path('assets/img/products/'.$product->image));
-            // image
+            // Upload new image
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
-            $filename = uniqid('product') . '.' . $ext; // Generate a unique filename
-            $image->move(public_path('assets/img/products/'), $filename); // Save the file to the pub
+            $filename = uniqid('product') . '.' . $ext;
+            $image->move(public_path('assets/img/products/'), $filename);
+        } else {
+            $filename = $product->image;
         }
 
         $product->update([
@@ -140,30 +140,23 @@ class ProductController extends Controller
             'brand_id' => $request->brand_id,
             'image' => $filename,
             'description' => $request->description,
-            'user_id' => Auth::user()->id
+            'published' => $request->published,
+            'user_id' => Auth::user()->id,
         ]);
 
-        $p = Product::find($product->id);
-        $p->scents()->sync($request->input('scents', []));
+        $product->scents()->sync($request->input('scents', []));
 
-        $sizes = [];
-        // return $request->sizes;
-
-        foreach ($request->sizes as $size) {
-            $sizes[] = [
-                'size_id' => $size['size_id'],
-                'qty' => (int) $size['qty'],
-                'normal_price' => (int) $size['normal_price'],
-                'discount_price' => (int) $size['discount_price']
+        foreach ($request->sizes as $sizeId => $sizeData) {
+            $pivotData = [
+                'qty' => (int)$sizeData['qty'],
+                'normal_price' => (int)$sizeData['normal_price'],
+                'discount_price' => (int)$sizeData['discount_price'],
             ];
+            $product->sizes()->syncWithoutDetaching([$sizeId => $pivotData]);
         }
-        // return $sizes;
-        $p->sizes()->sync($sizes);
-
 
         return redirect(route('admin.products.index'))->with('toast_success', 'Product Updated.');
     }
-
     /**
      * Remove the specified resource from storage.
      */
@@ -173,4 +166,28 @@ class ProductController extends Controller
          Product::destroy($id);
          return redirect()->back()->with('toast_success', 'Product deleted successfully.');
     }
+
+    public function changeProductPopular($id){
+        $getPopular = Product::select('popular')->where('id',$id)->first();
+        if($getPopular->popular == 1){
+            $popular = 0;
+        }else{
+            $popular = 1;
+        }
+        Product::where('id',$id)->update(['popular'=>$popular]);
+        return redirect()->back();
+    }
+
+    public function changeFeature($id)
+{
+    $product = Product::find($id);
+
+    if ($product) {
+        $product->feature = !$product->feature;
+        $product->save();
+    }
+
+    return redirect()->back(); // Redirect back to the previous page
+}
+
 }
