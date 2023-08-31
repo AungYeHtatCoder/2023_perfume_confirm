@@ -17,11 +17,11 @@
                             <div class="breadcrumb__wrap">
                                 <ul class="breadcrumb__list">
                                     <li class="has-separator">
-
-                                        <a href="index.html">Home</a></li>
+                                        <a href="{{ url('/') }}">Home</a>
+                                    </li>
                                     <li class="is-marked">
-
-                                        <a href="signup.html">Signup</a></li>
+                                        <a href="{{ url('/signup') }}">Signup</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -57,68 +57,43 @@
                                 <div class="l-f-o">
                                     <div class="l-f-o__pad-box">
                                         <h1 class="gl-h1">PERSONAL INFORMATION</h1>
-                                        <form class="l-f-o__form">
-                                            
+                                        <form class="l-f-o__form" method="POST" action="{{ route('register') }}">
+                                            @csrf
                                             <div class="u-s-m-b-30">
-
-                                                <label class="gl-label" for="reg-fname">FIRST NAME *</label>
-
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-fname" placeholder="First Name"></div>
-                                            <div class="u-s-m-b-30">
-
-                                                <label class="gl-label" for="reg-lname">LAST NAME *</label>
-
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-lname" placeholder="Last Name"></div>
-                                            <div class="gl-inline">
-                                                <div class="u-s-m-b-30">
-
-                                                    <!--====== Date of Birth Select-Box ======-->
-
-                                                    <span class="gl-label">BIRTHDAY</span>
-                                                    <div class="gl-dob"><select class="select-box select-box--primary-style">
-                                                            <option selected>Month</option>
-                                                            <option value="male">January</option>
-                                                            <option value="male">February</option>
-                                                            <option value="male">March</option>
-                                                            <option value="male">April</option>
-                                                        </select><select class="select-box select-box--primary-style">
-                                                            <option selected>Day</option>
-                                                            <option value="01">01</option>
-                                                            <option value="02">02</option>
-                                                            <option value="03">03</option>
-                                                            <option value="04">04</option>
-                                                        </select><select class="select-box select-box--primary-style">
-                                                            <option selected>Year</option>
-                                                            <option value="1991">1991</option>
-                                                            <option value="1992">1992</option>
-                                                            <option value="1993">1993</option>
-                                                            <option value="1994">1994</option>
-                                                        </select></div>
-                                                    <!--====== End - Date of Birth Select-Box ======-->
-                                                </div>
-                                                <div class="u-s-m-b-30">
-
-                                                    <label class="gl-label" for="gender">GENDER</label><select class="select-box select-box--primary-style u-w-100" id="gender">
-                                                        <option selected>Select</option>
-                                                        <option value="male">Male</option>
-                                                        <option value="male">Female</option>
-                                                    </select></div>
+                                                <label class="gl-label" for="reg-fname">Username *</label>
+                                                <input class="input-text input-text--primary-style" name="name" type="text" id="reg-fname" placeholder="Full Name">
+                                                @error('name')
+                                                <span style="color: red;">*{{ $message }}</span>
+                                                @enderror
                                             </div>
-                                            <div class="u-s-m-b-30">
 
+                                            <div class="u-s-m-b-30">
                                                 <label class="gl-label" for="reg-email">E-MAIL *</label>
+                                                <input class="input-text input-text--primary-style" type="email" name="email" id="reg-email" placeholder="Enter E-mail">
+                                                @error('email')
+                                                <span style="color: red;">*{{ $message }}</span>
+                                                @enderror
+                                            </div>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-email" placeholder="Enter E-mail"></div>
                                             <div class="u-s-m-b-30">
-
                                                 <label class="gl-label" for="reg-password">PASSWORD *</label>
+                                                <input class="input-text input-text--primary-style" type="password" name="password" id="reg-password" placeholder="Enter Password">
+                                                @error('password')
+                                                <span style="color: red;">*{{ $message }}</span>
+                                                @enderror
+                                            </div>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-password" placeholder="Enter Password"></div>
+                                            <div class="u-s-m-b-30">
+                                                <label class="gl-label" for="reg-password">CONFIRM PASSWORD *</label>
+                                                <input class="input-text input-text--primary-style" type="password" name="password_confirmation" placeholder="Enter Confirm Password">
+                                                @error('password_confirmation')
+                                                <span style="color: red;">*{{ $message }}</span>
+                                                @enderror
+                                            </div>
                                             <div class="u-s-m-b-15">
-
-                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">CREATE</button></div>
-
-                                            <a class="gl-link" href="index.html">Return to Store</a>
+                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">CREATE</button>
+                                            </div>
+                                            <a class="gl-link" href="{{ url('/') }}">Return to Store</a>
                                         </form>
                                     </div>
                                 </div>
