@@ -19,6 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->longText('description');
             $table->boolean('published')->default(false);
+            $table->integer('feature')->default(0);
+            $table->integer('popular')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

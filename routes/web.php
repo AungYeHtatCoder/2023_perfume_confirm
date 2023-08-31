@@ -54,6 +54,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('products', ProductController::class);
 });
 
+//product popular change
+ Route::post('/change-popular/{id}', [ProductController::class, 'changeProductPopular'])->name('changePopular');
+
+ //product popular change
+ Route::post('change-feature/{id}', [ProductController::class, 'changeFeature']);
+
+
 // Customer Routes goes here
     Route::get('/', [WelcomeController::class, 'index'])->name('home');
     Route::get('/checkout', [WelcomeController::class, 'checkout']);

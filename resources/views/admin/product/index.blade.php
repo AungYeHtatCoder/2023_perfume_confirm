@@ -13,6 +13,45 @@
  href="{{ asset('admin_app/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}">
 <link rel="stylesheet" type="text/css"
  href="{{ asset('admin_app/app-assets/vendors/css/tables/extensions/fixedHeader.dataTables.min.css') }}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css">
+
+<style>
+/* Styles for the toggle switch icon */
+.switch-icon {
+ position: relative;
+ display: inline-block;
+ width: 40px;
+ height: 20px;
+ background-color: #ccc;
+ border-radius: 20px;
+ cursor: pointer;
+ user-select: none;
+}
+
+.switch-icon.active {
+ background-color: blue;
+}
+
+.toggle-icon {
+ position: absolute;
+ top: 2px;
+ left: 2px;
+ width: 16px;
+ height: 16px;
+ background-color: white;
+ border-radius: 50%;
+ transition: transform 0.3s ease;
+}
+
+/* Hide the actual input */
+.hidden-input {
+ display: none;
+}
+</style>
+
 @endsection
 @section('content')
 <div class="content-header row">
@@ -87,7 +126,8 @@
          <th>Brand</th>
          <th>Scent</th>
          <th>Size</th>
-         <th>Created_At</th>
+         <th>Feature</th>
+         <th>Popular</th>
          <th>Action</th>
 
         </tr>
@@ -95,32 +135,54 @@
        <tbody>
         @foreach ($products as $key=>$product)
         <tr>
-            <td>{{ ++$key }}</td>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->brand->brand_name }}</td>
-            <td>
-                @foreach ($product->scents as $scent)
-                <span class="badge text-bg-primary">{{ $scent->scent_name }}</span>
-                @endforeach
-            </td>
-            <td>
-                @foreach ($product->sizes as $size)
-                <span class="badge text-bg-primary">{{ $size->name }}</span>
+         <td>{{ ++$key }}</td>
+         <td>{{ $product->name }}</td>
+         <td>{{ $product->brand->brand_name }}</td>
+         <td>
+          @foreach ($product->scents as $scent)
+          <span class="badge text-bg-primary">{{ $scent->scent_name }}</span>
+          @endforeach
+         </td>
+         <td>
+          @foreach ($product->sizes as $size)
+          <span class="badge text-bg-primary">{{ $size->name }}</span>
 
-                @endforeach
-            </td>
-            <td>{{ $product->created_at }}</td>
-            <td>
-                <a href="{{ route('admin.products.show', ['product' => $product->id]) }}" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i></a>
-                <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="btn btn-sm btn-success"><i class="fas fa-pen-to-square"></i></a>
-                <form method="POST" action="{{ route('admin.products.destroy', ['product' => $product->id]) }}" style="display: inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </form>
-            </td>
+          @endforeach
+         </td>
+         <td>
+          <form action="{{ url('change-feature/'. $product->id) }}" method="POST">
+           @csrf
+           <input type="hidden" name="feature" value="{{ $product->feature ? 0 : 1 }}">
+           <label class="switch-icon {{ $product->feature ? 'active' : '' }}">
+            <input type="submit" class="hidden-input">
+            <span class="toggle-icon"></span>
+           </label>
+          </form>
+         </td>
+         <td>
+          <form action="{{ url('change-popular/'. $product->id) }}" method="POST">
+           @csrf
+           <input type="hidden" name="popular" value="{{ $product->popular ? 0 : 1 }}">
+           <label class="switch-icon {{ $product->popular ? 'active' : '' }}">
+            <input type="submit" class="hidden-input">
+            <span class="toggle-icon"></span>
+           </label>
+          </form>
+         </td>
+         <td>
+          <a href="{{ route('admin.products.show', ['product' => $product->id]) }}" class="btn btn-sm btn-warning"><i
+            class="fas fa-eye"></i></a>
+          <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="btn btn-sm btn-success"><i
+            class="fas fa-pen-to-square"></i></a>
+          <form method="POST" action="{{ route('admin.products.destroy', ['product' => $product->id]) }}"
+           style="display: inline;">
+           @csrf
+           @method('DELETE')
+           <button type="submit" class="btn btn-sm btn-danger">
+            <i class="fas fa-trash"></i>
+           </button>
+          </form>
+         </td>
         </tr>
         @endforeach
        </tbody>
@@ -150,4 +212,5 @@
 
 <script src="{{ asset('admin_app/app-assets/js/scripts/tables/datatables-extensions/datatable-responsive.js') }}">
 </script>
+
 @endsection
