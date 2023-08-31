@@ -1255,6 +1255,31 @@ hr {
   * Add this class inside '.aspect' child image element. If you want to make an image responsive then
   * you can use utility u-img-fluid class.
  */
+
+@media (min-width: 769px) {
+  .product-o .blog-t-w {
+    display: none;
+  }
+
+  .product-o:hover .product-o__wrap:before {
+    opacity: 1;
+  }
+
+  .product-o:hover .product-o__action-wrap {
+    opacity: 1;
+    -webkit-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+
+  .product-o:hover .product-o__action-list>li {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+
+}
+
 .aspect__img {
   position: absolute;
   width: 100%;
@@ -1283,7 +1308,7 @@ hr {
   box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.1);
 }
 
-.product-o:hover .product-o__wrap:before {
+/* .product-o:hover .product-o__wrap:before {
   opacity: 1;
 }
 
@@ -1297,7 +1322,7 @@ hr {
   opacity: 1;
   -webkit-transform: translateY(0);
   transform: translateY(0);
-}
+} */
 
 .product-o__wrap {
   position: relative;
@@ -2682,9 +2707,10 @@ hr {
 7.0 Footer
 --------------------------------------------------------------*/
 /* 7.1 Outer-Footer */
+
 .outer-footer {
   padding: 80px 0;
-  background-color: #000000;
+  background-image: linear-gradient(55deg, rgba(24, 152, 127, 1.00), rgba(212, 65, 127, 1.00));
 }
 
 .outer-footer__content-title {
@@ -2804,7 +2830,7 @@ hr {
 
 /* 7.3 Lower-Footer */
 .lower-footer {
-  background-color: #000000;
+  background-color: rgb(13, 73, 88);
   padding: 20px 0;
 }
 
@@ -3257,7 +3283,7 @@ hr {
 .banner-bg {
   padding: 7em 0;
   position: relative;
-  background: #f5f5f5 url(../images/banners/banner-bg5.jpg) repeat fixed center center;
+  background: #f5f5f5 url(../images/banners/banner_bg1.jpg) repeat fixed center center;
   background-size: cover;
 }
 
@@ -5072,7 +5098,7 @@ hr {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 
-  margin: 20px 0 0 20px;
+  margin: 20px 0 0 0px;
 }
 
 .post-prev, .post-next {
@@ -8173,11 +8199,11 @@ hr {
 }
 
 .hero-slide--1 {
-  background-image: url(../images/slider/slider.jpg);
+  background-image: url(../images/slider/banner_bg.jpg);
 }
 
 .hero-slide--2 {
-  background-image: url(../images/slider/banner_bg.jpg);
+  background-image: url(../images/slider/banner_1.jpg);
 }
 
 .hero-slide--3 {

@@ -58,32 +58,30 @@
 
          <span class="js-menu-toggle"></span>
          <ul style="width:120px">
-            @auth
-                <li>
-                    <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
-                        <span>Account</span></a>
-                </li>
-                <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                        <i class="fas fa-lock-open u-s-m-r-6"></i>
-                        <span>Signout</span>
-                    </a>
-                </li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            @endauth
-            @guest
-                <li>
-                    <a href="{{ url('/register') }}"><i class="fas fa-user-plus u-s-m-r-6"></i>
-                        <span>Signup</span></a>
-                </li>
-                <li>
-                    <a href="{{ url('/login') }}"><i class="fas fa-lock u-s-m-r-6"></i>
-                        <span>Signin</span></a>
-                </li>
-            @endguest
+          <li>
+
+           <a href="/dashboard"><i class="fas fa-user-circle u-s-m-r-6"></i>
+
+            <span>Account</span></a>
+          </li>
+          <li>
+
+           <a href="/signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
+
+            <span>Signup</span></a>
+          </li>
+          <li>
+
+           <a href="/signin"><i class="fas fa-lock u-s-m-r-6"></i>
+
+            <span>Signin</span></a>
+          </li>
+          {{-- <li>
+
+           <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+
+            <span>Signout</span></a>
+          </li> --}}
          </ul>
          <!--====== End - Dropdown ======-->
         </li>
@@ -179,8 +177,13 @@
         <li class="has-dropdown">
 
          <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
+            @auth
+            <span class="total-item-round">{{ $carts->count() }}</span>
+            @endauth
+            @guest
+            <span class="total-item-round">0</span>
+            @endguest
 
-          <span class="total-item-round">0</span>
          </a>
 
          <!--====== Dropdown ======-->
@@ -191,33 +194,36 @@
           <!--====== Mini Product Container ======-->
           <div class="mini-product-container gl-scroll u-s-m-b-15">
            <!--====== Card for mini cart ======-->
+           {{-- @foreach ($carts as $cart)
            <div class="card-mini-product">
-            <div class="mini-product">
-             <div class="mini-product__image-wrapper">
+                <div class="mini-product">
+                    <div class="mini-product__image-wrapper">
 
-              <a class="mini-product__link" href="product-detail.html">
+                    <a class="mini-product__link" href="{{ url('/product-detail/') }}">
 
-               <img class="u-img-fluid" src="{{ asset('user_app/assets/images/product/women/product8.jpg')}}"
-                alt=""></a>
-             </div>
-             <div class="mini-product__info-wrapper">
+                    <img class="u-img-fluid" src="{{ asset('assets/img/products/')}}"
+                        alt=""></a>
+                    </div>
+                    <div class="mini-product__info-wrapper">
 
-              <span class="mini-product__category">
+                    <span class="mini-product__category">
 
-               <a href="shop-side-version-2.html">Women Clothing</a></span>
+                    <a href="{{ url('/brands/'.$cart->products->brand_id) }}">{{ $cart->products->brands->brand_name }}</a></span>
 
-              <span class="mini-product__name">
+                    <span class="mini-product__name">
 
-               <a href="product-detail.html">New Dress D Nice Elegant</a></span>
+                    <a href="product-detail.html">{{ $cart->products->name }}</a></span>
 
-              <span class="mini-product__quantity">1 x</span>
+                    <span class="mini-product__quantity">{{ $cart->qty }} x</span>
 
-              <span class="mini-product__price">$8</span>
-             </div>
-            </div>
+                    <span class="mini-product__price">$8</span>
+                    </div>
+                </div>
 
-            <a class="mini-product__delete-link far fa-trash-alt"></a>
+                <a class="mini-product__delete-link far fa-trash-alt"></a>
            </div>
+           @endforeach --}}
+
            <!--====== End - Card for mini cart ======-->
           </div>
           <!--====== End - Mini Product Container ======-->

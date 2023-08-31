@@ -7,6 +7,8 @@ ga.l = +new Date;
 ga('create', 'UA-XXXXX-Y', 'auto');
 ga('send', 'pageview')
 </script>
+<script src="{{ asset('assets/js/sweetalert.min.js') }}" ></script>
+<script src="{{ asset('assets/js/sweetAlert.js') }}"></script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 <!--====== Vendor Js ======-->
@@ -18,22 +20,42 @@ ga('send', 'pageview')
 <!--====== App ======-->
 <script src="{{ asset('user_app/assets/js/app.js')}}"></script>
 
+
+@if (Session::has('success'))
+ <script>
+     showSweetAlert("Success!", "{{ Session::get('success') }}", "success");
+ </script>
+@endif
+@if (Session::has('error'))
+ <script>
+     showSweetAlert("Sorry!", "{{ Session::get('error') }}", "error");
+ </script>
+@endif
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
- const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
- const totalItemElement = document.querySelector('.total-item-round');
+// document.addEventListener('DOMContentLoaded', function() {
+//  const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+//  const totalItemElement = document.querySelector('.total-item-round');
 
- let totalItems = 0;
+//  let totalItems = 0;
 
- addToCartButtons.forEach(button => {
-  console.log('hello');
-  button.addEventListener('click', function() {
-   totalItems++;
-   totalItemElement.textContent = totalItems;
-  });
- });
-});
+//  addToCartButtons.forEach(button => {
+//   console.log('hello');
+//   button.addEventListener('click', function() {
+//    totalItems++;
+//    totalItemElement.textContent = totalItems;
+//   });
+//  });
+// });
 </script>
+
+<script>
+ // footer section
+$('#getyear').text(new Date().getUTCFullYear());
+// end footer section
+</script>
+
+
 
 <!--====== Noscript ======-->
 <noscript>

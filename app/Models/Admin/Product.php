@@ -40,6 +40,14 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
+    public function carts(){
+        return $this->hasMany(Cart::class);
+    }
+
+    public function order_products(){
+        return $this->hasMany(OrderProduct::class);
+    }
+
 // public function perfumeSize()
 // {
 //     return $this->belongsTo(PerfumeSize::class);

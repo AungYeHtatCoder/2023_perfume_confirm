@@ -314,7 +314,7 @@
 
              <span class="o-card__name">
 
-              <a href="product-detail.html">Yellow Wireless Headphone</a></span>
+              <a href="product-detail.html">Montblanc Explorer</a></span>
 
              <span class="o-card__quantity">Quantity x 1</span>
 
@@ -335,7 +335,7 @@
 
              <span class="o-card__name">
 
-              <a href="product-detail.html">Nikon DSLR Camera 4k</a></span>
+              <a href="product-detail.html">Acqua Di Gio</a></span>
 
              <span class="o-card__quantity">Quantity x 1</span>
 
@@ -356,7 +356,7 @@
 
              <span class="o-card__name">
 
-              <a href="product-detail.html">New Dress D Nice Elegant</a></span>
+              <a href="product-detail.html">Cool Water</a></span>
 
              <span class="o-card__quantity">Quantity x 1</span>
 
@@ -377,7 +377,7 @@
 
              <span class="o-card__name">
 
-              <a href="product-detail.html">New Fashion D Nice Elegant</a></span>
+              <a href="product-detail.html">Versace Eros</a></span>
 
              <span class="o-card__quantity">Quantity x 1</span>
 
@@ -389,30 +389,6 @@
           </div>
          </div>
         </div>
-
-        <!-- ----------------Shipping & billing ---------------- -->
-
-        <!-- <div class="o-summary__section u-s-m-b-30">
-                                            <div class="o-summary__box">
-                                                <h1 class="checkout-f__h1">SHIPPING & BILLING</h1>
-                                                <div class="ship-b">
-
-                                                    <span class="ship-b__text">Ship to:</span>
-                                                    <div class="ship-b__box u-s-m-b-10">
-                                                        <p class="ship-b__p">4247 Ashford Drive Virginia VA-20006 USA (+0) 900901904</p>
-
-                                                        <a class="ship-b__edit btn--e-transparent-platinum-b-2" data-modal="modal" data-modal-id="#edit-ship-address">Edit</a>
-                                                    </div>
-                                                    <div class="ship-b__box">
-
-                                                        <span class="ship-b__text">Bill to default billing address</span>
-
-                                                        <a class="ship-b__edit btn--e-transparent-platinum-b-2" data-modal="modal" data-modal-id="#edit-ship-address">Edit</a></div>
-                                                </div>
-                                            </div>
-                                        </div> -->
-
-        <!-- ---------------- End Shipping & billing ---------------- -->
 
         <div class="o-summary__section u-s-m-b-30">
          <div class="o-summary__box">
@@ -460,47 +436,7 @@
            </div>
            <div class="u-s-m-b-10">
 
-            <!--====== Radio Box ======-->
-            <!-- <div class="radio-box">
-
-                                                            <input type="radio" id="direct-bank-transfer" name="payment">
-                                                            <div class="radio-box__state radio-box__state--primary">
-
-                                                                <label class="radio-box__label" for="direct-bank-transfer">Direct Bank Transfer</label></div>
-                                                        </div> -->
-            <!--====== End - Radio Box ======-->
-
-            <!-- <span class="gl-text u-s-m-t-6">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</span>
-                                                    </div>
-                                                    <div class="u-s-m-b-10"> -->
-
-            <!--====== Radio Box ======-->
-            <!-- <div class="radio-box">
-
-                                                            <input type="radio" id="pay-with-check" name="payment">
-                                                            <div class="radio-box__state radio-box__state--primary">
-
-                                                                <label class="radio-box__label" for="pay-with-check">Pay With Check</label></div>
-                                                        </div> -->
-            <!--====== End - Radio Box ======-->
-
-            <!-- <span class="gl-text u-s-m-t-6">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span>
-                                                    </div>
-                                                    <div class="u-s-m-b-10"> -->
-
-            <!--====== Radio Box ======-->
-            <!-- <div class="radio-box">
-
-                                                            <input type="radio" id="pay-with-card" name="payment">
-                                                            <div class="radio-box__state radio-box__state--primary">
-
-                                                                <label class="radio-box__label" for="pay-with-card">Pay With Credit / Debit Card</label></div>
-                                                        </div> -->
-            <!--====== End - Radio Box ======-->
-
-            <!-- <span class="gl-text u-s-m-t-6">International Credit Cards must be eligible for use within the United States.</span>
-                                                    </div>
-                                                    <div class="u-s-m-b-10"> -->
+        
 
             <!--====== Radio Box ======-->
             <div class="radio-box">

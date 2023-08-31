@@ -16,15 +16,15 @@
         </li>
         <li class="has-separator">
 
-         <a href="shop-side-version-2.html">Electronics</a>
+         <a href="shop-side-version-2.html">Popular</a>
         </li>
         <li class="has-separator">
 
-         <a href="shop-side-version-2.html">DSLR Cameras</a>
+         <a href="shop-side-version-2.html">Category Name</a>
         </li>
         <li class="is-marked">
 
-         <a href="shop-side-version-2.html">Nikon Cameras</a>
+         <a href="shop-side-version-2.html">Men Perfume</a>
         </li>
        </ul>
       </div>
@@ -90,7 +90,7 @@
       <div class="pd-detail">
        <div>
 
-        <span class="pd-detail__name">Nikon Camera 4k Lens Zoom Pro</span>
+        <span class="pd-detail__name">Eternity</span>
        </div>
        <div>
         <div class="pd-detail__inline">

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
+use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
 
 // Route::get('/', function () {
@@ -61,6 +62,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/contact', [WelcomeController::class, 'contact']);
     Route::get('/aboutus', [WelcomeController::class, 'aboutus']);
     Route::get('/product_detail', [WelcomeController::class, 'product_detail']);
+    Route::get('/dashboard', [WelcomeController::class, 'dashboard']);
+    Route::get('/profile', [WelcomeController::class, 'profile']);
+    Route::get('/delivary-info', [WelcomeController::class, 'delivary_info']);
+    Route::get('/track-order', [WelcomeController::class, 'track_order']);
+    Route::get('/my-orders', [WelcomeController::class, 'user_orders']);
+    Route::get('/my-payment', [WelcomeController::class, 'my_payment']);
+    Route::get('/order-cancellation', [WelcomeController::class, 'order_cancellation']);
+    Route::get('/signin', [WelcomeController::class, 'signin']);
+    Route::get('/signup', [WelcomeController::class, 'signup']);
+    Route::get('/lost-password', [WelcomeController::class, 'lost_password']);
+    Route::get('/product_detail{id}', [WelcomeController::class, 'product_detail']);
+    Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart']);
 
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {

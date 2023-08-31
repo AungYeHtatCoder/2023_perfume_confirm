@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Cart;
+use App\Models\Admin\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
 {
@@ -12,10 +15,42 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        
-        return view('welcome');
+        $newArrival = Product::latest()->take(5)->get();
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('welcome', compact('newArrival', 'carts'));
+        }else{
+            return view('welcome', compact('newArrival'));
+        }
+        // $cartProducts = Product::with('carts', )
+        // foreach($carts as $cart){
+        //     return $cart->products;
+        // }
+        // return $carts;
+
     }
 
+    public function profile() {
+        return view('frontend.profile');
+    }
+    public function user_orders() {
+        return view('frontend.user_orders');
+    }
+    public function my_payment() {
+        return view('frontend.my_payment');
+    }
+    public function track_order() {
+        return view('frontend.track_order');
+    }
+    public function order_cancellation() {
+        return view('frontend.order_cancellation');
+    }
+    public function dashboard() {
+        return view('frontend.dashboard');
+    }
+    public function delivary_info() {
+        return view('frontend.delivary_info');
+    }
     public function checkout() {
         return view('frontend.checkout');
     }
@@ -33,6 +68,15 @@ class WelcomeController extends Controller
     }
     public function aboutus() {
         return view('frontend.aboutus');
+    }
+    public function signin() {
+        return view('frontend.signin');
+    }
+    public function signup() {
+        return view('frontend.signup');
+    }
+    public function lost_password() {
+        return view('frontend.lost_password');
     }
 
 
