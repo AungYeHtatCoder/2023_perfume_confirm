@@ -137,7 +137,7 @@
      <div class="lower-footer__content">
       <div class="lower-footer__copyright">
 
-       <span>Copyright © 2018</span>
+       <span>Copyright © <i id="getyear"></i></span>
 
        <a href="index.html">Reshop</a>
 
