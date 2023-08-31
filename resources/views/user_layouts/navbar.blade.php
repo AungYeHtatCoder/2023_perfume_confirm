@@ -58,30 +58,38 @@
 
          <span class="js-menu-toggle"></span>
          <ul style="width:120px">
-          <li>
+            @auth
+            <li>
+                <a href="{{ url('/dashboard') }}">
+                    <i class="fas fa-user-circle u-s-m-r-6"></i>
+                    <span>Account</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fas fa-lock-open u-s-m-r-6"></i>
+                    <span>Signout</span>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+            @endauth
 
-           <a href="/dashboard"><i class="fas fa-user-circle u-s-m-r-6"></i>
-
-            <span>Account</span></a>
-          </li>
-          <li>
-
-           <a href="/signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
-
-            <span>Signup</span></a>
-          </li>
-          <li>
-
-           <a href="/signin"><i class="fas fa-lock u-s-m-r-6"></i>
-
-            <span>Signin</span></a>
-          </li>
-          {{-- <li>
-
-           <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
-
-            <span>Signout</span></a>
-          </li> --}}
+            @guest
+            <li>
+                <a href="{{ url('/signup') }}">
+                    <i class="fas fa-user-plus u-s-m-r-6"></i>
+                    <span>Signup</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ url('/signin') }}">
+                    <i class="fas fa-lock u-s-m-r-6"></i>
+                    <span>Signin</span>
+                </a>
+            </li>
+            @endguest
          </ul>
          <!--====== End - Dropdown ======-->
         </li>
@@ -193,38 +201,43 @@
 
           <!--====== Mini Product Container ======-->
           <div class="mini-product-container gl-scroll u-s-m-b-15">
-           <!--====== Card for mini cart ======-->
-           {{-- @foreach ($carts as $cart)
-           <div class="card-mini-product">
-                <div class="mini-product">
-                    <div class="mini-product__image-wrapper">
+            @auth
+                <!--====== Card for mini cart ======-->
+                @foreach ($cartItems as $product)
+                <div class="card-mini-product">
+                        <div class="mini-product">
+                            <div class="mini-product__image-wrapper">
 
-                    <a class="mini-product__link" href="{{ url('/product-detail/') }}">
+                            <a class="mini-product__link" href="{{ url('/product-detail/'.$product->id) }}">
 
-                    <img class="u-img-fluid" src="{{ asset('assets/img/products/')}}"
-                        alt=""></a>
-                    </div>
-                    <div class="mini-product__info-wrapper">
+                            <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$product->image)}}"
+                                alt=""></a>
+                            </div>
+                            <div class="mini-product__info-wrapper">
 
-                    <span class="mini-product__category">
+                            <span class="mini-product__category">
 
-                    <a href="{{ url('/brands/'.$cart->products->brand_id) }}">{{ $cart->products->brands->brand_name }}</a></span>
+                                <a href="{{ url('/brands/'.$product->brand_id) }}">
+                                    {{ $product->brand->brand_name }}
+                                </a>
+                            </span>
 
-                    <span class="mini-product__name">
+                            <span class="mini-product__name">
 
-                    <a href="product-detail.html">{{ $cart->products->name }}</a></span>
+                            <a href="product-detail.html">{{ $product->name }}</a></span>
 
-                    <span class="mini-product__quantity">{{ $cart->qty }} x</span>
+                            <span class="mini-product__quantity">{{ $product->carts[0]->qty }} x</span>
 
-                    <span class="mini-product__price">$8</span>
-                    </div>
+                            <span class="mini-product__price">{{ number_format($product->carts[0]->total_price) }} MMK</span>
+                            </div>
+                        </div>
+
+                        <a class="mini-product__delete-link far fa-trash-alt"></a>
                 </div>
+                @endforeach
+                <!--====== End - Card for mini cart ======-->
+            @endauth
 
-                <a class="mini-product__delete-link far fa-trash-alt"></a>
-           </div>
-           @endforeach --}}
-
-           <!--====== End - Card for mini cart ======-->
           </div>
           <!--====== End - Mini Product Container ======-->
 
@@ -235,7 +248,14 @@
 
             <span class="subtotal-text">SUBTOTAL</span>
 
-            <span class="subtotal-value">$16</span>
+            <span class="subtotal-value">
+                @auth
+                {{ number_format($cartTotal) }} MMK
+                @endauth
+                @guest
+                    0 MMK
+                @endguest
+            </span>
            </div>
            <div class="mini-action">
 

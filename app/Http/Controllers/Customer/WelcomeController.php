@@ -17,62 +17,145 @@ class WelcomeController extends Controller
     {
         $newArrival = Product::latest()->take(5)->get();
         if(Auth::check()){
-            $carts = Cart::where('user_id', Auth::user()->id)->get();
-            return view('welcome', compact('newArrival', 'carts'));
+            $user_id = Auth::user()->id;
+            $carts = Cart::where('user_id', $user_id)->get();
+            $cartItems = [];
+            $cartTotal = 0;
+            foreach ($carts as $cart) {
+                $product = Product::with(['carts' => function ($query) use ($user_id) {
+                    $query->where('user_id', $user_id);
+                }])->find($cart->product_id);
+
+                if ($product) {
+                    $cartItems[] = $product;
+                    $cartTotal += $product->carts->sum('total_price');
+                }
+            }
+
+            // return $cartTotal;
+
+            return view('welcome', compact('newArrival', 'carts', 'cartItems', 'cartTotal'));
         }else{
             return view('welcome', compact('newArrival'));
         }
-        // $cartProducts = Product::with('carts', )
+
         // foreach($carts as $cart){
         //     return $cart->products;
         // }
-        // return $carts;
+
 
     }
 
     public function profile() {
-        return view('frontend.profile');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.profile', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function user_orders() {
-        return view('frontend.user_orders');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.user_orders', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function my_payment() {
-        return view('frontend.my_payment');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.my_payment', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function track_order() {
-        return view('frontend.track_order');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.track_order', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function order_cancellation() {
-        return view('frontend.order_cancellation');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.order_cancellation', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function dashboard() {
-        return view('frontend.dashboard');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.dashboard', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function delivary_info() {
-        return view('frontend.delivary_info');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.delivary_info', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function checkout() {
-        return view('frontend.checkout');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.checkout', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function cart() {
-        return view('frontend.cart');
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.cart', compact('carts'));
+        }else{
+            return redirect()->back()->with('error', 'Please Logged In!');
+        }
     }
     public function shop() {
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.shop', compact('carts'));
+        }
         return view('frontend.shop');
     }
     public function product_detail() {
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.product_detail', compact('carts'));
+        }
         return view('frontend.product_detail');
     }
     public function contact() {
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.contact', compact('carts'));
+        }
         return view('frontend.contact');
     }
     public function aboutus() {
+        if(Auth::check()){
+            $carts = Cart::where('user_id', Auth::user()->id)->get();
+            return view('frontend.aboutus', compact('carts'));
+        }
         return view('frontend.aboutus');
     }
     public function signin() {
+        if(Auth::check()){
+            return redirect()->back()->with('error', "You have already logged in!");
+        }
         return view('frontend.signin');
     }
     public function signup() {
+        if(Auth::check()){
+            return redirect()->back()->with('error', "You have already logged in!");
+        }
         return view('frontend.signup');
     }
     public function lost_password() {
@@ -124,7 +207,8 @@ class WelcomeController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
+
+   {
         //
     }
 }

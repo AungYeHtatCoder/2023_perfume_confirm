@@ -64,11 +64,17 @@
                                             @csrf
                                             <div class="u-s-m-b-30">
                                                 <label class="gl-label" for="login-email">E-MAIL *</label>
-                                                <input class="input-text input-text--primary-style" type="text" id="login-email" placeholder="Enter E-mail">
+                                                <input class="input-text input-text--primary-style" type="email" id="login-email" name="email" placeholder="Enter E-mail">
+                                                @error('email')
+                                                    <span style="color: red;">*{{ $message }}</span>
+                                                @enderror
                                             </div>
                                             <div class="u-s-m-b-30">
                                                 <label class="gl-label" for="login-password">PASSWORD *</label>
-                                                <input class="input-text input-text--primary-style" type="text" id="login-password" placeholder="Enter Password">
+                                                <input class="input-text input-text--primary-style" name="password" type="password" id="login-password" placeholder="Enter Password">
+                                                @error('password')
+                                                    <span style="color: red;">*{{ $message }}</span>
+                                                @enderror
                                             </div>
 
                                             <div class="gl-inline">

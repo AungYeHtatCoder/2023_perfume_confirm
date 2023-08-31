@@ -22,7 +22,7 @@
 
 
         <!--====== Section 3 ======-->
-        @include('user_layouts.deal_of_day')
+        {{-- @include('user_layouts.deal_of_day') --}}
         <!--====== End - Section 3 ======-->
 
 
@@ -32,7 +32,7 @@
 
 
         <!--====== Section 5 ======-->
-        @include('user_layouts.banner')
+        {{-- @include('user_layouts.banner') --}}
         <!--====== End - Section 5 ======-->
 
 
@@ -42,7 +42,7 @@
 
 
         <!--====== Section 7 ======-->
-        @include('user_layouts.promotion')
+        {{-- @include('user_layouts.promotion') --}}
         <!--====== End - Section 7 ======-->
 
 
