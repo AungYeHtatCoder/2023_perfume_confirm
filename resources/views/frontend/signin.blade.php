@@ -15,9 +15,9 @@
                         <div class="breadcrumb__wrap">
                             <ul class="breadcrumb__list">
                                 <li class="has-separator">
-                                    <a href="index.html">Home</a></li>
+                                    <a href="{{ url('/') }}">Home</a></li>
                                 <li class="is-marked">
-                                    <a href="signin.html">Signin</a></li>
+                                    <a href="{{ url('/signin') }}">Signin</a></li>
                             </ul>
                         </div>
                     </div>
@@ -60,37 +60,32 @@
                                         <h1 class="gl-h1">SIGNIN</h1>
 
                                         <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>
-                                        <form class="l-f-o__form">
-                                            <div class="gl-s-api">
-                                                
+                                        <form class="l-f-o__form" action="{{ route('login') }}" method="POST">
+                                            @csrf
+                                            <div class="u-s-m-b-30">
+                                                <label class="gl-label" for="login-email">E-MAIL *</label>
+                                                <input class="input-text input-text--primary-style" type="text" id="login-email" placeholder="Enter E-mail">
                                             </div>
                                             <div class="u-s-m-b-30">
-
-                                                <label class="gl-label" for="login-email">E-MAIL *</label>
-
-                                                <input class="input-text input-text--primary-style" type="text" id="login-email" placeholder="Enter E-mail"></div>
-                                            <div class="u-s-m-b-30">
-
                                                 <label class="gl-label" for="login-password">PASSWORD *</label>
+                                                <input class="input-text input-text--primary-style" type="text" id="login-password" placeholder="Enter Password">
+                                            </div>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="login-password" placeholder="Enter Password"></div>
                                             <div class="gl-inline">
                                                 <div class="u-s-m-b-30">
-
-                                                    <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN</button></div>
+                                                    <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN</button>
+                                                </div>
                                                 <div class="u-s-m-b-30">
-
-                                                    <a class="gl-link" href="lost-password.html">Forgot Password?</a></div>
+                                                    <a class="gl-link" href="lost-password.html">Forgot Password?</a>
+                                                </div>
                                             </div>
                                             <div class="u-s-m-b-30">
-
                                                 <!--====== Check Box ======-->
                                                 <div class="check-box">
-
                                                     <input type="checkbox" id="remember-me">
                                                     <div class="check-box__state check-box__state--primary">
-
-                                                        <label class="check-box__label" for="remember-me">Remember Me</label></div>
+                                                        <label class="check-box__label" for="remember-me">Remember Me</label>
+                                                    </div>
                                                 </div>
                                                 <!--====== End - Check Box ======-->
                                             </div>
