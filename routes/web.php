@@ -62,6 +62,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/contact', [WelcomeController::class, 'contact']);
     Route::get('/aboutus', [WelcomeController::class, 'aboutus']);
     Route::get('/product_detail', [WelcomeController::class, 'product_detail']);
+    Route::get('/dashboard', [WelcomeController::class, 'dashboard']);
+    Route::get('/profile', [WelcomeController::class, 'profile']);
+    Route::get('/delivary-info', [WelcomeController::class, 'delivary_info']);
+    Route::get('/track-order', [WelcomeController::class, 'track_order']);
+    Route::get('/my-orders', [WelcomeController::class, 'user_orders']);
+    Route::get('/my-payment', [WelcomeController::class, 'my_payment']);
+    Route::get('/order-cancellation', [WelcomeController::class, 'order_cancellation']);
     Route::get('/signin', [WelcomeController::class, 'signin']);
     Route::get('/signup', [WelcomeController::class, 'signup']);
     Route::get('/lost-password', [WelcomeController::class, 'lost_password']);

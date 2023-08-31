@@ -58,12 +58,12 @@
 
          <span class="js-menu-toggle"></span>
          <ul style="width:120px">
-          {{-- <li>
+          <li>
 
-           <a href=""><i class="fas fa-user-circle u-s-m-r-6"></i>
+           <a href="/dashboard"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
             <span>Account</span></a>
-          </li> --}}
+          </li>
           <li>
 
            <a href="/signup"><i class="fas fa-user-plus u-s-m-r-6"></i>

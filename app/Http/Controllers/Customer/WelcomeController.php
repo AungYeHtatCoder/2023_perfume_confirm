@@ -30,6 +30,27 @@ class WelcomeController extends Controller
 
     }
 
+    public function profile() {
+        return view('frontend.profile');
+    }
+    public function user_orders() {
+        return view('frontend.user_orders');
+    }
+    public function my_payment() {
+        return view('frontend.my_payment');
+    }
+    public function track_order() {
+        return view('frontend.track_order');
+    }
+    public function order_cancellation() {
+        return view('frontend.order_cancellation');
+    }
+    public function dashboard() {
+        return view('frontend.dashboard');
+    }
+    public function delivary_info() {
+        return view('frontend.delivary_info');
+    }
     public function checkout() {
         return view('frontend.checkout');
     }
