@@ -153,19 +153,21 @@
           <form action="{{ url('change-feature/'. $product->id) }}" method="POST">
            @csrf
            <input type="hidden" name="feature" value="{{ $product->feature ? 0 : 1 }}">
-           <label class="switch-icon {{ $product->feature ? 'active' : '' }}">
-            <input type="submit" class="hidden-input">
-            <span class="toggle-icon"></span>
-           </label>
+           <button class="btn" type="submit">
+                <i  style="color: blue;" class="fas fa-2x fa-toggle-{{ $product->feature === 1 ? "on" : "off" }}"></i>
+            </button>
           </form>
          </td>
          <td>
           <form action="{{ url('change-popular/'. $product->id) }}" method="POST">
            @csrf
            <input type="hidden" name="popular" value="{{ $product->popular ? 0 : 1 }}">
-           <label class="switch-icon {{ $product->popular ? 'active' : '' }}">
-            <input type="submit" class="hidden-input">
-            <span class="toggle-icon"></span>
+           <label class="{{ $product->popular ? 'active' : '' }}">
+            <button class="btn" type="submit">
+                <i  style="color: blue;" class="fas fa-2x fa-toggle-{{ $product->popular === 1 ? "on" : "off" }}"></i>
+            </button>
+            {{-- <input type="submit" class="hidden-input">
+            <span class="fas fa-toggle-on"></span> --}}
            </label>
           </form>
          </td>

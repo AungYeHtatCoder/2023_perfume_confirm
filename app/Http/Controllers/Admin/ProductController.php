@@ -175,7 +175,7 @@ class ProductController extends Controller
             $popular = 1;
         }
         Product::where('id',$id)->update(['popular'=>$popular]);
-        return redirect()->back();
+        return redirect()->back()->with('success', "Popular Switched");
     }
 
     public function changeFeature($id)
@@ -187,7 +187,7 @@ class ProductController extends Controller
         $product->save();
     }
 
-    return redirect()->back(); // Redirect back to the previous page
+    return redirect()->back()->with('success', "Feature Switched"); // Redirect back to the previous page
 }
 
 }
