@@ -49,6 +49,14 @@ ga('send', 'pageview')
 // });
 </script>
 
+<script>
+ // footer section
+$('#getyear').text(new Date().getUTCFullYear());
+// end footer section
+</script>
+
+
+
 <!--====== Noscript ======-->
 <noscript>
  <div class="app-setting">
