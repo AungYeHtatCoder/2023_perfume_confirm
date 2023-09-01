@@ -17,11 +17,11 @@
         <ul class="breadcrumb__list">
          <li class="has-separator">
 
-          <a href="index.html">Home</a>
+          <a href="{{ url('/') }}">Home</a>
          </li>
          <li class="is-marked">
 
-          <a href="cart.html">Cart</a>
+          <a href="{{ url('/cart') }}">Cart</a>
          </li>
         </ul>
        </div>
@@ -60,31 +60,43 @@
           <tbody>
 
            <!--====== Row ======-->
+           @foreach ($cartItems as $product)
            <tr>
             <td>
              <div class="table-p__box">
               <div class="table-p__img-wrap">
 
-               <img class="u-img-fluid" src="{{ asset('user_app/assets/images/product/electronic/product_19.jpg')}}"
+               <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$product->image)}}"
                 alt="">
               </div>
               <div class="table-p__info">
 
                <span class="table-p__name">
 
-                <a href="product-detail.html">Cool Water</a></span>
+                <a href="{{ url('/product-detail/'.$product->id) }}">{{ $product->name }}</a></span>
 
                <span class="table-p__category">
 
-                <a href="shop-side-version-2.html">Category Name</a></span>
+                <a href="{{ url('/brand/'.$product->brand_id) }}">{{ $product->brand->brand_name }}</a></span>
                <ul class="table-p__variant-list">
                 <li>
 
-                 <span>Size: 22</span>
+                 <span>
+                    Size:
+                    @foreach ($product->sizes as $size)
+                    <small style="background: rgb(255, 85, 0); color: #fcfcfc; padding: 1px 5px; border-radius:2px;">{{ $product->carts[0]->size_id === $size->id ? $size->name : "" }}</small>
+
+                    @endforeach
+                </span>
                 </li>
                 <li>
 
-                 <span>Color: Red</span>
+                 <span>
+                    Scent:
+                    @foreach ($product->scents as $scent)
+                    <small style="background: rgb(255, 85, 0); color: #fcfcfc; padding: 1px 5px; border-radius:2px;">{{ $scent->scent_name }}</small>
+                    @endforeach
+                 </span>
                 </li>
                </ul>
               </div>
@@ -92,7 +104,17 @@
             </td>
             <td>
 
-             <span class="table-p__price">$125.00</span>
+             <span class="table-p__price">
+                @foreach ($product->sizes as $size)
+                    @if ($product->carts[0]->size_id === $size->id)
+                        @if($size->pivot->discount_price < 0 || NULL)
+                        {{ number_format($size->pivot->normal_price) }} MMK
+                        @else
+                        {{ number_format($size->pivot->discount_price) }} MMK
+                        @endif
+                    @endif
+                @endforeach
+            </span>
             </td>
             <td>
              <div class="table-p__input-counter-wrap">
@@ -102,7 +124,7 @@
 
                <span class="input-counter__minus fas fa-minus"></span>
 
-               <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1"
+               <input class="input-counter__text input-counter--text-primary-style" type="text" value="{{ $product->carts[0]->qty }}" data-min="1"
                 data-max="1000">
 
                <span class="input-counter__plus fas fa-plus"></span>
@@ -113,132 +135,12 @@
             <td>
              <div class="table-p__del-wrap">
 
-              <a class="far fa-trash-alt table-p__delete-link" href="#"></a>
+              <a href="{{ url('/cart/delete/'.$product->carts[0]->id) }}" class="far fa-trash-alt table-p__delete-link"></a>
              </div>
             </td>
            </tr>
-           <!--====== End - Row ======-->
+           @endforeach
 
-
-           <!--====== Row ======-->
-           <tr>
-            <td>
-             <div class="table-p__box">
-              <div class="table-p__img-wrap">
-
-               <img class="u-img-fluid" src="{{ asset('user_app/assets/images/product/electronic/product_21.jpg')}}"
-                alt="">
-              </div>
-              <div class="table-p__info">
-
-               <span class="table-p__name">
-
-                <a href="product-detail.html">Acqua Di Gio</a></span>
-
-               <span class="table-p__category">
-
-                <a href="shop-side-version-2.html">Category Name</a></span>
-               <ul class="table-p__variant-list">
-                <li>
-
-                 <span>Size: 22</span>
-                </li>
-                <li>
-
-                 <span>Color: Red</span>
-                </li>
-               </ul>
-              </div>
-             </div>
-            </td>
-            <td>
-
-             <span class="table-p__price">$125.00</span>
-            </td>
-            <td>
-             <div class="table-p__input-counter-wrap">
-
-              <!--====== Input Counter ======-->
-              <div class="input-counter">
-
-               <span class="input-counter__minus fas fa-minus"></span>
-
-               <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1"
-                data-max="1000">
-
-               <span class="input-counter__plus fas fa-plus"></span>
-              </div>
-              <!--====== End - Input Counter ======-->
-             </div>
-            </td>
-            <td>
-             <div class="table-p__del-wrap">
-
-              <a class="far fa-trash-alt table-p__delete-link" href="#"></a>
-             </div>
-            </td>
-           </tr>
-           <!--====== End - Row ======-->
-
-
-           <!--====== Row ======-->
-           <tr>
-            <td>
-             <div class="table-p__box">
-              <div class="table-p__img-wrap">
-
-               <img class="u-img-fluid" src="{{ asset('user_app/assets/images/product/electronic/product_22.jpg')}}"
-                alt="">
-              </div>
-              <div class="table-p__info">
-
-               <span class="table-p__name">
-
-                <a href="product-detail.html">Acqua Di Gio</a></span>
-
-               <span class="table-p__category">
-
-                <a href="shop-side-version-2.html">Category Name</a></span>
-               <ul class="table-p__variant-list">
-                <li>
-
-                 <span>Size: 22</span>
-                </li>
-                <li>
-
-                 <span>Color: Red</span>
-                </li>
-               </ul>
-              </div>
-             </div>
-            </td>
-            <td>
-
-             <span class="table-p__price">$125.00</span>
-            </td>
-            <td>
-             <div class="table-p__input-counter-wrap">
-
-              <!--====== Input Counter ======-->
-              <div class="input-counter">
-
-               <span class="input-counter__minus fas fa-minus"></span>
-
-               <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1"
-                data-max="1000">
-
-               <span class="input-counter__plus fas fa-plus"></span>
-              </div>
-              <!--====== End - Input Counter ======-->
-             </div>
-            </td>
-            <td>
-             <div class="table-p__del-wrap">
-
-              <a class="far fa-trash-alt table-p__delete-link" href="#"></a>
-             </div>
-            </td>
-           </tr>
            <!--====== End - Row ======-->
           </tbody>
          </table>
@@ -248,7 +150,7 @@
         <div class="route-box">
          <div class="route-box__g1">
 
-          <a class="route-box__link" href="shop-side-version-2.html"><i class="fas fa-long-arrow-alt-left"></i>
+          <a class="route-box__link" href="{{ url('/shop') }}"><i class="fas fa-long-arrow-alt-left"></i>
 
            <span>CONTINUE SHOPPING</span></a>
          </div>
@@ -290,23 +192,23 @@
               <tbody>
                <tr>
                 <td>SUBTOTAL</td>
-                <td>$379.00</td>
+                <td>{{ number_format($cartTotal) }} MMK</td>
                </tr>
                <tr>
                 <td>TAX</td>
-                <td>$0.00</td>
+                <td>0 MMK</td>
                </tr>
 
                <tr>
                 <td>GRAND TOTAL</td>
-                <td>$379.00</td>
+                <td>{{ number_format($cartTotal) }} MMK</td>
                </tr>
               </tbody>
              </table>
             </div>
             <div>
 
-             <button class="btn btn--e-brand-b-2" type="submit"> PROCEED TO CHECKOUT</button>
+             <a class="btn btn--e-brand-b-2" style="display: block; text-align:center;" href="{{ url('/checkout') }}"> PROCEED TO CHECKOUT</a>
             </div>
            </div>
           </div>
