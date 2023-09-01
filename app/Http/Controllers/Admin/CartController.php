@@ -20,15 +20,29 @@ class CartController extends Controller
             'qty' => 'required',
             'total_price' => 'required'
         ]);
-        $cart = Cart::create([
-            'product_id' => $id,
-            'user_id' => Auth::user()->id,
-            'size_id' => $request->size_id,
-            'qty' => $request->qty,
-            'total_price' => $request->total_price,
-        ]);
+        $cartItem = Cart::where('product_id', $id)->where('user_id', Auth::user()->id)->first();
+        if(!$cartItem){
+            Cart::create([
+                'product_id' => $id,
+                'user_id' => Auth::user()->id,
+                'size_id' => $request->size_id,
+                'qty' => $request->qty,
+                'total_price' => $request->total_price,
+            ]);
+            return redirect()->back()->with('success', "Product Added to Cart.");
+        }else{
+            return redirect()->back()->with('error', "Product has already added.");
+        }
+    }
 
-        // return $cart;
-        return redirect()->back()->with('success', "Product Added to Cart.");
+    //delete cart
+    public function delete($id){
+        $cart = Cart::find($id);
+        if(!$cart){
+            return redirect()->back()->with('error', "Cart Not Found!");
+        }else{
+            Cart::destroy($id);
+            return redirect()->back()->with('success', "Cart Deleted.");
+        }
     }
 }

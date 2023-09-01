@@ -217,14 +217,14 @@
 
                             <span class="mini-product__category">
 
-                                <a href="{{ url('/brands/'.$product->brand_id) }}">
+                                <a href="{{ url('/brand/'.$product->brand_id) }}">
                                     {{ $product->brand->brand_name }}
                                 </a>
                             </span>
 
                             <span class="mini-product__name">
 
-                            <a href="product-detail.html">{{ $product->name }}</a></span>
+                            <a href="{{ url('/product-detail/'.$product->id) }}">{{ $product->name }}</a></span>
 
                             <span class="mini-product__quantity">{{ $product->carts[0]->qty }} x</span>
 
@@ -232,7 +232,7 @@
                             </div>
                         </div>
 
-                        <a class="mini-product__delete-link far fa-trash-alt"></a>
+                        <a href="{{ url('/cart/delete/'.$product->carts[0]->id) }}" class="mini-product__delete-link far fa-trash-alt"></a>
                 </div>
                 @endforeach
                 <!--====== End - Card for mini cart ======-->
