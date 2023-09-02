@@ -31,7 +31,7 @@
        <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
         <li>
 
-         <a href="{{ url('/') }}">NEW ARRIVALS</a>
+         <a href="{{ url('/') }}">HOME</a>
         </li>
         <li>
          <a href="{{ url('/aboutus')}}">ABOUT US</a>
