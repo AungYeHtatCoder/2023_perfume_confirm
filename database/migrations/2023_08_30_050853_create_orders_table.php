@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('payment_method')->nullable();
             $table->string('payment_photo')->nullable();
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

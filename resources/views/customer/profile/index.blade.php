@@ -55,8 +55,8 @@
      <h6 class="card-subtitle text-muted">Technical Lead</h6>
     </div>
     <div class="card-body">
-     <button type="button" class="btn btn-danger mr-1"><i class="la la-plus"></i> Follow</button>
-     <button type="button" class="btn btn-primary mr-1"><i class="ft-user"></i> Profile</button>
+     <!-- <button type="button" class="btn btn-danger mr-1"><i class="la la-plus"></i> Follow</button>
+     <button type="button" class="btn btn-primary mr-1"><i class="ft-user"></i> Profile</button> -->
 
      <!-- Profile Photo Update Form -->
      <div class="card-body">
@@ -75,39 +75,112 @@
     </div>
    </div>
    <div class="list-group list-group-flush">
-    <a href="#" class="list-group-item"><i class="la la-briefcase"></i> Overview</a>
-    <a href="#" class="list-group-item"><i class="ft-mail"></i> Email : {{ Auth::user()->email }} </a>
-    <a href="#" class="list-group-item"><i class="ft-check-square"></i> Task</a>
+    <div class="card">
+     <div class="card-header">
+      <h4 class="card-title">Change Phone & Address</h4>
+     </div>
+     <div class="card-body">
+      <form action="{{ route('admin.changePhoneAddress', Auth::user()->id) }}" method="post">
+       @csrf
+       @method('PUT')
+       <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" class="form-control" name="phone" value="{{ Auth::user()->phone }}">
+        @error('phone')
+        <span class="invalid-feedback" role="alert">
+         <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+       </div>
+       <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" class="form-control" name="address" value="{{ Auth::user()->address }}">
 
-    <a href="{{ url('/client-calendar/'.Auth::user()->id) }}" class="list-group-item"> <i class="ft-message-square"></i>
-     Go To Content Calender</a>
+        @error('address')
+        <span class="invalid-feedback" role="alert">
+         <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+       </div>
+       <button type="submit" class="btn btn-primary">Change Phone & Address</button>
+      </form>
+     </div>
+    </div>
    </div>
   </div>
  </div>
- <!-- <div class="col-xl-4 col-md-6 col-12">
+ <!-- next card -->
+ <div class="col-xl-4 col-md-6 col-12">
   <div class="card card border-teal border-lighten-2">
+   <div class="card-body">
+    <h4 class="card-title">Customer Information</h4>
+    <div class="list-group list-group-flush">
+     <a href="#" class="list-group-item"><i class="la la-briefcase"></i>Customer : {{ Auth::user()->name }}</a>
+     <a href="#" class="list-group-item"><i class="ft-mail"></i> Email : {{ Auth::user()->email }}</a>
+     <a href="#" class="list-group-item"><i class="ft-check-square"></i> Phone :
+      @if(Auth::user()->phone == null)
+      <span class="badge badge-danger">Not Set</span>
+      @else
+      {{ Auth::user()->phone }}
+      @endif
+     </a>
+     <a href="#" class="list-group-item"> <i class="ft-message-square"></i> Address :
+      @if(Auth::user()->address == null)
+      <span class="badge badge-danger">Not Set</span>
+      @else
+      {{ Auth::user()->address }}
+      @endif
+     </a>
+    </div>
+   </div>
    <div class="text-center">
-    <div class="card-body">
+    <h4 class="card-title badge badge-primary">Change Password</h4>
+
+    <!-- <div class="card-body">
      <img src="../../../app-assets/images/portrait/small/avatar-s-5.png" class="rounded-circle  height-150"
       alt="Card image">
-    </div>
+    </div> -->
+
     <div class="card-body">
-     <h4 class="card-title">Andrew Davis</h4>
-     <h6 class="card-subtitle text-muted">UI/UX Designer</h6>
-    </div>
-    <div class="card-body">
-     <button type="button" class="btn btn-danger mr-1"><i class="la la-plus"></i> Follow</button>
-     <button type="button" class="btn btn-primary mr-1"><i class="ft-user"></i> Profile</button>
+     <!-- change password form - old_password / new_password -->
+
+     <form action="{{ route('admin.changePassword', Auth::user()->id) }}" method="post">
+      @csrf
+      @method('PUT')
+      <div class="form-group">
+       <label for="old_password">Old Password</label>
+       <input type="password" id="old_password" class="form-control" name="old_password">
+       @error('old_password')
+       <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+       </span>
+       @enderror
+      </div>
+      <div class="form-group">
+       <label for="password">New Password</label>
+       <input type="password" id="password" class="form-control" name="password">
+
+       @error('password')
+       <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+       </span>
+       @enderror
+      </div>
+      <div class="form-group">
+       <label for="password_confirmation">Confirm New Password</label>
+       <input type="password" id="password_confirmation" class="form-control" name="password_confirmation">
+      </div>
+      <button type="submit" class="btn btn-primary">Change Password</button>
+
+     </form>
+
     </div>
    </div>
-   <div class="list-group list-group-flush">
-    <a href="#" class="list-group-item"><i class="la la-briefcase"></i> Overview</a>
-    <a href="#" class="list-group-item"><i class="ft-mail"></i> Email</a>
-    <a href="#" class="list-group-item"><i class="ft-check-square"></i> Task</a>
-    <a href="#" class="list-group-item"> <i class="ft-message-square"></i> Calender</a>
-   </div>
+
+
   </div>
- </div> -->
+ </div>
+ </div>
  @include('sweetalert::alert')
 
 </section>

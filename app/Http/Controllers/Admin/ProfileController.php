@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
     /**
@@ -89,9 +90,9 @@ class ProfileController extends Controller
         ]);
 
         if (auth()->user()->hasRole('Admin')) {
-            return redirect()->back()->with('toast_success', "Profile Updated.");
+            return redirect()->back()->with('toast_success', "Admin Profile has been  Updated.");
         } else {
-            return redirect()->back()->with('toast_success', "Profile Updated.");
+            return redirect()->back()->with('toast_success', "Customer Profile has been Updated.");
         }
     } else {
         return redirect()->back()->with('error', "Please use a valid file type!");
@@ -99,27 +100,56 @@ class ProfileController extends Controller
 }
 
 
-    // public function profileChange(Request $request){
-    //     $profile = $request->file('profile');
-    //     $ext = $profile->getClientOriginalExtension();
-    //     if($ext === "png" || $ext === "jpeg" || $ext === "jpg"){
-    //         $user = User::find(Auth::user()->id);
-    //         //delete existed profile
-    //         if($user->profile){
-    //             File::delete(public_path('assets/img/profile/'.$user->profile));
-    //         }
-    //         // image
-    //         $filename = uniqid('profile') . '.' . $ext; // Generate a unique filename
-    //         $profile->move(public_path('assets/img/profile/'), $filename); // Save the file to the pub
+    // password change function
+    public function changePassword(Request $request)
+    {
+        //dd($request->all());
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|confirmed|min:8',
 
-    //         $user->update([
-    //             'profile' => $filename
-    //         ]);
-    //         return redirect()->back()->with('success', "Profile Updated.");
-    //     }else{
-    //         return redirect()->back()->with('error', "Please use validate file type!");
-    //     }
-    //}
+        ]);
+
+        $user = User::find(Auth::user()->id);
+
+        if (Hash::check($request->old_password, $user->password)) {
+            $user->update([
+                'password' => Hash::make($request->password)
+            ]);
+
+            if (auth()->user()->hasRole('Admin')) {
+                return redirect()->back()->with('toast_success', "Admin Password has been  Updated.");
+            } else {
+                return redirect()->back()->with('toast_success', "Customer Password has been Updated.");
+            }
+        } else {
+            return redirect()->back()->with('error', "Old password does not match!");
+        }
+    }
+
+    // phone address update function
+    public function PhoneAddressChange(Request $request)
+    {
+        //dd($request->all());
+        $request->validate([
+            'phone' => 'required',
+            'address' => 'required',
+
+        ]);
+
+        $user = User::find(Auth::user()->id);
+
+        $user->update([
+            'phone' => $request->phone,
+            'address' => $request->address
+        ]);
+
+        if (auth()->user()->hasRole('Admin')) {
+            return redirect()->back()->with('toast_success', "Admin Profile has been  Updated.");
+        } else {
+            return redirect()->back()->with('toast_success', "Customer Profile has been Updated.");
+        }
+    }
 
 
     /**

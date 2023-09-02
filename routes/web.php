@@ -41,6 +41,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('profiles', ProfileController::class);
     //Route::post('/profiles/update/', [ProfileController::class, 'profileChange']);
     // brand_categories resource rotues
+    // change password route with auth id 
+    Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('changePassword');
+    // PhoneAddressChange route with auth id route with put method
+    Route::put('/change-phone-address', [ProfileController::class, 'PhoneAddressChange'])->name('changePhoneAddress');
     Route::resource('brand_categories', BrandCategoryController::class);
     // Brands resource rotues
     Route::resource('brands', BrandController::class);
