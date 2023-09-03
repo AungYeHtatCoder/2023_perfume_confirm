@@ -139,9 +139,9 @@
                     @csrf
                     <input type="hidden" name="size_id" value="{{ $size->id }}">
                     @if ($size->pivot->discount_price <= 0 || NULL)
-                    <input type="hidden" name="total_price" value="{{ $size->pivot->normal_price }}">
+                    <input type="hidden" name="unit_price" value="{{ $size->pivot->normal_price }}">
                     @else
-                    <input type="hidden" name="total_price" value="{{ $size->pivot->discount_price }}">
+                    <input type="hidden" name="unit_price" value="{{ $size->pivot->discount_price }}">
                     @endif
 
                     <div class="pd-detail-inline-2">

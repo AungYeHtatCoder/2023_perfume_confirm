@@ -18,17 +18,19 @@ class CartController extends Controller
         $request->validate([
             'size_id' => 'required',
             'qty' => 'required',
-            'total_price' => 'required'
+            'unit_price' => 'required'
         ]);
-        $cartItem = Cart::where('product_id', $id)->where('user_id', Auth::user()->id)->first();
+        $cartItem = Cart::where('product_id', $id)->where('user_id', Auth::user()->id)->where('size_id', $request->size_id)->first();
         if(!$cartItem){
-            Cart::create([
+            $cart = Cart::create([
                 'product_id' => $id,
                 'user_id' => Auth::user()->id,
                 'size_id' => $request->size_id,
                 'qty' => $request->qty,
-                'total_price' => $request->total_price,
+                'unit_price' => $request->unit_price,
+                'total_price' => $request->qty * $request->unit_price,
             ]);
+            $cart->products()->sync($id);
             return redirect()->back()->with('success', "Product Added to Cart.");
         }else{
             return redirect()->back()->with('error', "Product has already added.");
@@ -44,5 +46,29 @@ class CartController extends Controller
             Cart::destroy($id);
             return redirect()->back()->with('success', "Cart Deleted.");
         }
+    }
+
+    //update all carts
+    public function updateAllCarts(Request $request, $id){
+        $request->validate([
+            'qty' => 'required'
+        ]);
+
+        $cart = Cart::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        $cart->update([
+            'qty' => $request->qty,
+            'total_price' => $request->qty * $cart->unit_price
+        ]);
+        return redirect()->back()->with('success', 'Update Cart Successfully.');
+    }
+
+    //clear all
+    public function clearAll(){
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+        // return $carts;
+        foreach($carts as $cart){
+            Cart::destroy($cart->id);
+        }
+        return redirect()->back()->with('success', 'ALL CLEAR.');
     }
 }

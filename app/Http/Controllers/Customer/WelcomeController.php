@@ -15,7 +15,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $newArrival = Product::latest()->take(5)->get();
+        $newArrival = Product::with('sizes')->latest()->take(5)->get();
+        // return $newArrival;
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->get();
@@ -212,34 +213,31 @@ class WelcomeController extends Controller
             return redirect()->back()->with('error', 'Please Logged In!');
         }
     }
+
     public function cart() {
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->get();
-            $cartItems = [];
-            $cartTotal = 0;
-            foreach ($carts as $cart) {
-                $product = Product::with(['carts' => function ($query) use ($user_id) {
-                    $query->where('user_id', $user_id);
-                }])->find($cart->product_id);
+            $cartItems = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            // $cartItems = [];
+            // $cartTotal = 0;
+            // foreach ($carts as $cart) {
+            //     $product = Product::with(['carts' => function ($query) use ($user_id) {
+            //         $query->where('user_id', $user_id);
+            //     }])->find($cart->product_id);
 
-                if ($product) {
-                    $cartItems[] = $product;
-                    $cartTotal += $product->carts->sum('total_price');
-                }
-            }
-            // foreach($cartItems as $product){
-            //     foreach($product->sizes as $size){
-            //         if($product->carts[0]->size_id === $size->id){
-            //             return $size->name;
-            //         }
+            //     if ($product) {
+            //         $cartItems[] = $product;
+            //         $cartTotal += $product->carts->sum('total_price');
             //     }
             // }
+            return $cartItems;
             return view('frontend.cart', compact('carts', 'cartItems', 'cartTotal'));
         }else{
             return redirect()->back()->with('error', 'Please Logged In!');
         }
     }
+
     public function shop() {
         if(Auth::check()){
             $user_id = Auth::user()->id;
