@@ -31,6 +31,7 @@ class CartController extends Controller
                 'total_price' => $request->qty * $request->unit_price,
             ]);
             $cart->products()->sync($id);
+            $cart->sizes()->sync($request->size_id);
             return redirect()->back()->with('success', "Product Added to Cart.");
         }else{
             return redirect()->back()->with('error', "Product has already added.");
