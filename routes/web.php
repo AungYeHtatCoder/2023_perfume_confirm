@@ -86,6 +86,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/product_detail{id}', [WelcomeController::class, 'product_detail']);
     Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart']);
     Route::get('/cart/delete/{id}', [CartController::class, 'delete']);
+    Route::post('/carts/all/update/{id}', [CartController::class, 'updateAllCarts']);
+    Route::post('/carts/all/clear/', [CartController::class, 'clearAll']);
 
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {

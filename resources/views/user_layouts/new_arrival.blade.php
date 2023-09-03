@@ -41,14 +41,7 @@
                                 </li>
                                 <li>
                                     @auth
-                                        <a
-                                            {{-- data-modal="modal"
-                                            data-modal-id="#cart-new-arrival-{{ $product->id }}"
-                                            data-tooltip="tooltip"
-                                            data-placement="top"
-                                            title="Add to Cart" --}}
-                                            onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();"
-                                        >
+                                        <a onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();">
                                             <i class="fas fa-plus-circle"></i>
                                         </a>
                                         <form
@@ -59,7 +52,7 @@
                                         >
                                             @csrf
                                             <input type="hidden" name="size_id" value="{{ $product->sizes[0]->id }}">
-                                            <input type="hidden" name="total_price" value="{{ $product->sizes[0]->pivot->discount_price <= 0 ? $product->sizes[0]->pivot->normal_price : $product->sizes[0]->pivot->discount_price }}">
+                                            <input type="hidden" name="unit_price" value="{{ $product->sizes[0]->pivot->discount_price <= 0 ? $product->sizes[0]->pivot->normal_price : $product->sizes[0]->pivot->discount_price }}">
                                             <input type="hidden" name="qty" value="1">
                                         </form>
                                     @endauth

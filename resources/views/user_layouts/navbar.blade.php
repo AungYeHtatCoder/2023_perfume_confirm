@@ -166,13 +166,25 @@
 
                             <a href="{{ url('/product-detail/'.$product->id) }}">{{ $product->name }}</a></span>
 
-                            <span class="mini-product__quantity">{{ $product->carts[0]->qty }} x</span>
+                            <span class="mini-product__quantity"> x</span>
 
-                            <span class="mini-product__price">{{ number_format($product->carts[0]->total_price) }} MMK</span>
+                            <span class="mini-product__price">
+                                @foreach ($product->sizes as $size)
+                                    @foreach ($product->carts as $cart)
+                                        @if ($cart->size_id === $size->id)
+                                            @if($size->pivot->discount_price < 0 || NULL)
+                                            {{ number_format($size->pivot->normal_price) }} MMK
+                                            @else
+                                            {{ number_format($size->pivot->discount_price) }} MMK
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                            </span>
                             </div>
                         </div>
 
-                        <a href="{{ url('/cart/delete/'.$product->carts[0]->id) }}" class="mini-product__delete-link far fa-trash-alt"></a>
+                        <a href="{{ url('/cart/delete/') }}" class="mini-product__delete-link far fa-trash-alt"></a>
                 </div>
                 @endforeach
                 <!--====== End - Card for mini cart ======-->
