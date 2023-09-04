@@ -169,11 +169,6 @@
 
                             <span class="mini-product__price">
                                 {{ number_format($cart->unit_price) }} MMK
-                                {{-- @if($cart->sizes[0]->pivot->discount_price <= 0 || NULL)
-                                    {{ number_format($cart->sizes[0]->pivot->normal_price) }} MMK
-                                @else
-                                    {{ number_format($cart->sizes[0]->pivot->discount_price) }} MMK
-                                @endif --}}
                             </span>
                             </div>
                         </div>
