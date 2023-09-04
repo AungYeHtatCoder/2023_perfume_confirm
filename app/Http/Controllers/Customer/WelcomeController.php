@@ -157,6 +157,11 @@ class WelcomeController extends Controller
         return view('frontend.lost_password');
     }
 
+    public function search_result()
+    {
+        return view('frontend.search_result_page');
+    }
+
 
     /**
      * Show the form for creating a new resource.

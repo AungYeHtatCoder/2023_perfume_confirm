@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/my-orders', [WelcomeController::class, 'user_orders']);
     Route::get('/my-payment', [WelcomeController::class, 'my_payment']);
     Route::get('/order-cancellation', [WelcomeController::class, 'order_cancellation']);
+    Route::get('/search-result', [WelcomeController::class, 'search_result']);
     Route::get('/signin', [WelcomeController::class, 'signin']);
     Route::get('/signup', [WelcomeController::class, 'signup']);
     Route::get('/lost-password', [WelcomeController::class, 'lost_password']);
