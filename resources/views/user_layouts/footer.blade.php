@@ -2,7 +2,7 @@
  <div class="outer-footer">
   <div class="container">
    <div class="row">
-    <div class="col-lg-5 col-md-6">
+    <div class="col-lg-6 col-md-6">
      <div class="outer-footer__content u-s-m-b-40">
 
       <span class="outer-footer__content-title">Contact Us</span>
@@ -108,24 +108,19 @@
       </div>
      </div>
     </div>
-    
    </div>
   </div>
  </div>
- <div class="lower-footer">
+ <div class="lower-footer" align="center">
   <div class="container">
    <div class="row">
-    <div class="col-lg-12">
+    <div class="" style="text-align:center; margin: auto">
      <div class="lower-footer__content">
-      <div class="lower-footer__copyright">
-
-       <span>Copyright © <i id="getyear"></i></span>
-
-       <a href="index.html">Reshop</a>
-
+      <div class="lower-footer__copyright" align="center">
+       <span>Copyright © <b id="getyear"></b>,</span>
        <span>All Right Reserved</span>
+       | <span>Created By </span><a href="https://delightmyanmar.pro" target="__blank">Delight Myanmar</a>
       </div>
-     
      </div>
     </div>
    </div>

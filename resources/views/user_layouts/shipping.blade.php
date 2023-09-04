@@ -42,4 +42,3 @@
    </div>
    <!--====== End - Section Content ======-->
   </div>
-  <hr />
