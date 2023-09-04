@@ -52,43 +52,33 @@
                             <div class="table-responsive">
                                 <table class="table-p">
                                     <tbody>
-                                    <!--====== Row ======-->
-                                    @foreach ($carts as $cart)
-                                            @foreach ($cartItems as $product)
+                                        <!--====== Row ======-->
+                                            @foreach ($carts as $cart)
                                                 <tr>
                                                     <td>
                                                         <div class="table-p__box">
                                                             <div class="table-p__img-wrap">
-                                                                <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$product->image)}}" alt="">
+                                                                <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$cart->products[0]->image)}}" alt="">
                                                             </div>
                                                             <div class="table-p__info">
                                                                 <span class="table-p__name">
-                                                                    <a href="{{ url('/product-detail/'.$product->id) }}">{{ $product->name }}</a>
+                                                                    <a href="{{ url('/product-detail/'.$cart->products[0]->id) }}">{{ $cart->products[0]->name }}</a>
                                                                 </span>
                                                                 <span class="table-p__category">
-                                                                    <a href="{{ url('/brand/'.$product->brand_id) }}">{{ $product->brand->brand_name }}</a>
+                                                                    <a href="{{ url('/brand/'.$cart->products[0]->brand_id) }}">{{ $cart->products[0]->brand->brand_name }}</a>
                                                                 </span>
                                                                 <ul class="table-p__variant-list">
                                                                     <li>
                                                                         <span>
                                                                             Size:
-                                                                            {{-- @foreach ($product->carts as $cart)
-                                                                                @php
-                                                                                    $sizes = $product->sizes->whereIn('id', [$cart->size_id])->pluck('name')->implode(', ');
-                                                                                    $cartItem = Cart::where('product_id', $id)->where('user_id', Auth::user()->id)->where('size_id', $request->size_id)->first();
-                                                                                @endphp
-
-                                                                                @if ($sizes)
-                                                                                    <small style="background: rgb(255, 85, 0); color: #fcfcfc; padding: 1px 5px; border-radius: 2px;">{{ $sizes }}</small>
-                                                                                @endif
-                                                                            @endforeach --}}
+                                                                            <small style="background: rgb(255, 85, 0); color: #fcfcfc; padding: 1px 5px; border-radius: 2px;">{{ $cart->sizes[0]->name }}</small>
                                                                         </span>
                                                                     </li>
                                                                     <li>
 
                                                                     <span>
                                                                         Scent:
-                                                                        @foreach ($product->scents as $scent)
+                                                                        @foreach ($cart->products[0]->scents as $scent)
                                                                         <small style="background: rgb(255, 85, 0); color: #fcfcfc; padding: 1px 5px; border-radius:2px;">{{ $scent->scent_name }}</small>
                                                                         @endforeach
                                                                     </span>
@@ -99,39 +89,33 @@
                                                     </td>
                                                     <td>
                                                         <span class="table-p__price">
-                                                            {{ number_format($product->carts[0]->unit_price) }} MMK
+                                                            {{ number_format($cart->unit_price) }} MMK
                                                         </span>
                                                     </td>
                                                     <td>
                                                     <div class="table-p__input-counter-wrap">
-                                                    <form action="{{ url('/carts/all/update/'.$product->carts[0]->id) }}" method="post">
+                                                    <form action="{{ url('/carts/all/update/'.$cart->id) }}" method="post">
                                                         @csrf
                                                         <!--====== Input Counter ======-->
                                                         <div class="input-counter">
-
                                                             <span class="input-counter__minus fas fa-minus"></span>
-
-                                                            <input class="input-counter__text input-counter--text-primary-style" name="qty" type="text" value="{{ $product->carts[0]->qty }}" data-min="1"
+                                                            <input class="input-counter__text input-counter--text-primary-style" name="qty" type="text" value="{{ $cart->qty }}" data-min="1"
                                                             data-max="1000">
-
                                                             <span class="input-counter__plus fas fa-plus"></span>
                                                         </div>
                                                         <button class="route-box__link" type="submit" style="border:none; cursor:pointer;"><i class="fas fa-sync"></i></button>
-
                                                         <!--====== End - Input Counter ======-->
                                                     </form>
                                                         </div>
                                                         </td>
                                                         <td>
                                                         <div class="table-p__del-wrap">
-
-                                                        <a href="{{ url('/cart/delete/'.$product->carts[0]->id) }}" class="far fa-trash-alt table-p__delete-link"></a>
+                                                            <a href="{{ url('/cart/delete/'.$cart->id) }}" class="far fa-trash-alt table-p__delete-link"></a>
                                                         </div>
                                                         </td>
                                                 </tr>
                                             @endforeach
-                                    @endforeach
-                                    <!--====== End - Row ======-->
+                                        <!--====== End - Row ======-->
                                     </tbody>
                                 </table>
                             </div>
@@ -181,7 +165,7 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>SUBTOTAL</td>
-                                                    <td>{{ number_format($cartTotal) }} MMK</td>
+                                                    <td>{{ number_format($carts->sum('total_price')) }} MMK</td>
                                                 </tr>
                                                 <tr>
                                                     <td>TAX</td>
@@ -190,7 +174,7 @@
 
                                                 <tr>
                                                     <td>GRAND TOTAL</td>
-                                                    <td>{{ number_format($cartTotal) }} MMK</td>
+                                                    <td>{{ number_format($carts->sum('total_price')) }} MMK</td>
                                                 </tr>
                                                 </tbody>
                                                 </table>

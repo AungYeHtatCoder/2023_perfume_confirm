@@ -66,12 +66,11 @@
 
        <!--====== List ======-->
        <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
-        {{-- <li>
-            <a href="index.html"><i class="fas fa-home"></i></a>
-        </li>
         <li>
-            <a href="wishlist.html"><i class="far fa-heart"></i></a>
-        </li> --}}
+            <form action="">
+                <input type="text" class="input-text input-text--border-radius input-text--style-1" id="main-search" placeholder="Search">
+            </form>
+        </li>
         <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 
          <a><i class="far fa-user-circle"></i></a>
@@ -143,48 +142,43 @@
           <div class="mini-product-container gl-scroll u-s-m-b-15">
             @auth
                 <!--====== Card for mini cart ======-->
-                @foreach ($cartItems as $product)
+                @foreach ($carts as $cart)
                 <div class="card-mini-product">
                         <div class="mini-product">
                             <div class="mini-product__image-wrapper">
 
-                            <a class="mini-product__link" href="{{ url('/product-detail/'.$product->id) }}">
+                            <a class="mini-product__link" href="{{ url('/product-detail/'.$cart->products[0]->id) }}">
 
-                            <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$product->image)}}"
+                            <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$cart->products[0]->image)}}"
                                 alt=""></a>
                             </div>
                             <div class="mini-product__info-wrapper">
 
                             <span class="mini-product__category">
 
-                                <a href="{{ url('/brand/'.$product->brand_id) }}">
-                                    {{ $product->brand->brand_name }}
+                                <a href="{{ url('/brand/'.$cart->products[0]->brand_id) }}">
+                                    {{ $cart->products[0]->brand->brand_name }}
                                 </a>
                             </span>
 
                             <span class="mini-product__name">
 
-                            <a href="{{ url('/product-detail/'.$product->id) }}">{{ $product->name }}</a></span>
+                            <a href="{{ url('/product-detail/'.$cart->products[0]->id) }}">{{ $cart->products[0]->name }}</a></span>
 
-                            <span class="mini-product__quantity"> x</span>
+                            <span class="mini-product__quantity">{{ $cart->qty }} x</span>
 
                             <span class="mini-product__price">
-                                @foreach ($product->sizes as $size)
-                                    @foreach ($product->carts as $cart)
-                                        @if ($cart->size_id === $size->id)
-                                            @if($size->pivot->discount_price < 0 || NULL)
-                                            {{ number_format($size->pivot->normal_price) }} MMK
-                                            @else
-                                            {{ number_format($size->pivot->discount_price) }} MMK
-                                            @endif
-                                        @endif
-                                    @endforeach
-                                @endforeach
+                                {{ number_format($cart->unit_price) }} MMK
+                                {{-- @if($cart->sizes[0]->pivot->discount_price <= 0 || NULL)
+                                    {{ number_format($cart->sizes[0]->pivot->normal_price) }} MMK
+                                @else
+                                    {{ number_format($cart->sizes[0]->pivot->discount_price) }} MMK
+                                @endif --}}
                             </span>
                             </div>
                         </div>
 
-                        <a href="{{ url('/cart/delete/') }}" class="mini-product__delete-link far fa-trash-alt"></a>
+                        <a href="{{ url('/cart/delete/'.$cart->id) }}" class="mini-product__delete-link far fa-trash-alt"></a>
                 </div>
                 @endforeach
                 <!--====== End - Card for mini cart ======-->
@@ -202,7 +196,7 @@
 
             <span class="subtotal-value">
                 @auth
-                {{ number_format($cartTotal) }} MMK
+                {{ number_format($carts->sum('total_price')) }} MMK
                 @endauth
                 @guest
                     0 MMK

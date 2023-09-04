@@ -199,8 +199,6 @@
        <div class="shop-p">
         <div class="shop-p__toolbar u-s-m-b-30">
          <div class="shop-p__meta-wrap u-s-m-b-60">
-
-          <span class="shop-p__meta-text-1">FOUND 18 RESULTS</span>
           <div class="shop-p__meta-text-2">
 
            <span>Related Searches:</span>
@@ -213,12 +211,6 @@
           </div>
          </div>
          <div class="shop-p__tool-style">
-          <div class="tool-style__group u-s-m-b-8">
-
-           <span class="js-shop-grid-target is-active">Grid</span>
-
-           <span class="js-shop-list-target">List</span>
-          </div>
           <form>
            <div class="tool-style__form-wrap">
             <div class="u-s-m-b-8"><select class="select-box select-box--transparent-b-2">
@@ -234,7 +226,7 @@
          </div>
         </div>
         <div class="shop-p__collection">
-         <div class="row is-grid-active">
+         <div class="row is-list-active">
           <div class="col-lg-4 col-md-6 col-sm-6">
            <div class="product-m">
             <div class="product-m__thumb">
