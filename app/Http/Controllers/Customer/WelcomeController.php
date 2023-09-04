@@ -141,7 +141,7 @@ class WelcomeController extends Controller
             //         $cartTotal += $product->carts->sum('total_price');
             //     }
             // }
-            return $cartItems;
+            // return $cartItems;
             return view('frontend.cart', compact('carts', 'cartItems', 'cartTotal'));
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
             // return $cartItems;
