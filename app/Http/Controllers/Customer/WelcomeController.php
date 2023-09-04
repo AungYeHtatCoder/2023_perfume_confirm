@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Http\Controllers\Controller;
 use App\Models\Admin\Cart;
-use App\Models\Admin\Product;
+use App\Models\Admin\Scent;
 use Illuminate\Http\Request;
+use App\Models\Admin\Product;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
@@ -17,6 +18,9 @@ class WelcomeController extends Controller
     {
         $newArrival = Product::with('sizes')->latest()->take(5)->get();
         // return $newArrival;
+        $topTrending = Product::with(['scents', 'sizes'])->where('popular', 1)->get();
+        $scents = Scent::all();
+        //return $topTrendingMenScent;
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->get();
@@ -33,14 +37,16 @@ class WelcomeController extends Controller
                 }
             }
             // return $cartTotal;
-            return view('welcome', compact('newArrival', 'carts', 'cartItems', 'cartTotal'));
+            return view('welcome', compact('newArrival', 'topTrending', 'scents' , 'carts', 'cartItems', 'cartTotal'));
         }else{
-            return view('welcome', compact('newArrival'));
+            return view('welcome', compact('newArrival', 'topTrending', 'scents'));
         }
 
         // foreach($carts as $cart){
         //     return $cart->products;
         // }
+
+
 
 
     }
@@ -218,7 +224,7 @@ class WelcomeController extends Controller
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->get();
-            $cartItems = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            $cartItems = Cart::where('user_id', $user_id)->with('products')->get();
             // $cartItems = [];
             // $cartTotal = 0;
             // foreach ($carts as $cart) {
