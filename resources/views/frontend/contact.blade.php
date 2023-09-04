@@ -36,7 +36,7 @@
    <div class="u-s-p-b-60">
 
     <!--====== Section Content ======-->
-    <div class="section__content">
+    {{-- <div class="section__content">
      <div class="container">
       <div class="row">
        <div class="col-lg-12">
@@ -46,7 +46,7 @@
        </div>
       </div>
      </div>
-    </div>
+    </div> --}}
     <!--====== End - Section Content ======-->
    </div>
    <!--====== End - Section 2 ======-->
