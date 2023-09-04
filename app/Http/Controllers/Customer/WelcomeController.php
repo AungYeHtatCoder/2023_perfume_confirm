@@ -21,6 +21,7 @@ class WelcomeController extends Controller
         $topTrending = Product::with(['scents', 'sizes'])->where('popular', 1)->get();
         $scents = Scent::all();
         //return $topTrendingMenScent;
+        $feature = Product::with('scents')->latest()->take(4)->where('feature', 1)->get();
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->get();
@@ -37,13 +38,13 @@ class WelcomeController extends Controller
                 }
             }
             // return $cartTotal;
-            return view('welcome', compact('newArrival', 'topTrending', 'scents' , 'carts', 'cartItems', 'cartTotal'));
+            return view('welcome', compact('newArrival', 'feature' ,'topTrending', 'scents' , 'carts', 'cartItems', 'cartTotal'));
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
             return view('welcome', compact('newArrival', 'carts'));
         }else{
-            return view('welcome', compact('newArrival', 'topTrending', 'scents'));
+            return view('welcome', compact('newArrival', 'feature', 'topTrending', 'scents'));
         }
 
         // foreach($carts as $cart){
@@ -141,7 +142,7 @@ class WelcomeController extends Controller
             //         $cartTotal += $product->carts->sum('total_price');
             //     }
             // }
-            return $cartItems;
+            //return $cartItems;
             return view('frontend.cart', compact('carts', 'cartItems', 'cartTotal'));
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
             // return $cartItems;
