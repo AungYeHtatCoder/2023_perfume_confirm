@@ -205,3 +205,33 @@
   </div>
   <!--====== End - Section Content ======-->
  </div>
+
+
+
+
+
+
+
+
+ <!-- new banner section -->
+ <div class="new_banner_section row">
+  <div class="col-md-1">
+
+  </div>
+
+<div class="col-md-5">
+    <img src="{{ asset('user_app/assets/images/banners/new_banner__6.png')}}" alt="banner">
+</div>
+
+<div class="col-md-5 banner_texts">
+    <h2>Our original perfume</h2><br/>
+    <p>The new fragrance</p><br/>
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><br/>
+
+    <a href="#" type="button">SHOP NOW</a>
+</div>
+
+</div>
+
+
+<!-- end banner section -->
