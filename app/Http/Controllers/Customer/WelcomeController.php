@@ -159,6 +159,11 @@ class WelcomeController extends Controller
 
     public function search_result()
     {
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            return view('frontend.search_result_page', compact('carts'));
+        }
         return view('frontend.search_result_page');
     }
 
