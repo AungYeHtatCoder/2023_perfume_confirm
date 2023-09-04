@@ -240,10 +240,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -254,11 +251,7 @@
 
               <a href="{{url('/product_detail') }}">New Fashion B Nice Elegant</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00</div>
              <div class="product-m__hover">
               <div class="product-m__preview-description">
@@ -267,10 +260,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -288,10 +283,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -302,11 +294,7 @@
 
               <a href="{{url('/product_detail') }}">Eternity</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00</div>
              <div class="product-m__hover">
               <div class="product-m__preview-description">
@@ -315,10 +303,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -336,10 +326,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -350,11 +337,7 @@
 
               <a href="{{url('/product_detail') }}">New Dress B Nice Elegant</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00</div>
              <div class="product-m__hover">
               <div class="product-m__preview-description">
@@ -363,10 +346,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -384,10 +369,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -398,11 +380,7 @@
 
               <a href="{{url('/product_detail') }}">Obsession</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00</div>
              <div class="product-m__hover">
               <div class="product-m__preview-description">
@@ -411,10 +389,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -432,10 +412,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -446,11 +423,7 @@
 
               <a href="{{url('/product_detail') }}">Versace Eros</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+            
              <div class="product-m__price">$125.00</div>
              <div class="product-m__hover">
               <div class="product-m__preview-description">
@@ -459,10 +432,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -480,10 +455,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -494,11 +466,7 @@
 
               <a href="{{url('/product_detail') }}">Cool Water</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00</div>
              <div class="product-m__hover">
               <div class="product-m__preview-description">
@@ -507,10 +475,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -528,10 +498,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -542,11 +509,7 @@
 
               <a href="{{url('/product_detail') }}">RMontblanc Explorer</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00</div>
              <div class="product-m__hover">
               <div class="product-m__preview-description">
@@ -555,10 +518,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -576,10 +541,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -590,11 +552,7 @@
 
               <a href="{{url('/product_detail') }}">Acqua Di Gio</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00
 
               <span class="product-m__discount">$22.00</span>
@@ -606,10 +564,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -627,10 +587,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -641,11 +598,7 @@
 
               <a href="{{url('/product_detail') }}">L'eau D'issey (issey Miyake)</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00
 
               <span class="product-m__discount">$22.00</span>
@@ -657,10 +610,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -678,10 +633,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -692,11 +644,7 @@
 
               <a href="{{url('/product_detail') }}">SVersace Man</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+            
              <div class="product-m__price">$125.00
 
               <span class="product-m__discount">$22.00</span>
@@ -708,10 +656,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
@@ -729,10 +679,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -743,11 +690,7 @@
 
               <a href="{{url('/product_detail') }}">Nautica Voyage</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+           
              <div class="product-m__price">$125.00
 
               <span class="product-m__discount">$22.00</span>
@@ -759,10 +702,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+             
              </div>
             </div>
            </div>
@@ -780,10 +725,7 @@
               <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip"
                data-placement="top" title="Quick Look"></a>
              </div>
-             <div class="product-m__add-cart">
-
-              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
-             </div>
+             
             </div>
             <div class="product-m__content">
              <div class="product-m__category">
@@ -794,11 +736,7 @@
 
               <a href="{{url('/product_detail') }}">SVersace Man</a>
              </div>
-             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-               class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-              <span class="product-m__review">(23)</span>
-             </div>
+             
              <div class="product-m__price">$125.00
 
               <span class="product-m__discount">$22.00</span>
@@ -810,10 +748,12 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</span>
               </div>
-              <div class="product-m__wishlist">
 
-               <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a>
-              </div>
+              <div class="product-m__add-cart">
+
+              <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+             </div>
+              
              </div>
             </div>
            </div>
