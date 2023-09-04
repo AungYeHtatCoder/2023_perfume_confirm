@@ -117,7 +117,7 @@
     <div class="" style="text-align:center; margin: auto">
      <div class="lower-footer__content">
       <div class="lower-footer__copyright" align="center">
-       <span>Copyright © <i id="getyear"></i>,</span>
+       <span>Copyright © <b id="getyear"></b>,</span>
        <span>All Right Reserved</span>
        | <span>Created By </span><a href="https://delightmyanmar.pro" target="__blank">Delight Myanmar</a>
       </div>
