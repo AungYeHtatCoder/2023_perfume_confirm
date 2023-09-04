@@ -2377,8 +2377,8 @@ hr {
 .dismiss-button {
   z-index: 2;
   position: absolute;
-  top: 0;
-  right: -50px;
+  top: -50px;
+  right: 0px;
   background-color: transparent;
   padding: 8px;
   font-size: 24px;
@@ -7258,7 +7258,7 @@ hr {
   padding: 12px;
   border-radius: 0.125rem;
   font-size: 13px;
-  width: 100%;
+  width: 50%;
   text-align: center;
   display: block;
 }
