@@ -48,7 +48,7 @@ class WelcomeController extends Controller
 
         // foreach($carts as $cart){
         //     return $cart->products;
-        // }
+        }
     }
 
     public function profile() {
