@@ -8,11 +8,11 @@
       <span class="outer-footer__content-title">Contact Us</span>
       <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
 
-       <span>4247 Ashford Drive Virginia VA-20006 USA</span>
+       <span>Yangon , Myanmar</span>
       </div>
       <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
 
-       <span>(+0) 900 901 904</span>
+       <span>+959 408017771</span>
       </div>
       <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
 

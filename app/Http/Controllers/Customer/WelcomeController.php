@@ -125,25 +125,9 @@ class WelcomeController extends Controller
         }
     }
 
-    public function cart() {
+   public function cart() {
         if(Auth::check()){
             $user_id = Auth::user()->id;
-            $carts = Cart::where('user_id', $user_id)->get();
-            $cartItems = Cart::where('user_id', $user_id)->with('products')->get();
-            // $cartItems = [];
-            // $cartTotal = 0;
-            // foreach ($carts as $cart) {
-            //     $product = Product::with(['carts' => function ($query) use ($user_id) {
-            //         $query->where('user_id', $user_id);
-            //     }])->find($cart->product_id);
-
-            //     if ($product) {
-            //         $cartItems[] = $product;
-            //         $cartTotal += $product->carts->sum('total_price');
-            //     }
-            // }
-            //return $cartItems;
-            return view('frontend.cart', compact('carts', 'cartItems', 'cartTotal'));
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
             // return $cartItems;
             return view('frontend.cart', compact('carts'));

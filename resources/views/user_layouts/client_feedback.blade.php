@@ -1,7 +1,7 @@
- <div class="u-s-p-b-90 u-s-m-b-30">
+ <!-- <div class="u-s-p-b-90 u-s-m-b-30"> -->
 
   <!--====== Section Intro ======-->
-  <div class="section__intro u-s-m-b-46">
+  <!-- <div class="section__intro u-s-m-b-46">
    <div class="container">
     <div class="row">
      <div class="col-lg-12">
@@ -13,16 +13,16 @@
      </div>
     </div>
    </div>
-  </div>
+  </div> -->
   <!--====== End - Section Intro ======-->
 
 
   <!--====== Section Content ======-->
-  <div class="section__content">
-   <div class="container">
+  <!-- <div class="section__content">
+   <div class="container"> -->
 
     <!--====== Testimonial Slider ======-->
-    <div class="slider-fouc">
+    <!-- <div class="slider-fouc">
      <div class="owl-carousel" id="testimonial-slider">
       <div class="testimonial">
        <div class="testimonial__img-wrap">
@@ -93,9 +93,9 @@
        </div>
       </div>
      </div>
-    </div>
+    </div> -->
     <!--====== End - Testimonial Slider ======-->
-   </div>
-  </div>
+   <!-- </div>
+  </div> -->
   <!--====== End - Section Content ======-->
- </div>
+ <!-- </div> -->

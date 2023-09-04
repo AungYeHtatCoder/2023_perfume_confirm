@@ -1,3 +1,112 @@
+/* new banner section */
+
+.new_banner_section{
+
+  font-family: 'Bricolage Grotesque', sans-serif;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.new_banner_section img{
+  width: 80%;
+  height: auto;
+
+  display: flex;
+  justify-content: left;
+  margin-left: 50px;
+}
+
+.new_banner_section .banner_texts {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  text-align: center;
+
+  margin-top: 50px;
+}
+
+.new_banner_section .banner_texts h2{
+  font-size: 40px;
+  color:#000;
+
+}
+
+.new_banner_section .banner_texts p{
+  font-size: 30px;
+  color: #000;
+  margin-top: 10px;
+}
+
+.new_banner_section .banner_texts span{
+  font-size: 20px;
+  color: #000;
+  margin-top: 30px;
+}
+
+.new_banner_section .banner_texts a{
+  font-size: 20px;
+  color: #000;
+  margin-top: 30px;
+
+  padding: 5px 15px;
+  background-color: plum;
+}
+
+.new_banner_section .banner_texts a:hover{
+  color: #fff;
+  background-color: purple;
+}
+
+/* end banner section */
+
+
+
+/* new photo section */
+
+.new_photo_section{
+  height: auto;
+
+  font-family: 'Bricolage Grotesque', sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 15px;
+  margin-left: 50px;
+  
+}
+
+.new_photo_section .photo_texts span{
+    font-size: 20px;
+    color: #000;
+
+    margin-left: 50px;
+
+}
+
+.new_photo_section .photo_texts p{
+  font-size: 25px;
+  color: purple;
+  font-style: italic;
+
+  position: absolute;
+  right: 50px;
+  bottom: -30px;
+}
+
+
+.new_photo_section .photo1{
+  width: 600px;
+  height: auto;
+
+  margin-top: 50px;
+  /* margin-bottom: 100px; */
+
+}
+
+/* end new photo section */
+
+
+
 /*--------------------------------------------------------------
 1.0 Base Styles
 --------------------------------------------------------------*/
@@ -2268,8 +2377,8 @@ hr {
 .dismiss-button {
   z-index: 2;
   position: absolute;
-  top: 0;
-  right: -50px;
+  top: -50px;
+  right: 0px;
   background-color: transparent;
   padding: 8px;
   font-size: 24px;
@@ -3147,6 +3256,7 @@ hr {
 
 .section__heading {
   font-weight: 600;
+  font-family: 'Bricolage Grotesque', sans-serif;;
   letter-spacing: -.02rem;
   font-size: 28px;
   position: relative;
@@ -7148,7 +7258,7 @@ hr {
   padding: 12px;
   border-radius: 0.125rem;
   font-size: 13px;
-  width: 100%;
+  width: 50%;
   text-align: center;
   display: block;
 }

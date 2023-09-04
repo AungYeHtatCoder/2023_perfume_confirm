@@ -8,10 +8,10 @@
 
         <span class="content-span-1 u-c-secondary">Latest Update Stock</span>
 
-        <span class="content-span-2 u-c-secondary">30% Off On Electronics</span>
+        <span class="content-span-2 u-c-secondary">Promotion on Perfume</span>
 
-        <span class="content-span-3 u-c-secondary">Find electronics on best prices, Also Discover most selling
-         products of electronics</span>
+        <span class="content-span-3 u-c-secondary">Find perfume on best prices, Also Discover most selling
+         products of perfume</span>
 
         <span class="content-span-4 u-c-secondary">Starting At
 
@@ -23,7 +23,7 @@
      </div>
     </div>
    </div>
-   <div class="hero-slide hero-slide--2">
+   <!-- <div class="hero-slide hero-slide--2">
     <div class="container">
      <div class="row">
       <div class="col-12">
@@ -68,6 +68,6 @@
       </div>
      </div>
     </div>
-   </div>
+   </div> -->
   </div>
  </div>
