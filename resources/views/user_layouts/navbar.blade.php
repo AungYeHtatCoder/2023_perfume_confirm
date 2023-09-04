@@ -66,12 +66,11 @@
 
        <!--====== List ======-->
        <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
-        {{-- <li>
-            <a href="index.html"><i class="fas fa-home"></i></a>
-        </li>
         <li>
-            <a href="wishlist.html"><i class="far fa-heart"></i></a>
-        </li> --}}
+            <form action="">
+                <input type="text" class="input-text input-text--border-radius input-text--style-1" id="main-search" placeholder="Search">
+            </form>
+        </li>
         <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 
          <a><i class="far fa-user-circle"></i></a>
