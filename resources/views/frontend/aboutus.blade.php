@@ -33,37 +33,50 @@
 
 
     <!--====== Section 2 ======-->
-    <div class="u-s-p-b-60">
+    <!-- <div class="u-s-p-b-60"> -->
 
      <!--====== Section Content ======-->
-     <div class="section__content">
-      <div class="container">
-       <div class="row">
-        <div class="col-lg-12">
-         <div class="about">
-          <div class="about__container">
-           <div class="about__info">
-            <h2 class="about__h2">Welcome to Reshop Store!</h2>
-            <div class="about__p-wrap">
-             <p class="about__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-              leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-              the
-              release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-              software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+     <!-- <div class="section__content"> -->
+         <div class="container">
+
+            <div class="about__container row">
+
+              <div class="col-lg-12" style="margin-bottom:5rem;">
+                <h2>who are we</h2>
+                <p class="about_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              </div>
+
+              <div class="col-lg-7">
+                <img src="{{ asset('user_app/assets/images/banners/history__1.png')}}" style="width: 500px; height: auto;" alt="">
+              </div>
+
+              <div class="col-lg-5">
+                <h2 class="about__h2">History</h2>
+                <p class="about__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <!-- <a class="about__link btn--e-secondary" href="shop-side-version-2.html">Shop Now</a> -->
+              </div>
+
+              <div class="col-lg-6" style="margin-top:5rem;">
+                <h2 class="about__h2">What can you get ??</h2>
+                <div class="about__p-wrap">
+                  <p class="about__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                </div>
+                <!-- <a class="about__link btn--e-secondary" href="shop-side-version-2.html">Shop Now</a> -->
+              </div>
+
+            <div class="col-lg-5">
+              <img src="{{ asset('user_app/assets/images/banners/contact_img.jpg')}}" style="width: 500px; height: 400px;" alt="contact">
             </div>
 
-            <a class="about__link btn--e-secondary" href="index.html" target="_blank">Shop Now</a>
-           </div>
-          </div>
-         </div>
+                                           
         </div>
-       </div>
+
+
+                                   
       </div>
-     </div>
+      </div>
      <!--====== End - Section Content ======-->
-    </div>
+    <!-- </div> -->
     <!--====== End - Section 2 ======-->
 
 
