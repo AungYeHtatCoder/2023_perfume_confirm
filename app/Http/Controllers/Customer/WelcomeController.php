@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Models\Admin\Cart;
+use App\Models\Admin\Size;
+use App\Models\Admin\Brand;
 use App\Models\Admin\Scent;
 use Illuminate\Http\Request;
 use App\Models\Admin\Product;
@@ -137,12 +139,16 @@ class WelcomeController extends Controller
     }
 
     public function shop() {
+        $scents = Scent::all();
+        $sizes = Size::all();
+        $brands = Brand::all();
+        $products = Product::with('sizes')->get();
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
-            return view('frontend.shop', compact('carts'));
+            return view('frontend.shop', compact('carts', 'scents','sizes', 'brands', 'products'));
         }
-        return view('frontend.shop');
+        return view('frontend.shop', compact('scents', 'sizes', 'brands' , 'products'));
     }
     public function product_detail() {
         if(Auth::check()){
