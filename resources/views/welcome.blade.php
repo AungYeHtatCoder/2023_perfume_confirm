@@ -12,7 +12,7 @@
 
 
  <!--====== Section 1 ======-->
- @include('user_layouts.shop_by_deal')
+ {{-- @include('user_layouts.shop_by_deal') --}}
  <!--====== End - Section 1 ======-->
 
 
@@ -57,13 +57,13 @@
 
 
  <!--====== Section 10 ======-->
- @include('user_layouts.best_seller')
+ {{-- @include('user_layouts.best_seller') --}}
  <!--====== End - Section Content ======-->
  <!--====== End - Section 10 ======-->
 
 
  <!--====== Section 11 ======-->
- @include('user_layouts.client_feedback')
+ {{-- @include('user_layouts.client_feedback') --}}
  <!--====== End - Section 11 ======-->
 
 

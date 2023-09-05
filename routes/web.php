@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\BrandController;
@@ -12,7 +13,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
-use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\Customer\ProductBandSearchController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
 
 // Route::get('/', function () {
@@ -80,7 +81,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/my-orders', [WelcomeController::class, 'user_orders']);
     Route::get('/my-payment', [WelcomeController::class, 'my_payment']);
     Route::get('/order-cancellation', [WelcomeController::class, 'order_cancellation']);
-    Route::get('/search-result', [WelcomeController::class, 'search_result']);
+    //Route::get('/search-result', [WelcomeController::class, 'search_result']);
     Route::get('/signin', [WelcomeController::class, 'signin']);
     Route::get('/signup', [WelcomeController::class, 'signup']);
     Route::get('/lost-password', [WelcomeController::class, 'lost_password']);
@@ -89,7 +90,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/cart/delete/{id}', [CartController::class, 'delete']);
     Route::post('/carts/all/update/{id}', [CartController::class, 'updateAllCarts']);
     Route::post('/carts/all/clear/', [CartController::class, 'clearAll']);
-
+    // product brand search route @ProductBrandSearch method
+    Route::post('/search', [ProductBandSearchController::class, 'ProductBrandSearch'])->name('search');
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {
         // Other Customer routes Add Here

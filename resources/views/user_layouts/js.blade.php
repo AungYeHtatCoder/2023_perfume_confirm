@@ -7,7 +7,7 @@ ga.l = +new Date;
 ga('create', 'UA-XXXXX-Y', 'auto');
 ga('send', 'pageview')
 </script>
-<script src="{{ asset('assets/js/sweetalert.min.js') }}" ></script>
+<script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
 <script src="{{ asset('assets/js/sweetAlert.js') }}"></script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
@@ -22,14 +22,14 @@ ga('send', 'pageview')
 
 
 @if (Session::has('success'))
- <script>
-     showSweetAlert("Success!", "{{ Session::get('success') }}", "success");
- </script>
+<script>
+showSweetAlert("Success!", "{{ Session::get('success') }}", "success");
+</script>
 @endif
 @if (Session::has('error'))
- <script>
-     showSweetAlert("Sorry!", "{{ Session::get('error') }}", "error");
- </script>
+<script>
+showSweetAlert("Sorry!", "{{ Session::get('error') }}", "error");
+</script>
 @endif
 
 <script>
@@ -50,7 +50,7 @@ ga('send', 'pageview')
 </script>
 
 <script>
- // footer section
+// footer section
 $('#getyear').text(new Date().getUTCFullYear());
 // end footer section
 </script>
