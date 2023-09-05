@@ -96,6 +96,7 @@ class WelcomeController extends Controller
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            // return $carts;
             return view('frontend.checkout', compact('carts'));
         }else{
             return redirect()->back()->with('error', 'Please Logged In!');
