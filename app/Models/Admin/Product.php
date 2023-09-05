@@ -61,4 +61,10 @@ class Product extends Model
     // }
 
 
+    public static function searchByName($query)
+{
+    return self::where('name', 'LIKE', '%' . $query . '%')->get();
+}
+
+
 }

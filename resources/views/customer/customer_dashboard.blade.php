@@ -110,26 +110,28 @@
      <div class="card">
       <div class="card-content">
        <ul class="pagination justify-content-center pagination-separate pagination-flat">
-        <li class="page-item">
-         <a class="page-link" href="#" aria-label="Previous">
+        <li class="page-item {{ $products->onFirstPage() ? 'disabled' : '' }}">
+         <a class="page-link" href="{{ $products->previousPageUrl() }}" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
           <span class="sr-only">Previous</span>
          </a>
         </li>
-        <li class="page-item">
-         <a class="page-link" href="#">
-          <!-- show paginate -->
-          {!! $products->withQueryString()->links('pagination::bootstrap-5') !!}
-         </a>
-        </li>
 
-        <li class="page-item">
-         <a class="page-link" href="#" aria-label="Next">
+        <!-- Page numbers will be shown here -->
+        @foreach(range(1, $products->lastPage()) as $i)
+        <li class="{{ ($products->currentPage() == $i) ? ' active' : '' }}">
+         <a class="page-link" href="{{ $products->url($i) }}">{{ $i }}</a>
+        </li>
+        @endforeach
+
+        <li class="page-item {{ $products->hasMorePages() ? '' : 'disabled' }}">
+         <a class="page-link" href="{{ $products->nextPageUrl() }}" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span class="sr-only">Next</span>
          </a>
         </li>
        </ul>
+
       </div>
      </div>
     </div>
