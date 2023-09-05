@@ -1,7 +1,7 @@
- <div class="u-s-p-y-60">
+ <!-- <div class="u-s-p-y-60"> -->
 
   <!--====== Section Intro ======-->
-  <div class="section__intro u-s-m-b-46">
+  <!-- <div class="section__intro u-s-m-b-46">
    <div class="container">
     <div class="row">
      <div class="col-lg-12">
@@ -13,12 +13,12 @@
      </div>
     </div>
    </div>
-  </div>
+  </div> -->
   <!--====== End - Section Intro ======-->
 
 
   <!--====== Section Content ======-->
-  <div class="section__content">
+  <!-- <div class="section__content">
    <div class="container">
     <div class="row">
      <div class="col-lg-5 col-md-5 u-s-m-b-30">
@@ -64,7 +64,7 @@
     </div>
    </div>
   </div>
-  <hr />
+  <hr /> -->
 
   <!--====== Section Content ======-->
- </div>
+ <!-- </div> -->

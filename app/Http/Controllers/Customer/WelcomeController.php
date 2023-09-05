@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Http\Controllers\Controller;
 use App\Models\Admin\Cart;
-use App\Models\Admin\Product;
+use App\Models\Admin\Scent;
 use Illuminate\Http\Request;
+use App\Models\Admin\Product;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
@@ -16,12 +17,38 @@ class WelcomeController extends Controller
     public function index()
     {
         $newArrival = Product::with('sizes')->latest()->take(5)->get();
+        // return $newArrival;
+        $topTrending = Product::with(['scents', 'sizes'])->where('popular', 1)->get();
+        $scents = Scent::all();
+        //return $topTrendingMenScent;
+        $feature = Product::with('scents')->latest()->take(4)->where('feature', 1)->get();
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $carts = Cart::where('user_id', $user_id)->get();
+            $cartItems = [];
+            $cartTotal = 0;
+            foreach ($carts as $cart) {
+                $product = Product::with(['carts' => function ($query) use ($user_id) {
+                    $query->where('user_id', $user_id);
+                }])->find($cart->product_id);
+
+                if ($product) {
+                    $cartItems[] = $product;
+                    $cartTotal += $product->carts->sum('total_price');
+                }
+            }
+            // return $cartTotal;
+            return view('welcome', compact('newArrival', 'feature' ,'topTrending', 'scents' , 'carts', 'cartItems', 'cartTotal'));
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
             return view('welcome', compact('newArrival', 'carts'));
         }else{
-            return view('welcome', compact('newArrival'));
+            return view('welcome', compact('newArrival', 'feature', 'topTrending', 'scents'));
+        }
+
+        // foreach($carts as $cart){
+        //     return $cart->products;
         }
     }
 
@@ -98,7 +125,7 @@ class WelcomeController extends Controller
         }
     }
 
-    public function cart() {
+   public function cart() {
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
@@ -159,6 +186,11 @@ class WelcomeController extends Controller
 
     public function search_result()
     {
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            return view('frontend.search_result_page', compact('carts'));
+        }
         return view('frontend.search_result_page');
     }
 

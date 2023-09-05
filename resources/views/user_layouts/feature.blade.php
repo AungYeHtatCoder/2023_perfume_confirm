@@ -21,14 +21,14 @@
   <div class="section__content">
    <div class="container">
     <div class="row">
+     @foreach($feature as $product)
      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
       <div class="product-o product-o--hover-on u-h-100">
        <div class="product-o__wrap">
 
-        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{{ url('/product-detail/'.$product->id) }}">
 
-         <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_19.jpg')}}"
-          alt=""></a>
+         <img class="aspect__img" src="{{ asset('assets/img/products/'.$product->image) }}" alt=""></a>
         <div class="product-o__action-wrap">
          <ul class="product-o__action-list">
           <li>
@@ -47,161 +47,60 @@
        </div>
 
        <div class="blog-t-w">
-            <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top">View</a>
+        <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look"
+         data-tooltip="tooltip" data-placement="top">View</a>
 
-            <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top">Add to cart</a>
-          </div>
-
-       <span class="product-o__category">
-
-        <a href="shop-side-version-2.html">Category Name</a></span>
-
-       <span class="product-o__name">
-
-        <a href="product-detail.html">Obsession</a></span>
-
-
-       <span class="product-o__price">$125.00
-
-        <span class="product-o__discount">$160.00</span></span>
-      </div>
-     </div>
-     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
-      <div class="product-o product-o--hover-on u-h-100">
-       <div class="product-o__wrap">
-
-        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-         <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_20.jpg')}}"
-          alt=""></a>
-        <div class="product-o__action-wrap">
-         <ul class="product-o__action-list">
-          <li>
-
-           <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-            title="Quick View"><i class="fas fa-search-plus"></i></a>
-          </li>
-          <li>
-
-           <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-            title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-          </li>
-
-         </ul>
-        </div>
+        <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart"
+         data-tooltip="tooltip" data-placement="top">Add to cart</a>
        </div>
 
-       <div class="blog-t-w">
-            <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top">View</a>
-
-            <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top">Add to cart</a>
-          </div>
-
        <span class="product-o__category">
 
-        <a href="shop-side-version-2.html">Category Name</a></span>
+        <a href="shop-side-version-2.html">{{ $product->brand->brand_name }}</a></span>
 
        <span class="product-o__name">
 
-        <a href="product-detail.html">Versace Eros</a></span>
+        <a href="product-detail.html">{{ $product->name }}</a></span>
 
 
-       <span class="product-o__price">$125.00
+       <span class="product-o__price">{{ $product->normal_price }}
 
-        <span class="product-o__discount">$160.00</span></span>
+        <span class="product-o__discount">{{ $product->discount_price }}</span></span>
       </div>
      </div>
-     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
-      <div class="product-o product-o--hover-on u-h-100">
-       <div class="product-o__wrap">
-
-        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-         <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_21.jpg')}}"
-          alt=""></a>
-        <div class="product-o__action-wrap">
-         <ul class="product-o__action-list">
-          <li>
-
-           <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-            title="Quick View"><i class="fas fa-search-plus"></i></a>
-          </li>
-          <li>
-
-           <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-            title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-          </li>
-
-         </ul>
-        </div>
-       </div>
-
-       <div class="blog-t-w">
-            <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top">View</a>
-
-            <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top">Add to cart</a>
-          </div>
-
-       <span class="product-o__category">
-
-        <a href="shop-side-version-2.html">Category Name</a></span>
-
-       <span class="product-o__name">
-
-        <a href="product-detail.html">Cool Water</a></span>
-
-       <span class="product-o__price">$125.00
-
-        <span class="product-o__discount">$160.00</span></span>
-      </div>
-     </div>
-     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
-      <div class="product-o product-o--hover-on u-h-100">
-       <div class="product-o__wrap">
-
-        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-         <img class="aspect__img" src="{{ asset('user_app/assets/images/product/electronic/product_22.jpg')}}"
-          alt=""></a>
-        <div class="product-o__action-wrap">
-         <ul class="product-o__action-list">
-          <li>
-
-           <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-            title="Quick View"><i class="fas fa-search-plus"></i></a>
-          </li>
-          <li>
-
-           <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-            title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
-          </li>
-
-         </ul>
-        </div>
-       </div>
-
-       <div class="blog-t-w">
-            <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top">View</a>
-
-            <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top">Add to cart</a>
-          </div>
-
-       <span class="product-o__category">
-
-        <a href="shop-side-version-2.html">Category Name</a></span>
-
-       <span class="product-o__name">
-
-        <a href="product-detail.html">Montblanc Explorer</a></span>
-
-
-       <span class="product-o__price">$125.00
-
-        <span class="product-o__discount">$160.00</span></span>
-      </div>
-     </div>
+     @endforeach
     </div>
    </div>
   </div>
   <!--====== End - Section Content ======-->
  </div>
+
+
+
+
+
+
+
+
+ <!-- new banner section -->
+ <div class="new_banner_section row">
+  <div class="col-md-1">
+
+  </div>
+
+<div class="col-md-5">
+    <img src="{{ asset('user_app/assets/images/banners/new_banner__6.png')}}" alt="banner">
+</div>
+
+<div class="col-md-5 banner_texts">
+    <h2>Our original perfume</h2><br/>
+    <p>The new fragrance</p><br/>
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><br/>
+
+    <a href="#" type="button">SHOP NOW</a>
+</div>
+
+</div>
+
+
+<!-- end banner section -->
