@@ -91,74 +91,27 @@
                             <div class="o-summary">
                                 <div class="o-summary__section u-s-m-b-30">
                                     <div class="o-summary__item-wrap gl-scroll">
+                                        @foreach ($carts as $cart)
                                         <div class="o-card">
                                             <div class="o-card__flex">
                                                 <div class="o-card__img-wrap">
-
-                                                <img class="u-img-fluid" src="{{ asset('user_app/assets/images/product/electronic/product_19.jpg')}}"
-                                                alt="">
-                                                </div>
-                                                <div class="o-card__info-wrap">
-
-                                                <span class="o-card__name">
-
-                                                <a href="product-detail.html">Montblanc Explorer</a></span>
-
-                                                <span class="o-card__quantity">Quantity x 1</span>
-
-                                                <span class="o-card__price">$150.00</span>
-                                                </div>
-                                            </div>
-
-                                            <a class="o-card__del far fa-trash-alt"></a>
-                                        </div>
-                                        <div class="o-card">
-                                            <div class="o-card__flex">
-                                                <div class="o-card__img-wrap">
-                                                    <img class="u-img-fluid" src="{{ asset('user_app/assets/images/product/electronic/product_22.jpg')}}" alt="">
+                                                    <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$cart->products[0]->image)}}"
+                                                    alt="">
                                                 </div>
                                                 <div class="o-card__info-wrap">
                                                     <span class="o-card__name">
-                                                        <a href="product-detail.html">Acqua Di Gio</a>
+                                                        <a href="{{ url('/product-detail/'.$cart->product_id) }}">{{ $cart->products[0]->name }}</a>
                                                     </span>
 
-                                                    <span class="o-card__quantity">Quantity x 1</span>
+                                                <span class="o-card__quantity">Quantity x {{ $cart->qty }}</span>
 
-                                                    <span class="o-card__price">$150.00</span>
+                                                <span class="o-card__price">{{ number_format($cart->unit_price) }} MMK</span>
                                                 </div>
                                             </div>
-                                            <a class="o-card__del far fa-trash-alt"></a>
+
+                                            <a href="{{ url('/cart/delete/'.$cart->id) }}" class="o-card__del far fa-trash-alt"></a>
                                         </div>
-                                        <div class="o-card">
-                                            <div class="o-card__flex">
-                                                <div class="o-card__img-wrap">
-                                                    <img class="u-img-fluid" src="{{ asset('user_app/assets/images/product/electronic/product_22.jpg')}}" alt="">
-                                                </div>
-                                                <div class="o-card__info-wrap">
-                                                    <span class="o-card__name">
-                                                        <a href="product-detail.html">Cool Water</a>
-                                                    </span>
-                                                    <span class="o-card__quantity">Quantity x 1</span>
-                                                    <span class="o-card__price">$150.00</span>
-                                                </div>
-                                            </div>
-                                            <a class="o-card__del far fa-trash-alt"></a>
-                                        </div>
-                                        <div class="o-card">
-                                            <div class="o-card__flex">
-                                                <div class="o-card__img-wrap">
-                                                    <img class="u-img-fluid" src="{{ asset('user_app/assets/images/product/electronic/product_23.jpg')}}" alt="">
-                                                </div>
-                                                <div class="o-card__info-wrap">
-                                                    <span class="o-card__name">
-                                                        <a href="product-detail.html">Versace Eros</a>
-                                                    </span>
-                                                    <span class="o-card__quantity">Quantity x 1</span>
-                                                    <span class="o-card__price">$150.00</span>
-                                                </div>
-                                            </div>
-                                            <a class="o-card__del far fa-trash-alt"></a>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
 
