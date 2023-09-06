@@ -87,6 +87,14 @@
       data-i18n="Basic Forms">Product</span></a>
    </li>
    @endcan
+
+   @can('product_access')
+   <li><a class="menu-item" href="{{ route('admin.customer-show-product') }}"><i></i><span
+      data-i18n="Basic Forms">AllProduct</span></a>
+   </li>
+   @endcan
+
+
   </ul>
  </li>
  @endcan
