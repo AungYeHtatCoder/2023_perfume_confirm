@@ -15,46 +15,33 @@ class BranchSeeder extends Seeder
     {
          $brands = [
             [
-                'brand_name' => 'GUCCI',
+                'brand_name' => 'Gucci',
                 'category_id' => 1,
                 'branch_logo' => 'https://res.cloudinary.com/dqzxp',
                 'created_at' => '2023-08-25 16:35:53',
                 'updated_at' => '2023-08-25 16:35:53'
             ],
             [
-                'brand_name' => 'VICTORIA SECRET',
+                'brand_name' => 'D & C',
                 'category_id' => 1,
                 'branch_logo' => 'https://res.cloudinary.com/dqzxp',
                 'created_at' => '2023-08-25 16:35:53',
                 'updated_at' => '2023-08-25 16:35:53'
             ],
             [
-                'brand_name' => 'CHANNEL',
+                'brand_name' => 'Dior',
                 'category_id' => 1,
                 'branch_logo' => 'https://res.cloudinary.com/dqzxp',
                 'created_at' => '2023-08-25 16:35:53',
                 'updated_at' => '2023-08-25 16:35:53'
-            ],
+            ], 
              [
-                'brand_name' => 'DIOR',
+                'brand_name' => 'MK',
                 'category_id' => 1,
                 'branch_logo' => 'https://res.cloudinary.com/dqzxp',
                 'created_at' => '2023-08-25 16:35:53',
                 'updated_at' => '2023-08-25 16:35:53'
-            ],
-             [
-                'brand_name' => 'CALVIN KLEIN',
-                'category_id' => 1,
-                'branch_logo' => 'https://res.cloudinary.com/dqzxp',
-                'created_at' => '2023-08-25 16:35:53',
-                'updated_at' => '2023-08-25 16:35:53'
-            ],
-             [
-                'brand_name' => 'TOM FORD',
-                'category_id' => 1,'branch_logo' => 'https://res.cloudinary.com/dqzxp',
-                'created_at' => '2023-08-25 16:35:53',
-                'updated_at' => '2023-08-25 16:35:53'
-            ]
+            ],  
         ];
 
         // Insert the data into the 'brands' table

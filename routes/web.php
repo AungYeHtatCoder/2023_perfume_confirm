@@ -74,9 +74,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/checkout', [WelcomeController::class, 'checkout']);
     Route::get('/cart', [WelcomeController::class, 'cart']);
     Route::get('/shop', [WelcomeController::class, 'shop']);
+    Route::get('/shop/scent/{id}', [WelcomeController::class, 'scent']);
+    Route::get('/shop/size/{id}', [WelcomeController::class, 'size']);
+    Route::get('/shop/brand/{id}', [WelcomeController::class, 'brand']);
     Route::get('/contact', [WelcomeController::class, 'contact']);
     Route::get('/aboutus', [WelcomeController::class, 'aboutus']);
-    Route::get('/product_detail', [WelcomeController::class, 'product_detail']);
+    Route::get('/product_detail/{id}', [WelcomeController::class, 'product_detail']);
     Route::get('/dashboard', [WelcomeController::class, 'dashboard']);
     Route::get('/profile', [WelcomeController::class, 'profile']);
     Route::get('/delivary-info', [WelcomeController::class, 'delivary_info']);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Models\Admin\Cart;
+use App\Models\Admin\Size;
+use App\Models\Admin\Brand;
 use App\Models\Admin\Scent;
 use Illuminate\Http\Request;
 use App\Models\Admin\Product;
@@ -115,20 +117,99 @@ class WelcomeController extends Controller
     }
 
     public function shop() {
+        $scents = Scent::all();
+        $sizes = Size::all();
+        $brands = Brand::all();
+        $products = Product::with('sizes')->latest()->paginate(5);
+        $filter = "ALL PRODUCTS";
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
-            return view('frontend.shop', compact('carts'));
+            return view('frontend.shop', compact('carts', 'scents','sizes', 'brands', 'products', 'filter'));
         }
-        return view('frontend.shop');
+        return view('frontend.shop', compact('scents', 'sizes', 'brands' , 'products', 'filter'));
     }
-    public function product_detail() {
+
+    public function scent($id) {
+        $scents = Scent::all();
+        $sizes = Size::all();
+        $brands = Brand::all();
+        $products = Product::with('scents')->whereHas('scents', function ($query) use 
+         ($id) {
+        $query->where('scent_id', $id);
+        })->latest()->paginate(5);
+
+        // return $products;
+
+        $scent = Scent::find($id);
+        $filter = $scent->scent_name;
+
+        // $filter = "ALL PRODUCTS";
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
-            return view('frontend.product_detail', compact('carts'));
+            return view('frontend.shop', compact('carts', 'scents','sizes', 'brands', 'products', 'filter', 'id'));
         }
-        return view('frontend.product_detail');
+        return view('frontend.shop', compact('scents', 'sizes', 'brands' , 'products', 'filter', 'id'));
+    }
+
+     public function size($id) {
+        $scents = Scent::all();
+        $sizes = Size::all();
+        $brands = Brand::all();
+        $products = Product::with('sizes')->whereHas('sizes', function ($query) use 
+         ($id) {
+        $query->where('size_id', $id);
+        })->latest()->paginate(5);
+
+        // return $products;
+
+        $size = Size::find($id);
+        $filter = $size->name;
+
+        // $filter = "ALL PRODUCTS";
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            return view('frontend.shop', compact('carts', 'scents','sizes', 'brands', 'products', 'filter', 'id'));
+        }
+        return view('frontend.shop', compact('scents', 'sizes', 'brands' , 'products', 'filter', 'id'));
+    }
+
+     public function brand($id) {
+        $scents = Scent::all();
+        $sizes = Size::all();
+        $brands = Brand::all();
+        $products = Product::with('brand')->whereHas('brand', function ($query) use 
+         ($id) {
+        $query->where('brand_id', $id);
+        })->latest()->paginate(5);
+
+        // return $products;
+
+        $brand = Brand::find($id);
+        $filter = $brand->brand_name;
+
+        // $filter = "ALL PRODUCTS";
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            return view('frontend.shop', compact('carts', 'scents','sizes', 'brands', 'products', 'filter', 'id'));
+        }
+        return view('frontend.shop', compact('scents', 'sizes', 'brands' , 'products', 'filter', 'id'));
+    }
+
+
+
+
+    public function product_detail($id) {
+        $product = Product::find($id);
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            return view('frontend.product_detail', compact('carts', 'product'));
+        }
+        return view('frontend.product_detail', compact('product'));
     }
     public function contact() {
         if(Auth::check()){

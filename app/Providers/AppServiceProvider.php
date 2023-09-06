@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Pagination\Paginator;
 use App\Models\Admin\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
         $carts = Auth::check() ? Cart::where('user_id', Auth::id())->get() : null;
         $view->with('carts', $carts);
+        Paginator::useBootstrap();
     });
     }
 }
