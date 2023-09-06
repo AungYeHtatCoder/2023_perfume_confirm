@@ -147,8 +147,8 @@
  <li class=" nav-item"><a href="ecommerce-checkout.html"><i class="la la-credit-card"></i><span class="menu-title"
     data-i18n="Checkout">Checkout</span></a>
  </li>
- <li class=" nav-item"><a href="ecommerce-order.html"><i class="la la-check-circle-o"></i><span class="menu-title"
-    data-i18n="Order">Order</span></a>
+ <li class=" nav-item"><a href="{{ url('/admin/orders/') }}"><i class="la la-check-circle-o"></i><span class="menu-title"
+    data-i18n="Order">Orders</span></a>
  </li>
  <li class=" nav-item"><a href="#"><i class="la la-clipboard"></i><span class="menu-title"
     data-i18n="Invoice">Invoice</span></a>
