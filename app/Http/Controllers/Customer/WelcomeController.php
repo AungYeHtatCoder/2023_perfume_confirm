@@ -17,38 +17,15 @@ class WelcomeController extends Controller
     public function index()
     {
         $newArrival = Product::with('sizes')->latest()->take(5)->get();
-        // return $newArrival;
         $topTrending = Product::with(['scents', 'sizes'])->where('popular', 1)->get();
         $scents = Scent::all();
-        //return $topTrendingMenScent;
         $feature = Product::with('scents')->latest()->take(4)->where('feature', 1)->get();
         if(Auth::check()){
             $user_id = Auth::user()->id;
-            $carts = Cart::where('user_id', $user_id)->get();
-            $cartItems = [];
-            $cartTotal = 0;
-            foreach ($carts as $cart) {
-                $product = Product::with(['carts' => function ($query) use ($user_id) {
-                    $query->where('user_id', $user_id);
-                }])->find($cart->product_id);
-
-                if ($product) {
-                    $cartItems[] = $product;
-                    $cartTotal += $product->carts->sum('total_price');
-                }
-            }
-            // return $cartTotal;
-            return view('welcome', compact('newArrival', 'feature' ,'topTrending', 'scents' , 'carts', 'cartItems', 'cartTotal'));
-        if(Auth::check()){
-            $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
-            return view('welcome', compact('newArrival', 'carts'));
+            return view('welcome', compact('newArrival', 'carts', 'topTrending', 'feature', 'scents'));
         }else{
             return view('welcome', compact('newArrival', 'feature', 'topTrending', 'scents'));
-        }
-
-        // foreach($carts as $cart){
-        //     return $cart->products;
         }
     }
 
@@ -119,6 +96,7 @@ class WelcomeController extends Controller
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
+            // return $carts;
             return view('frontend.checkout', compact('carts'));
         }else{
             return redirect()->back()->with('error', 'Please Logged In!');
