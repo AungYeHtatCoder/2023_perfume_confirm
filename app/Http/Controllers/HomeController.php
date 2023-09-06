@@ -36,10 +36,7 @@ class HomeController extends Controller
 
     } else {
         
-        $products = Product::with('scents')->latest()->paginate(9);
-         $brands = Brand::with('products')->latest()->paginate(9);
-         $sizes = Size::all();
-        return view('customer.customer_dashboard', compact('products', 'brands', 'sizes'));
+        return view('frontend.profile');
     }
     }
 }

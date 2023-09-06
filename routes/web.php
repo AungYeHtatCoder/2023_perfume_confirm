@@ -14,6 +14,7 @@ use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Customer\CustomerProfileController;
 use App\Http\Controllers\Customer\ProductBandSearchController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
 
@@ -58,6 +59,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     // Product resource rotues
     Route::resource('products', ProductController::class);
+     Route::get('customer-show-product', [CustomerProductShowController::class, 'index'])->name('customer-show-product');
 });
 
 //product popular change
@@ -99,6 +101,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {
         // Other Customer routes Add Here
-        Route::get('customer-show-product', [CustomerProductShowController::class, 'index'])->name('customer-show-product');
 
+        // customer profile update route
+    Route::put('/change-password', [CustomerProfileController::class, 'CustomerchangePassword'])->name('customerchangePassword');
+    // PhoneAddressChange route with auth id route with put method
+    Route::put('/change-phone-address', [CustomerProfileController::class, 'CustomerPhoneAddressChange'])->name('customerchangePhoneAddress');
     });
