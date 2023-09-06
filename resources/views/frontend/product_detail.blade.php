@@ -71,251 +71,135 @@
       <div class="pd-detail">
        <div>
 
-<<<<<<< HEAD
-        <span class="pd-detail__name">{{ $product->name }} </span>
+        <span class="pd-detail__name">Ysl texudo </span>
        </div>
-       <div>
-        <div class="pd-detail__inline">
 
-         @foreach ($product->sizes as $size)
-         @if ($size->pivot->discount_price <= 0 || NULL) <span
-          style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>
-          {{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
-          <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
-          </span>
-          @else
-          <span
-           style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
-          <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
-           <span class="product-o__discount"
-            style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
-          </span>
-          @endif
-          @endforeach
-          <div class="u-s-m-t-15">
-           <form class="pd-detail__form">
-            <div class="pd-detail-inline-2">
-             <div class="u-s-m-b-15">
+       <div class="container">
+        <span class="pd-detail__text">Frangrance : </span>
 
-              <!--====== Input Counter ======-->
-              <div class="input-counter">
+        <!-- Info Badge -->
+        <span class="badge badge-info">Vanilla</span>
+        <span class="badge badge-info">floral</span>
+        <span class="badge badge-info">Lemon</span>
 
-               <span class="input-counter__minus fas fa-minus"></span>
+       </div>
 
-               <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1"
-                data-max="1000">
+       <div class="container mt-3">
+        <!-- Nav Tabs -->
+        <ul class="nav nav-tabs" id="myTabs">
+         <span class="pd-detail__text">Size : </span>
+         <!-- <li class="nav-item"> -->
+         <li> <button type="button" class="active btn btn-outline-primary" data-toggle="tab" href="#tab1">10 ml</button>
+         </li>
+         <!-- </li> -->
+         <!-- <li class="nav-item"> -->
+         <li><button class="btn btn-outline-primary" data-toggle="tab" href="#tab2">30 ml</button></li>
+         <!-- </li> -->
+        </ul>
 
-               <span class="input-counter__plus fas fa-plus"></span>
-              </div>
-              <!--====== End - Input Counter ======-->
-             </div>
-             <div class="u-s-m-b-15">
+        <!-- Tab Content -->
+        <div class="tab-content mt-3">
+         <!-- Tab 1 Content -->
+         <div class="tab-pane fade show active" id="tab1">
 
-              <a href="cart.html" class="btn btn--e-brand-b-2" type="button">Add to Cart</a>
-             </div>
-            </div>
-           </form>
-          </div>
-          <!-- <div class="u-s-m-b-15">
-                                    <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
 
-                                        <span class="pd-detail__review u-s-m-l-4">
+          <div class="pd-detail__price">7000 Kyats</div>
 
-                                            <a data-click-scroll="#view-review">23 Reviews</a></span></div>
-                                </div> -->
           <div class="u-s-m-b-15">
            <div class="pd-detail__inline">
-            @foreach($product->sizes as $size)
-            <span
-             class="pd-detail__{{$size->pivot->qty > 0 ? 'stock' : 'left'}}">{{$size->pivot->qty > 0 ? 'In Stock' : 'Out of Stock'}}</span>
-            @endforeach
+
+            <span class="pd-detail__stock">200 in stock</span>
+
+            <span class="pd-detail__left">Only 2 left</span>
            </div>
           </div>
 
+          <div>
 
-          <span>
-           Scent:
-           @foreach ($product->scents as $scent)
-           <small
-            style="background: rgb(255, 85, 0); color: #fcfcfc; padding: 1px 5px; border-radius:2px;">{{ $scent->scent_name }}</small>
-           @endforeach
-          </span>
-
-          <div class="u-s-m-t-30">
-
-           <span class="pd-detail__preview-desc">{!! $product->description !!}</span>
+           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.</p>
           </div>
 
+          <form class="pd-detail__form">
+           <div class="pd-detail-inline-2">
+            <div class="u-s-m-b-15">
+
+             <!--====== Input Counter ======-->
+             <div class="input-counter">
+
+              <span class="input-counter__minus fas fa-minus"></span>
+
+              <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1"
+               data-max="1000">
+
+              <span class="input-counter__plus fas fa-plus"></span>
+             </div>
+             <!--====== End - Input Counter ======-->
+            </div>
+            <div class="u-s-m-b-15">
+
+             <a href="cart.html" class="btn btn--e-brand-b-2" type="button">Add to Cart</a>
+            </div>
+           </div>
+          </form>
+         </div>
+
+         <!-- Tab 2 Content -->
+         <div class="tab-pane fade" id="tab2">
+
+          <div class="pd-detail__price">10000 Kyats</div>
 
 
           <div class="u-s-m-b-15">
+           <div class="pd-detail__inline">
 
-           <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
-           <ul class="pd-detail__policy-list">
-            <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+            <span class="pd-detail__stock">200 in stock</span>
 
-             <span>Buyer Protection.</span>
-            </li>
-            <li><i class="fas fa-check-circle u-s-m-r-8"></i>
-
-             <span>Full Refund if you don't receive your order.</span>
-            </li>
-            <li><i class="fas fa-check-circle u-s-m-r-8"></i>
-
-             <span>Returns accepted if product not as described.</span>
-            </li>
-           </ul>
+            <span class="pd-detail__left">Only 2 left</span>
+           </div>
           </div>
-        </div>
-        <!--====== End - Product Right Side Details ======-->
-       </div>
-      </div>
-     </div>
-    </div>
+
+          <div>
+
+           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.</p>
+          </div>
 
 
+          <form class="pd-detail__form">
+           <div class="pd-detail-inline-2">
+            <div class="u-s-m-b-15">
 
+             <!--====== Input Counter ======-->
+             <div class="input-counter">
 
+              <span class="input-counter__minus fas fa-minus"></span>
 
-    <!--====== End - Product Detail Tab ======-->
-    <div class="u-s-p-b-90">
+              <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1"
+               data-max="1000">
 
-     <!--====== Section Intro ======-->
-     <div class="section__intro u-s-m-b-46">
-      <div class="container">
-       <div class="row">
-        <div class="col-lg-12">
-         <div class="section__text-wrap">
-          <h1 class="section__heading u-c-secondary u-s-m-b-12">Related Products</h1>
+              <span class="input-counter__plus fas fa-plus"></span>
+             </div>
+             <!--====== End - Input Counter ======-->
+            </div>
+            <div class="u-s-m-b-15">
 
-          <span class="section__span u-c-grey">PRODUCTS THAT YOU MAY INTEREST</span>
+             <a href="cart.html" class="btn btn--e-brand-b-2" type="button">Add to Cart</a>
+            </div>
+           </div>
+          </form>
+
          </div>
+
+
         </div>
-=======
-            <span class="pd-detail__name">Ysl texudo </span>
-        </div>
-
-        <div class="container">
-          <span class="pd-detail__text">Frangrance : </span>
-                            
-          <!-- Info Badge -->
-          <span class="badge badge-info">Vanilla</span>
-          <span class="badge badge-info">floral</span>
-          <span class="badge badge-info">Lemon</span>
-                            
-        </div>
-
-        <div class="container mt-3">
-                                    <!-- Nav Tabs -->
-                                    <ul class="nav nav-tabs" id="myTabs">
-                                        <span class="pd-detail__text">Size : </span>
-                                        <!-- <li class="nav-item"> -->
-                                           <li> <button type="button" class="active btn btn-outline-primary" data-toggle="tab" href="#tab1">10 ml</button></li>
-                                        <!-- </li> -->
-                                        <!-- <li class="nav-item"> -->
-                                            <li><button class="btn btn-outline-primary" data-toggle="tab" href="#tab2">30 ml</button></li>
-                                        <!-- </li> -->
-                                    </ul>
-                            
-                                     <!-- Tab Content -->
-                                     <div class="tab-content mt-3">
-                                        <!-- Tab 1 Content -->
-                                        <div class="tab-pane fade show active" id="tab1">
-                                           
-
-                                            <div class="pd-detail__price">7000 Kyats</div>
-
-                                            <div class="u-s-m-b-15">
-                                                <div class="pd-detail__inline">
-                                        
-                                                 <span class="pd-detail__stock">200 in stock</span>
-                                        
-                                                 <span class="pd-detail__left">Only 2 left</span>
-                                                </div>
-                                            </div>
-
-                                            <div>
-
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                            </div>
-
-                                            <form class="pd-detail__form">
-                                                <div class="pd-detail-inline-2">
-                                                 <div class="u-s-m-b-15">
-                                       
-                                                  <!--====== Input Counter ======-->
-                                                  <div class="input-counter">
-                                       
-                                                   <span class="input-counter__minus fas fa-minus"></span>
-                                       
-                                                   <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1"
-                                                    data-max="1000">
-                                       
-                                                   <span class="input-counter__plus fas fa-plus"></span>
-                                                  </div>
-                                                  <!--====== End - Input Counter ======-->
-                                                 </div>
-                                                 <div class="u-s-m-b-15">
-                                       
-                                                  <a href="cart.html" class="btn btn--e-brand-b-2" type="button">Add to Cart</a>
-                                                 </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                            
-                                        <!-- Tab 2 Content -->
-                                        <div class="tab-pane fade" id="tab2">
-
-                                            <div class="pd-detail__price">10000 Kyats</div>
-                                           
-
-                                            <div class="u-s-m-b-15">
-                                                <div class="pd-detail__inline">
-                                        
-                                                 <span class="pd-detail__stock">200 in stock</span>
-                                        
-                                                 <span class="pd-detail__left">Only 2 left</span>
-                                                </div>
-                                            </div>
-
-                                            <div>
-
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                            </div>
-
-
-                                            <form class="pd-detail__form">
-                                                <div class="pd-detail-inline-2">
-                                                 <div class="u-s-m-b-15">
-                                       
-                                                  <!--====== Input Counter ======-->
-                                                  <div class="input-counter">
-                                       
-                                                   <span class="input-counter__minus fas fa-minus"></span>
-                                       
-                                                   <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1"
-                                                    data-max="1000">
-                                       
-                                                   <span class="input-counter__plus fas fa-plus"></span>
-                                                  </div>
-                                                  <!--====== End - Input Counter ======-->
-                                                 </div>
-                                                 <div class="u-s-m-b-15">
-                                       
-                                                  <a href="cart.html" class="btn btn--e-brand-b-2" type="button">Add to Cart</a>
-                                                 </div>
-                                                </div>
-                                            </form>
-
-                                        </div>
-
-                                        
-                                    </div>
-                                </div>
+       </div>
 
 
 
-      
+
        <div class="u-s-m-b-15">
 
         <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
@@ -341,10 +225,10 @@
    </div>
   </div>
 
-  
 
 
-                           
+
+
   <!--====== End - Product Detail Tab ======-->
   <div class="u-s-p-b-90">
 
@@ -357,7 +241,6 @@
         <h1 class="section__heading u-c-secondary u-s-m-b-12">Related Products</h1>
 
         <span class="section__span u-c-grey">PRODUCTS THAT YOU MAY INTEREST</span>
->>>>>>> master
        </div>
       </div>
      </div>
