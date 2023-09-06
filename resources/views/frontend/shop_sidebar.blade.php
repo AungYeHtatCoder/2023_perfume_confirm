@@ -36,21 +36,20 @@
     <div class="shop-w shop-w--style">
      <div class="shop-w__intro-wrap">
       <h1 class="shop-w__h">SIZES</h1>
-
       <span class="fas fa-minus collapsed shop-w__toggle" data-target="#s-size" data-toggle="collapse"></span>
      </div>
      <div class="shop-w__wrap collapse" id="s-size">
       <ul class="shop-w__category-list gl-scroll">
-       @foreach($sizes as $size)
+       @foreach ($sizes as $size)
        <li class="has-list">
-
-        <a href="{{ url('/shop/size/'.$size->id) }}">{{ $size->name}}</a>
+        <a href="{{ url('/shop/size/'.$size->id) }}">{{ $size->name }}</a>
        </li>
        @endforeach
       </ul>
      </div>
     </div>
    </div>
+
 
    <div class="u-s-m-b-30">
     <div class="shop-w shop-w--style">
