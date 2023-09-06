@@ -204,12 +204,17 @@ class WelcomeController extends Controller
 
     public function product_detail($id) {
         $product = Product::find($id);
+        $related_products = Product::where('brand_id', $product->brand_id)
+    ->where('id', '<>', $product->id)
+    ->get();
+
+        // return $product->sizes[1]->id;
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
-            return view('frontend.product_detail', compact('carts', 'product'));
+            return view('frontend.product_detail', compact('carts', 'product', 'related_products'));
         }
-        return view('frontend.product_detail', compact('product'));
+        return view('frontend.product_detail', compact('product', 'related_product'));
     }
     public function contact() {
         if(Auth::check()){

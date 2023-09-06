@@ -58,8 +58,11 @@
            <div class="product-o__action-wrap">
             <ul class="product-o__action-list">
              <li>
-              <a data-modal="modal" data-modal-id="#quick-look-top-trending-{{ $product->id }}" data-tooltip="tooltip"
-               data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a>
+              <a href="{{url('/product_detail/'.$product->id)}}" title="Product Detail">
+               <i style="color: white" class="fas fa-search-plus"></i>
+              </a>
+              <!-- <a data-modal="modal" data-modal-id="#quick-look-top-trending-{{ $product->id }}" data-tooltip="tooltip"
+               data-placement="top" title="Quick View"><i style="color: white" class="fas fa-search-plus"></i></a> -->
              </li>
              <li>
               @auth
@@ -78,8 +81,8 @@
               @endauth
 
               @guest
-              <a href="{{ url('/login') }}">
-               <i class="fas fa-plus-circle"></i>
+              <a href="{{ url('/signin') }}">
+               <i style="color: white" class="fas fa-plus-circle"></i>
               </a>
               @endguest
              </li>
@@ -132,25 +135,26 @@
 
 
 
-  <!-- new banner section -->
-  <div class="new_banner_section row">
+ <!-- new banner section -->
+ <div class="new_banner_section row">
   <div class="col-md-1">
 
   </div>
 
-<div class="col-md-5 col-sm-12">
-    <img src="{{ asset('user_app/assets/images/banners/new_banner__6.png')}}" alt="banner">
-</div>
+  <div class="col-md-5 col-sm-12">
+   <img src="{{ asset('user_app/assets/images/banners/new_banner__6.png')}}" alt="banner">
+  </div>
 
-<div class="col-md-5 col-sm-12 banner_texts">
-    <h2>Our original perfume</h2><br/>
-    <p>The new fragrance</p><br/>
-    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><br/>
+  <div class="col-md-5 col-sm-12 banner_texts">
+   <h2>Our original perfume</h2><br />
+   <p>The new fragrance</p><br />
+   <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua.</span><br />
 
-    <a href="#" type="button">SHOP NOW</a>
-</div>
+   <a href="{{ url('/shop') }}" type="button">SHOP NOW</a>
+  </div>
 
-</div>
+ </div>
 
 
-<!-- end banner section -->
+ <!-- end banner section -->

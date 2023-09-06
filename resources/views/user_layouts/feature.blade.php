@@ -32,13 +32,16 @@
         <div class="product-o__action-wrap">
          <ul class="product-o__action-list">
           <li>
-           <a data-modal="modal" data-modal-id="#quick-look-top-trending-{{ $product->id }}" data-tooltip="tooltip"
-            data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a>
+           <a href="{{url('/product_detail/'.$product->id)}}" title="Product Detail">
+            <i style="color: white" class="fas fa-search-plus"></i>
+           </a>
+           <!-- <a data-modal="modal" data-modal-id="#quick-look-top-trending-{{ $product->id }}" data-tooltip="tooltip"
+            style="color: white" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a> -->
           </li>
           <li>
            @auth
            <a onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();">
-            <i class="fas fa-plus-circle"></i>
+            <i style="color: white" class="fas fa-plus-circle"></i>
            </a>
            <form action="{{ url('/add-to-cart/'.$product->id) }}" id="addToCart-form-{{ $product->id }}" method="post"
             class="d-none">
@@ -51,7 +54,7 @@
            @endauth
 
            @guest
-           <a href="{{ url('/login') }}">
+           <a href="{{ url('/signin') }}">
             <i class="fas fa-plus-circle"></i>
            </a>
            @endguest

@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SizeController;

@@ -99,11 +99,11 @@
             <div class="product-m__content">
              <div class="product-m__category">
 
-              <a href="shop-side-version-2.html">{{ $product->brand->brand_name }}</a>
+              <small>{{ $product->brand->brand_name }}</small>
              </div>
              <div class="product-m__name">
 
-              <h4><a href="{{url('/product_detail') }}">{{ $product->product_name }}</a></h4>
+              <h4><a href="{{url('/product_detail/'.$product->id) }}">{{ $product->name }}</a></h4>
              </div>
              @foreach($product->sizes as $size)
              @if ($size->pivot->discount_price <= 0 || NULL) <span
@@ -122,13 +122,29 @@
               @endforeach
               <div class="product-m__hover">
                <div class="product-m__preview-description">
-                {!! $product->description !!}
+                <!-- {!! $product->description !!} -->
+                {!! Str::limit($product->description, 300); !!}
                </div>
 
                <div class="product-m__add-cart">
-
-                <a class="btn--e-brand" data-modal="modal" data-modal-id="#cart-top-trending-{{ $product->id }}">Add to
+                @auth
+                <a
+                 onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();"
+                 class="btn--e-brand">Add to
                  Cart</a>
+                <form action="{{ url('/add-to-cart/'.$product->id) }}" id="addToCart-form-{{ $product->id }}"
+                 method="post" class="d-none">
+                 @csrf
+                 <input type="hidden" name="size_id" value="{{ $product->sizes[0]->id }}">
+                 <input type="hidden" name="unit_price"
+                  value="{{ $product->sizes[0]->pivot->discount_price <= 0 ? $product->sizes[0]->pivot->normal_price : $product->sizes[0]->pivot->discount_price }}">
+                 <input type="hidden" name="qty" value="1">
+                </form>
+                @endauth
+                @guest
+                <a href="{{ url('/signin')}}" class="btn--e-brand">Add to
+                 Cart</a>
+                @endguest
                </div>
 
               </div>
