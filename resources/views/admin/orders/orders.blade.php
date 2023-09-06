@@ -98,7 +98,7 @@
          <td>{{ $order->payment_method }}</td>
          <td>
             @if ($order->payment_photo)
-            <img src="{{ asset('assets/img/payments/'.$order->payment_photo) }}" width="100px" alt="">
+            <img src="{{ asset('assets/img/payments/' . $order->payment_photo) }}" width="100px" alt="">
             @endif
         </td>
         <td>
