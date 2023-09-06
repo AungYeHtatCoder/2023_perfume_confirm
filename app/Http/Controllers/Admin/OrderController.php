@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+
+    public function index(){
+        $orders = Order::latest()->paginate(10);
+        $users = User::all();
+        // return $orders;
+        return view('admin.orders.orders', compact('orders', 'users'));
+    }
+
     public function store(Request $request){
         $request->validate([
             'phone' => 'required',
@@ -76,6 +84,9 @@ class OrderController extends Controller
     public function orderSuccess($id){
         if(Auth::check()){
             $order = Order::with('order_products')->where('id', $id)->where('user_id', Auth::user()->id)->first();
+            if(!$order){
+                return redirect()->back()->with('error', "Order Not Found!");
+            }
             $products = Product::all();
             $sizes = Size::all();
             return view('frontend.order-success', compact('order', 'products', 'sizes'));
