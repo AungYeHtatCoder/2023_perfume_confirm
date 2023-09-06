@@ -68,7 +68,7 @@
               @auth
               <a
                onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();">
-               <i class="fas fa-plus-circle"></i>
+               <i style="color: white" class="fas fa-plus-circle"></i>
               </a>
               <form action="{{ url('/add-to-cart/'.$product->id) }}" id="addToCart-form-{{ $product->id }}"
                method="post" class="d-none">
@@ -101,21 +101,34 @@
           </div> -->
 
           <span class="product-o__category">
-           <a href="shop-side-version-2.html">{{ $product->brand->brand_name }}</a>
+           <small>{{ $product->brand->brand_name }}</small>
           </span>
 
           <span class="product-o__name">
-           <a href="product-detail.html">{{ $product->name }}</a>
+           <a href="{{ url('/product_detail/'.$product->id) }}">{{ $product->name }}</a>
           </span>
 
-          <span class="product-o__price">{{ $product->normal_price }}
-           <span class="product-o__discount">{{ $product->discount_price }}</span>
+    @foreach ($product->sizes as $size)
+        @if ($size->pivot->discount_price <= 0 || NULL) <span
+         style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>
+         {{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+         <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
+         </span>
+         @else
+         <span
+          style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+         <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
+          <span class="product-o__discount"
+           style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
+         </span>
+         @endif
+         @endforeach
           </span>
          </div>
         </div>
 
         <!-- @endforeach -->
-        @endforeach
+    @endforeach
        </div>
 
       </div>

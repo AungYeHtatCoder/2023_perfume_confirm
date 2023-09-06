@@ -22,6 +22,20 @@ class OrderController extends Controller
         return view('admin.orders.orders', compact('orders', 'users'));
     }
 
+    public function statusChange(Request $request, $id){
+        $request->validate([
+            'status' => 'required'
+        ]);
+        $order = Order::find($id);
+        if(!$order){
+            return redirect()->back()->with('error', "Order Not Found!");
+        }
+        $order->update([
+            'status' => $request->status
+        ]);
+        return redirect()->back()->with('success', "Order Status Changed");
+    }
+
     public function store(Request $request){
         $request->validate([
             'phone' => 'required',

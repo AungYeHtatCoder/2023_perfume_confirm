@@ -43,6 +43,8 @@
                     <b class="mb-2">Email : <span>{{ Auth::user()->email }}</span></b>
                     <b class="mb-2">Phone : <span>{{ Auth::user()->phone }}</span></b>
                     <b class="mb-2">Address : <span>{{ Auth::user()->address }}</span></b>
+                    <b class="mb-2">Order Status : <span class="badge text-bg-{{ $order->status === "pending" || "delivering" ? "warning" : "success" }}">{{ $order->status }}</span></b>
+                    <b class="mb-2">Ordered Date : <span>{{ date('M d, Y (D)', strtotime($order->created_at)) }}</span></b>
                 </div>
             </div>
             <div class="col-lg-6 mb-3">
@@ -58,7 +60,7 @@
                                     <th>Qty</th>
                                     <th>Unit Price</th>
                                     <th>Total Price</th>
-                                    <th>Status</th>
+                                    {{-- <th>Status</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,7 +94,7 @@
                                     <td>
                                         {{ number_format($order_product->total_price) }} MMK
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         @if ($order_product->status === "pending")
                                         <span class="badge text-bg-warning">{{ $order_product->status }}</span>
                                         @elseif($order_product->status === "delivering")
@@ -100,13 +102,13 @@
                                         @elseif($order_product->status === "completed")
                                         <span class="badge text-bg-success">{{ $order_product->status }}</span>
                                         @endif
-                                    </td>
+                                    </td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="6">
+                                    <td colspan="5">
                                         <b>Grand Total</b>
                                     </td>
                                     <td>

@@ -78,6 +78,7 @@
          <th>Subtotal</th>
          <th>Payment Method</th>
          <th>Payment Photo</th>
+         <th>Status</th>
          <th>Created_At</th>
          <th>Updated_At</th>
          <th>Action</th>
@@ -99,6 +100,18 @@
             @if ($order->payment_photo)
             <img src="{{ asset('assets/img/payments/'.$order->payment_photo) }}" width="100px" alt="">
             @endif
+        </td>
+        <td>
+            <span class="badge badge-{{ $order->status === "completed" ? "success" : "warning" }}">{{ $order->status }}</span>
+            <form action="{{ url('/admin/orders/statusChange/'.$order->id) }}" method="post">
+                @csrf
+                <select name="status" id="" class="form-select mt-1">
+                    <option value="pending">Pending</option>
+                    <option value="delivering">Delivering</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <button class="btn btn-sm btn-primary mt-1" type="submit">Change</button>
+            </form>
         </td>
          <td>{{ $order->created_at }}</td>
          <td>{{ $order->updated_at }}</td>
