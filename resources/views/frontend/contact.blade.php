@@ -16,11 +16,9 @@
        <div class="breadcrumb__wrap">
         <ul class="breadcrumb__list">
          <li class="has-separator">
-
           <a href="index.html">Home</a>
          </li>
          <li class="is-marked">
-
           <a href="contact.html">Contact</a>
          </li>
         </ul>
