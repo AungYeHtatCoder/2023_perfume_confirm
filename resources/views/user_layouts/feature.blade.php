@@ -96,6 +96,7 @@
 
 
 
+<<<<<<< HEAD
  <!-- new banner section -->
  <div class="new_banner_section row">
   <div class="col-md-1">
@@ -119,3 +120,6 @@
 
 
  <!-- end banner section -->
+=======
+ 
+>>>>>>> master

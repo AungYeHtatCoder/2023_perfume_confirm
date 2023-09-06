@@ -10,6 +10,9 @@
  <link href="{{ asset('assets/img/logo.png')}}" rel="icon">
  <title>In Scents - @yield('title')</title>
 
+ <!-- bootstrap css1 js1 -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
  <!--====== Google Font ======-->
  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet"> -->
  <link rel="preconnect" href="https://fonts.googleapis.com">
