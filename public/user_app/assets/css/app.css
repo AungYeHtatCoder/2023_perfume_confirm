@@ -3565,7 +3565,12 @@ hr {
 }
 
 .about__container {
+
+  display: flex;
+  align-items: center;
   padding: 60px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  letter-spacing: 2px;
 }
 
 .about__info {
@@ -3576,7 +3581,8 @@ hr {
   color: #333333;
   font-weight: 600;
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 40px;
+  text-align: center;
 }
 
 .about .about__p-wrap {
@@ -3606,6 +3612,8 @@ hr {
 
 .about__p {
   color: #333333;
+  font-size: 15px;
+  text-align: center;
 }
 
 .about__link {
@@ -3614,6 +3622,9 @@ hr {
   border-radius: 40px;
   font-weight: 600;
   font-size: 12px;
+  margin-top: 15px;
+
+  justify-content: center;
 }
 
 .team-member {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Customer;
 
+use App\Models\Admin\Size;
 use App\Models\Admin\Brand;
 use Illuminate\Http\Request;
 use App\Models\Admin\Product;
@@ -14,12 +15,10 @@ class CustomerProductShowController extends Controller
      */
     public function index()
     {
-        // products with pagination 9 per page
-            $products = Product::with('scents')->latest()->paginate(9);    
-        // return $products;
-        // brand with pagination 9 per page
+        $products = Product::with('scents')->latest()->paginate(9);
          $brands = Brand::with('products')->latest()->paginate(9);
-            return view('customer.customer_dashboard', compact('products', 'brands'));
+         $sizes = Size::all();
+        return view('customer.customer_dashboard', compact('products', 'brands', 'sizes'));
     }
 
     /**
