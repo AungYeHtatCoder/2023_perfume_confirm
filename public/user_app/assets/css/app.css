@@ -1,3 +1,7 @@
+body{
+  width: 100vw;
+}
+
 /* new banner section */
 
 .new_banner_section{
@@ -98,7 +102,7 @@
   width: 600px;
   height: auto;
 
-  margin-top: 50px;
+  margin-top: 30px;
   /* margin-bottom: 100px; */
 
 }
