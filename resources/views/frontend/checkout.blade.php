@@ -44,14 +44,14 @@
                                 <!--====== First Name, Last Name ======-->
                                 <div class="u-s-m-b-15">
                                 <label class="gl-label" for="billing-fname">USERNAME *</label>
-                                <input class="input-text input-text--primary-style" type="text" name="name" required id="billing-fname" data-bill="" value="{{ Auth::user()->name }}">
+                                <input class="input-text input-text--primary-style" type="text" disabled name="name" required id="billing-fname" data-bill="" value="{{ Auth::user()->name }}">
                                 </div>
                                 <!--====== End - First Name, Last Name ======-->
 
                                 <!--====== E-MAIL ======-->
                                 <div class="u-s-m-b-15">
                                 <label class="gl-label" for="billing-email">E-MAIL *</label>
-                                <input class="input-text input-text--primary-style" type="email" name="email" required id="billing-email" data-bill="" value="{{ Auth::user()->email }}">
+                                <input class="input-text input-text--primary-style" type="email" disabled name="email" required id="billing-email" data-bill="" value="{{ Auth::user()->email }}">
                                 </div>
                                 <!--====== End - E-MAIL ======-->
 
@@ -66,17 +66,13 @@
 
                                 <!--====== Street Address ======-->
                                 <div class="u-s-m-b-15">
-                                <label class="gl-label" for="billing-street">FULL ADDRESS *</label>
-                                <input class="input-text input-text--primary-style" name="address" type="text" required id="billing-street"
-                                placeholder="House name and street name" data-bill="" value="{{ Auth::user()->address }}">
+                                    <label class="gl-label" for="billing-street">FULL ADDRESS *</label>
+                                    <input class="input-text input-text--primary-style" name="address" type="text" required id="billing-street"
+                                    placeholder="House name and street name" data-bill="" value="{{ Auth::user()->address }}">
                                 </div>
                                 <!--====== End - Street Address ======-->
 
-                                {{-- Order Note --}}
-                                <div class="u-s-m-b-10">
-                                <label class="gl-label" for="order-note">ORDER NOTE</label><textarea
-                                class="text-area text-area--primary-style" id="order-note" name="order_note"></textarea>
-                                </div>
+
                                 <div>
 
                                 <button class="btn btn--e-transparent-brand-b-2" type="submit">SAVE</button>
@@ -119,21 +115,21 @@
                                     <div class="o-summary__box">
                                         <table class="o-summary__table">
                                             <tbody>
-                                                <tr>
+                                                {{-- <tr>
                                                     <td>SHIPPING</td>
                                                     <td>$4.00</td>
-                                                </tr>
-                                                <tr>
+                                                </tr> --}}
+                                                {{-- <tr>
                                                     <td>TAX</td>
                                                     <td>$0.00</td>
-                                                </tr>
+                                                </tr> --}}
                                                 <tr>
                                                     <td>SUBTOTAL</td>
-                                                    <td>$379.00</td>
+                                                    <td>{{ number_format($carts->sum('total_price')) }} MMK</td>
                                                 </tr>
                                                 <tr>
                                                     <td>GRAND TOTAL</td>
-                                                    <td>$379.00</td>
+                                                    <td>{{ number_format($carts->sum('total_price')) }} MMK</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -143,48 +139,53 @@
                                 <div class="o-summary__section u-s-m-b-30">
                                     <div class="o-summary__box">
                                         <h1 class="checkout-f__h1">PAYMENT INFORMATION</h1>
-                                        <form class="checkout-f__payment">
-                                            <div class="u-s-m-b-10">
-                                                <!--====== Radio Box ======-->
-                                                <div class="radio-box">
-                                                    <input type="radio" id="cash-on-delivery" name="payment">
-                                                    <div class="radio-box__state radio-box__state--primary">
-                                                        <label class="radio-box__label" for="cash-on-delivery">Cash on Delivery</label>
+                                        <form class="checkout-f__payment" action="{{ url('/place-order/') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @error('payment_method')
+                                            <span style="color:red; display:block; margin-bottom: 20px;">*{{ $message }}</span>
+                                            @enderror
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="u-s-m-b-10">
+                                                        <!--====== Radio Box ======-->
+                                                        <div class="radio-box">
+                                                            <input type="radio" id="cash-on-delivery" name="payment_method" value="Cash On Delivery">
+                                                            <div class="radio-box__state radio-box__state--primary">
+                                                                <label class="radio-box__label" for="cash-on-delivery">Cash on Delivery</label>
+                                                            </div>
+                                                        </div>
+                                                        <!--====== End - Radio Box ======-->
+
+                                                        {{-- <span class="gl-text u-s-m-t-6">
+                                                                Pay Upon Cash on delivery. (This service is only available for some
+                                                            countries)
+                                                        </span> --}}
                                                     </div>
                                                 </div>
-                                                <!--====== End - Radio Box ======-->
+                                                <div class="col-lg-6">
+                                                    <div class="u-s-m-b-10">
+                                                        <!--====== Radio Box ======-->
+                                                        <div class="radio-box">
+                                                            <input type="radio" id="kpay" name="payment_method" value="KBZPay">
+                                                            <div class="radio-box__state radio-box__state--primary u-s-m-b-20">
+                                                                <label class="radio-box__label" for="kpay">KBZPay</label>
+                                                            </div>
 
-                                                <span class="gl-text u-s-m-t-6">
-                                                        Pay Upon Cash on delivery. (This service is only available for some
-                                                    countries)
-                                                </span>
-                                            </div>
-                                            <div class="u-s-m-b-10">
-                                                <!--====== Radio Box ======-->
-                                                <div class="radio-box">
-                                                    <input type="radio" id="pay-pal" name="payment">
-                                                    <div class="radio-box__state radio-box__state--primary">
-                                                        <label class="radio-box__label" for="pay-pal">Kpay</label>
+                                                        </div>
+                                                        <input type="file" class="" name="payment_photo" id="">
+                                                        <!--====== End - Radio Box ======-->
+
+                                                        {{-- <span class="gl-text u-s-m-t-6">When you click "Place Order" below we'll take you to Kpay's site to set up
+                                                        your billing information.</span> --}}
                                                     </div>
                                                 </div>
-                                                <!--====== End - Radio Box ======-->
-
-                                                <span class="gl-text u-s-m-t-6">When you click "Place Order" below we'll take you to Kpay's site to set up
-                                                your billing information.</span>
                                             </div>
-                                            <div class="u-s-m-b-15">
-                                                <!--====== Check Box ======-->
-                                                <div class="check-box">
-                                                    <input type="checkbox" id="term-and-condition">
-                                                    <div class="check-box__state check-box__state--primary">
-                                                        <label class="check-box__label" for="term-and-condition">I consent to the</label>
-                                                    </div>
+                                            {{-- Order Note --}}
+                                                <div class="u-s-m-b-10" style="width: 100%;">
+                                                    <label class="gl-label" for="order-note">ORDER NOTE (Optional)</label>
+                                                    <textarea class="text-area text-area--primary-style" id="order-note" name="order_note"></textarea>
                                                 </div>
-                                                <!--====== End - Check Box ======-->
-
-                                                <a class="gl-link">Terms of Service.</a>
-                                            </div>
-                                            <div>
+                                            <div class="u-s-m-t-40">
                                                 <button class="btn btn--e-brand-b-2" type="submit">PLACE ORDER</button>
                                             </div>
                                         </form>
