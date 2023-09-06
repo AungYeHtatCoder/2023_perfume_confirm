@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Customer\ProductBandSearchController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
 
@@ -42,7 +43,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('profiles', ProfileController::class);
     //Route::post('/profiles/update/', [ProfileController::class, 'profileChange']);
     // brand_categories resource rotues
-    // change password route with auth id 
+    // change password route with auth id
     Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('changePassword');
     // PhoneAddressChange route with auth id route with put method
     Route::put('/change-phone-address', [ProfileController::class, 'PhoneAddressChange'])->name('changePhoneAddress');
@@ -90,6 +91,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/cart/delete/{id}', [CartController::class, 'delete']);
     Route::post('/carts/all/update/{id}', [CartController::class, 'updateAllCarts']);
     Route::post('/carts/all/clear/', [CartController::class, 'clearAll']);
+    Route::post('/order', [OrderController::class, 'store']);
+    Route::post('/place-order/', [OrderController::class, 'placeOrder']);
+    Route::get('/order-success/{id}', [OrderController::class, 'orderSuccess']);
     // product brand search route @ProductBrandSearch method
     Route::post('/search', [ProductBandSearchController::class, 'ProductBrandSearch'])->name('search');
     // customer auth routes goes here
