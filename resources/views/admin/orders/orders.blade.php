@@ -116,11 +116,10 @@
          <td>{{ $order->created_at }}</td>
          <td>{{ $order->updated_at }}</td>
          <td>
-          <a href="" class="btn btn-warning btn-sm">Edit</a>
-          <a href="" class="btn btn-primary btn-sm">Show</a>
-          <form action="" method="POST">
+          {{-- <a href="" class="btn btn-warning btn-sm">Edit</a> --}}
+          <a href="{{ url('/admin/orders/show/'.$order->id) }}" class="btn btn-warning btn-sm">Show</a>
+          <form action="{{ url('/admin/orders/delete/'.$order->id) }}" class="d-inline" method="POST">
            @csrf
-           @method('DELETE')
            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
           </form>
 
@@ -129,7 +128,7 @@
         @endforeach
        </tbody>
       </table>
-      {{ $orders->links() }}
+      {{-- {{ $orders->links() }} --}}
      </div>
     </div>
    </div>

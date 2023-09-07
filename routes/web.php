@@ -63,6 +63,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
      Route::get('customer-show-product', [CustomerProductShowController::class, 'index'])->name('customer-show-product');
 
     Route::get('/orders/', [OrderController::class, 'index']); //show all orders
+    Route::get('/orders/show/{id}', [OrderController::class, 'show']); //show order detail
+    Route::post('/orders/delete/{id}', [OrderController::class, 'delete']); //delete order
     Route::get('/orders/{status}', [OrderController::class, 'status']); // show orders by status
     Route::post('/orders/statusChange/{id}', [OrderController::class, 'statusChange']); //status Change
     Route::get('/fetch-order-notifications', [App\Http\Controllers\Admin\OrderNotificationController::class, 'OrderfetchNotifications'])->name('orderfetchNotifications');
