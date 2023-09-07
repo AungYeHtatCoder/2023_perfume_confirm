@@ -335,7 +335,12 @@ function fetchAndDisplayNotifications() {
                 div.textContent = `Order ID: ${notification.data.order_id}, Message: ${notification.data.message}`;
 
                 const deleteButton = document.createElement("button");
-                deleteButton.textContent = "Delete";
+                deleteButton.classList.add("btn", "btn-sm");
+
+                const trashIcon = document.createElement("i");
+                trashIcon.classList.add("fas", "fa-trash", "text-danger");
+                deleteButton.appendChild(trashIcon);
+
                 deleteButton.onclick = function () {
                     deleteNotification(notification.id); // notification.id must be the id of this notification from the server
                 };
