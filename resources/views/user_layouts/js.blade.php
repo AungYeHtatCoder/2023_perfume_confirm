@@ -1,3 +1,9 @@
+<!-- bootstrap css1 js1 -->
+<!-- Include Bootstrap JS and jQuery -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
 <script>
 window.ga = function() {
  ga.q.push(arguments)
@@ -7,9 +13,14 @@ ga.l = +new Date;
 ga('create', 'UA-XXXXX-Y', 'auto');
 ga('send', 'pageview')
 </script>
+
+
+
 <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
 <script src="{{ asset('assets/js/sweetAlert.js') }}"></script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
 
 <!--====== Vendor Js ======-->
 <script src="{{ asset('user_app/assets/js/vendor.js')}}"></script>
