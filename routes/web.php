@@ -67,6 +67,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::post('/orders/delete/{id}', [OrderController::class, 'delete']); //delete order
     Route::get('/orders/{status}', [OrderController::class, 'status']); // show orders by status
     Route::post('/orders/statusChange/{id}', [OrderController::class, 'statusChange']); //status Change
+    Route::get('/fetch-order-notifications', [App\Http\Controllers\Admin\OrderNotificationController::class, 'OrderfetchNotifications'])->name('orderfetchNotifications');
+    Route::delete('/delete-notification/{id}', [App\Http\Controllers\Admin\OrderNotificationController::class, 'destroy'])->name('deleteNotification');
+
 
 });
 
@@ -108,7 +111,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::post('/place-order/', [OrderController::class, 'placeOrder']);
     Route::get('/order-success/{id}', [OrderController::class, 'orderSuccess']);
     // product brand search route @ProductBrandSearch method
-    Route::post('/search', [ProductBandSearchController::class, 'ProductBrandSearch'])->name('search');
+    Route::post('/search', [ProductBandSearchController::class, 'globalSearch'])->name('search');
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {
         // Other Customer routes Add Here
