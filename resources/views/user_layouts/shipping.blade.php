@@ -9,7 +9,7 @@
         <div class="service__icon"><i class="fas fa-truck"></i></div>
         <div class="service__info-wrap">
 
-         <span class="service__info-text-1">Free Shipping</span>
+         <span class="service__info-text-1">Cash on Delivary</span>
 
          <span class="service__info-text-2">Free shipping on all US order or order above $200</span>
         </div>
