@@ -1,33 +1,42 @@
-import 'bootstrap';
+import "bootstrap";
+import axios from "axios";
+import Echo from "laravel-echo";
+import Pusher from "pusher-js";
+import $ from "jquery"; // Importing jQuery if you are using it.
 
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
-import axios from 'axios';
+window.$ = window.jQuery = $; // Setting up jQuery globally
 window.axios = axios;
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
+// Setting up Pusher and Echo
+window.Pusher = Pusher;
 
-// import Echo from 'laravel-echo';
+// ... (Your existing imports and other setup code)
 
-// import Pusher from 'pusher-js';
-// window.Pusher = Pusher;
+window.Echo = new Echo({
+    broadcaster: "pusher",
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    encrypted: true,
+});
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: import.meta.env.VITE_PUSHER_APP_KEY,
-//     wsHost: import.meta.env.VITE_PUSHER_HOST ?? `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
-//     wsPort: import.meta.env.VITE_PUSHER_PORT ?? 80,
-//     wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
-//     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
-//     enabledTransports: ['ws', 'wss'],
-// });
+window.Echo.channel("new-order").listen("NewOrderEvent", (e) => {
+    // Update the notification badge
+    const existingCount = parseInt($("#new-orders-badge").text(), 10);
+    $("#new-orders-badge").text(existingCount + 1);
+
+    // Add new notification to dropdown list
+    $("#notification-list").prepend(`
+        <a href="javascript:void(0)">
+            <div class="media">
+                <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan mr-0"></i></div>
+                <div class="media-body">
+                    <h6 class="media-heading">You have a new order!</h6>
+                    <p class="notification-text font-small-3 text-muted">${e.order.description}</p>
+                    <small><time class="media-meta text-muted" datetime="${e.order.created_at}">${e.order.created_at}</time></small>
+                </div>
+            </div>
+        </a>
+    `);
+});

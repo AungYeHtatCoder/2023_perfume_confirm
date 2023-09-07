@@ -12,6 +12,9 @@
  <meta name="keywords"
   content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
  <meta name="author" content="PIXINVENT">
+ <meta name="pusher-key" content="{{ env('MIX_PUSHER_APP_KEY') }}">
+ <meta name="pusher-cluster" content="{{ env('MIX_PUSHER_APP_CLUSTER') }}">
+
  <title>In Scents</title>
  <link rel="icon" href="{{ asset('assets/img/logo.png') }}">
  {{-- <link rel="apple-touch-icon" href="{{ asset('admin_app/app-assets/images/ico/apple-icon-120.png') }}"> --}}
@@ -59,6 +62,7 @@
  <!-- END: Custom CSS-->
 
  <link rel="stylesheet" type="text/css" href="{{ asset('admin_app/app-assets/css/material-colors.css') }}">
+ @vite(['resources/js/order.js'])
 
 
 </head>
