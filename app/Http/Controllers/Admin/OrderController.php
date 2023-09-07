@@ -64,53 +64,6 @@ class OrderController extends Controller
         return redirect()->back()->with('success', "Delivery Information Added.");
     }
 
-    // public function placeOrder(Request $request){
-    //     $user = User::find(Auth::user()->id);
-    //     $carts = Cart::where('user_id', Auth::user()->id)->with(['products', 'sizes'])->get();
-    //     if($user->phone && $user->address){
-    //         $request->validate([
-    //             'payment_method' => 'required'
-    //         ]);
-    //         if($request->payment_method === "Cash On Delivery"){
-    //             $order = Order::create([
-    //                 'user_id' => Auth::user()->id,
-    //                 'sub_total' => $carts->sum('total_price'),
-    //                 'payment_method' => $request->payment_method,
-    //                 'order_note' => $request->order_note ? $request->order_note : ""
-    //             ]);
-    //         }else{
-    //             // image
-    //             $image = $request->file('payment_photo');
-    //             $ext = $image->getClientOriginalExtension();
-    //             $filename = uniqid('payment') . '.' . $ext; // Generate a unique filename
-    //             $image->move(public_path('assets/img/payments/'), $filename); // Save the file to the pub
-
-    //             $order = Order::create([
-    //                 'user_id' => Auth::user()->id,
-    //                 'sub_total' => $carts->sum('total_price'),
-    //                 'payment_method' => $request->payment_method,
-    //                 'payment_photo' => $filename,
-
-    //             ]);
-    //             event(new NewOrderEvent($order));
-    //         }
-    //         foreach($carts as $cart){
-    //             OrderProduct::create([
-    //                 'order_id' => $order->id,
-    //                 'product_id' => $cart->product_id,
-    //                 'size_id' => $cart->size_id,
-    //                 'qty' => $cart->qty,
-    //                 'total_price' => $cart->total_price,
-    //             ]);
-    //         }
-    //         Cart::where('user_id', Auth::user()->id)->delete();
-    //         return redirect('/order-success/'.$order->id)->with('success', "Order Submitted Successfully.");
-
-    //     }else{
-    //         return redirect()->back()->with('error', "Delivery Information is required!");
-    //     }
-    // }
-
     // add order notification
     public function placeOrder(Request $request){
         $user = User::find(Auth::user()->id);
@@ -119,65 +72,22 @@ class OrderController extends Controller
             $request->validate([
                 'payment_method' => 'required'
             ]);
-
-            if ($request->payment_method === "Cash On Delivery") {
+            if($request->payment_method === "Cash On Delivery"){
                 $order = Order::create([
                     'user_id' => Auth::user()->id,
                     'sub_total' => $carts->sum('total_price'),
                     'payment_method' => $request->payment_method,
                     'order_note' => $request->order_note ? $request->order_note : ""
                 ]);
-                if($request->payment_method === "Cash On Delivery"){
-                    $order = Order::create([
-                        'user_id' => Auth::user()->id,
-                        'sub_total' => $carts->sum('total_price'),
-                        'payment_method' => $request->payment_method,
-                        'order_note' => $request->order_note ? $request->order_note : ""
-                    ]);
-                }else{
-                    if(!$request->file('payment_photo')){
-                        return redirect()->back()->with('error', "Payment Slip must be inserted.");
-                    }
-                    // image
-                    $image = $request->file('payment_photo');
-                    $ext = $image->getClientOriginalExtension();
-                    $filename = uniqid('payment') . '.' . $ext; // Generate a unique filename
-                    $image->move(public_path('assets/img/payments/'), $filename); // Save the file to the pub
-
-                    $order = Order::create([
-                        'user_id' => Auth::user()->id,
-                        'sub_total' => $carts->sum('total_price'),
-                        'payment_method' => $request->payment_method,
-                        'payment_photo' => $filename,
-
-                    ]);
+            }else{
+                if(!$request->file('payment_photo')){
+                    return redirect()->back()->with('error', "Payment Slip must be inserted.");
                 }
-                foreach($carts as $cart){
-                    OrderProduct::create([
-                        'order_id' => $order->id,
-                        'product_id' => $cart->product_id,
-                        'size_id' => $cart->size_id,
-                        'qty' => $cart->qty,
-                        'total_price' => $cart->total_price,
-                    ]);
-
-                    $product = Product::find($cart->product_id);
-
-                    $sizeId = $cart->size_id;
-                    $qtyToSubtract = (int)$cart->qty;
-
-                    $product->sizes()->updateExistingPivot($sizeId, ['qty' => DB::raw("qty - $qtyToSubtract")]);
-
-                }
-                Cart::where('user_id', Auth::user()->id)->delete();
-                return redirect('/order-success/'.$order->id)->with('success', "Order Submitted Successfully.");
-
-            }else {
                 // image
                 $image = $request->file('payment_photo');
                 $ext = $image->getClientOriginalExtension();
                 $filename = uniqid('payment') . '.' . $ext; // Generate a unique filename
-                $image->move(public_path('assets/img/payments/'), $filename); // Save the file to the public directory
+                $image->move(public_path('assets/img/payments/'), $filename); // Save the file to the pub
 
                 $order = Order::create([
                     'user_id' => Auth::user()->id,
@@ -190,7 +100,7 @@ class OrderController extends Controller
             // Trigger the event for admin notification
             event(new NewOrderEvent($order));
 
-            foreach ($carts as $cart) {
+            foreach($carts as $cart){
                 OrderProduct::create([
                     'order_id' => $order->id,
                     'product_id' => $cart->product_id,
@@ -198,12 +108,18 @@ class OrderController extends Controller
                     'qty' => $cart->qty,
                     'total_price' => $cart->total_price,
                 ]);
+
+                $product = Product::find($cart->product_id);
+
+                $sizeId = $cart->size_id;
+                $qtyToSubtract = (int)$cart->qty;
+
+                $product->sizes()->updateExistingPivot($sizeId, ['qty' => DB::raw("qty - $qtyToSubtract")]);
+
             }
             Cart::where('user_id', Auth::user()->id)->delete();
-
             return redirect('/order-success/'.$order->id)->with('success', "Order Submitted Successfully.");
-        } else {
-            return redirect()->back()->with('error', "Delivery Information is required!");
+
         }
     }
 
