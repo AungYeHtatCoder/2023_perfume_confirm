@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SizeController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Customer\CustomerProfileController;
 use App\Http\Controllers\Customer\ProductBandSearchController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
@@ -43,7 +45,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('profiles', ProfileController::class);
     //Route::post('/profiles/update/', [ProfileController::class, 'profileChange']);
     // brand_categories resource rotues
-    // change password route with auth id 
+    // change password route with auth id
     Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('changePassword');
     // PhoneAddressChange route with auth id route with put method
     Route::put('/change-phone-address', [ProfileController::class, 'PhoneAddressChange'])->name('changePhoneAddress');
@@ -59,6 +61,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     // Product resource rotues
     Route::resource('products', ProductController::class);
      Route::get('customer-show-product', [CustomerProductShowController::class, 'index'])->name('customer-show-product');
+
+    Route::get('/orders/', [OrderController::class, 'index']); //show all orders
+    Route::get('/orders/{status}', [OrderController::class, 'status']); // show orders by status
+    Route::post('/orders/statusChange/{id}', [OrderController::class, 'statusChange']); //status Change
+
 });
 
 //product popular change
@@ -73,9 +80,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/checkout', [WelcomeController::class, 'checkout']);
     Route::get('/cart', [WelcomeController::class, 'cart']);
     Route::get('/shop', [WelcomeController::class, 'shop']);
+    Route::get('/shop/scent/{id}', [WelcomeController::class, 'scent']);
+    Route::get('/shop/size/{id}', [WelcomeController::class, 'size']);
+    Route::get('/shop/brand/{id}', [WelcomeController::class, 'brand']);
     Route::get('/contact', [WelcomeController::class, 'contact']);
     Route::get('/aboutus', [WelcomeController::class, 'aboutus']);
-    Route::get('/product_detail', [WelcomeController::class, 'product_detail']);
+    Route::get('/product_detail/{id}', [WelcomeController::class, 'product_detail']);
     Route::get('/dashboard', [WelcomeController::class, 'dashboard']);
     Route::get('/profile', [WelcomeController::class, 'profile']);
     Route::get('/delivary-info', [WelcomeController::class, 'delivary_info']);
@@ -92,14 +102,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/cart/delete/{id}', [CartController::class, 'delete']);
     Route::post('/carts/all/update/{id}', [CartController::class, 'updateAllCarts']);
     Route::post('/carts/all/clear/', [CartController::class, 'clearAll']);
+    Route::post('/order', [OrderController::class, 'store']);
+    Route::post('/place-order/', [OrderController::class, 'placeOrder']);
+    Route::get('/order-success/{id}', [OrderController::class, 'orderSuccess']);
     // product brand search route @ProductBrandSearch method
     Route::post('/search', [ProductBandSearchController::class, 'globalSearch'])->name('search');
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {
         // Other Customer routes Add Here
-       
+
         // customer profile update route
     Route::put('/change-password', [CustomerProfileController::class, 'CustomerchangePassword'])->name('customerchangePassword');
     // PhoneAddressChange route with auth id route with put method
-    Route::put('/change-phone-address', [CustomerProfileController::class, 'CustomerPhoneAddressChange'])->name('customerchangePhoneAddress');        
+    Route::put('/change-phone-address', [CustomerProfileController::class, 'CustomerPhoneAddressChange'])->name('customerchangePhoneAddress');
     });

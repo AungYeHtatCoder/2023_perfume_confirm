@@ -1,3 +1,7 @@
+body{
+  width: 100vw;
+}
+
 /* new banner section */
 
 .new_banner_section{
@@ -98,7 +102,7 @@
   width: 600px;
   height: auto;
 
-  margin-top: 50px;
+  margin-top: 30px;
   /* margin-bottom: 100px; */
 
 }
@@ -6084,6 +6088,20 @@ hr {
 /*--------------------------------------------------------------
 18.0 Product-Detail-Pages
 --------------------------------------------------------------*/
+.pd-detail .pd-detail__text{
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.pd-detail .nav li>button{
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+
+
+
 .pd-breadcrumb__list {
   list-style: none;
   padding: 0;
@@ -6191,7 +6209,8 @@ hr {
 .pd-detail__name {
   display: block;
   color: #333333;
-  font-size: 16px;
+  font-size: 25px;
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 600;
 }
 
@@ -6273,6 +6292,7 @@ hr {
 
 .pd-detail__form {
   width: 100%;
+  margin-top: 10px;
 }
 
 .pd-detail__form .btn {
