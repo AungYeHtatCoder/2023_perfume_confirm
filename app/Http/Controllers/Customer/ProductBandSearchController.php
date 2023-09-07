@@ -10,15 +10,37 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductBandSearchController extends Controller
 {
-    public function ProductBrandSearch(Request $request)
+    
+
+    public function globalSearch(Request $request)
     {
-        $query = $request->input('query');
-        $products = Product::where('name', 'LIKE', '%' . $query . '%')
-                ->with('brand', 'scents', 'sizes')
-                ->paginate(10);  // 10 is the number of items per page
-                //->get();
-        return view('frontend.search_result_page', compact('products'));
-    }
+    $query = $request->input('query');
+    
+    $products = Product::where('name', 'LIKE', "%{$query}%")
+        ->orWhereHas('brand', function ($q) use ($query) {
+            $q->where('brand_name', 'LIKE', "%{$query}%");
+        })
+        ->orWhereHas('sizes', function ($q) use ($query) {
+            $q->where('name', 'LIKE', "%{$query}%");
+        })
+        ->orWhereHas('scents', function ($q) use ($query) {
+            $q->where('scent_name', 'LIKE', "%{$query}%");
+        })
+        ->with('brand', 'sizes', 'scents')
+        ->paginate(10);
+
+    return view('frontend.search_result_page', compact('products'));
+}
+
+    // public function ProductBrandSearch(Request $request)
+    // {
+    //     $query = $request->input('query');
+    //     $products = Product::where('name', 'LIKE', '%' . $query . '%')
+    //             ->with('brand', 'scents', 'sizes')
+    //             ->paginate(10);  // 10 is the number of items per page
+    //             //->get();
+    //     return view('frontend.search_result_page', compact('products'));
+    // }
 }
 
 /* 

@@ -93,7 +93,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::post('/carts/all/update/{id}', [CartController::class, 'updateAllCarts']);
     Route::post('/carts/all/clear/', [CartController::class, 'clearAll']);
     // product brand search route @ProductBrandSearch method
-    Route::post('/search', [ProductBandSearchController::class, 'ProductBrandSearch'])->name('search');
+    Route::post('/search', [ProductBandSearchController::class, 'globalSearch'])->name('search');
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {
         // Other Customer routes Add Here
