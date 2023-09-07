@@ -11,15 +11,29 @@ use App\Models\Admin\Size;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
 
     public function index(){
-        $orders = Order::latest()->paginate(10);
+        $orders = Order::latest()->get();
         $users = User::all();
         // return $orders;
         return view('admin.orders.orders', compact('orders', 'users'));
+    }
+
+    public function show($id){
+        $order = Order::find($id);
+        $users = User::all();
+        $products = Product::all();
+        $sizes = Size::all();
+        return view('admin.orders.show', compact('order', 'users', 'products', 'sizes'));
+    }
+
+    public function delete($id){
+        Order::destroy($id);
+        return redirect()->back()->with('success', "Order Deleted");
     }
 
     public function statusChange(Request $request, $id){
@@ -64,6 +78,9 @@ class OrderController extends Controller
                     'order_note' => $request->order_note ? $request->order_note : ""
                 ]);
             }else{
+                if(!$request->file('payment_photo')){
+                    return redirect()->back()->with('error', "Payment Slip must be inserted.");
+                }
                 // image
                 $image = $request->file('payment_photo');
                 $ext = $image->getClientOriginalExtension();
@@ -86,6 +103,14 @@ class OrderController extends Controller
                     'qty' => $cart->qty,
                     'total_price' => $cart->total_price,
                 ]);
+
+                $product = Product::find($cart->product_id);
+
+                $sizeId = $cart->size_id;
+                $qtyToSubtract = (int)$cart->qty;
+
+                $product->sizes()->updateExistingPivot($sizeId, ['qty' => DB::raw("qty - $qtyToSubtract")]);
+
             }
             Cart::where('user_id', Auth::user()->id)->delete();
             return redirect('/order-success/'.$order->id)->with('success', "Order Submitted Successfully.");
