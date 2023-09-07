@@ -50,15 +50,15 @@ class Product extends Model
         return $this->hasMany(OrderProduct::class);
     }
 
-// public function perfumeSize()
-// {
-//     return $this->belongsTo(PerfumeSize::class);
-// }
+public function perfumeSize()
+{
+    return $this->belongsTo(PerfumeSize::class);
+}
 
-    // public function scent()
-    // {
-    //     return $this->belongsTo(Scent::class);
-    // }
+    public function scent()
+    {
+        return $this->belongsTo(Scent::class);
+    }
 
 
     public static function searchByName($query)
