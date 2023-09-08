@@ -66,6 +66,11 @@ class HomeController extends Controller
         ->whereMonth('created_at', Carbon::now()->month)
         ->groupBy(DB::raw('MONTH(created_at)'))
         ->get();
+// month
+ $monthlySales = DB::table('order_products')
+        ->select(DB::raw('SUM(total_price) as total_price'), DB::raw('MONTH(created_at) as month'))
+        ->groupBy(DB::raw('MONTH(created_at)'))
+        ->get();
 
         // Pass this variable to the view
         return view('admin.dashboard', [
@@ -75,7 +80,8 @@ class HomeController extends Controller
             'sold_out_orders' => $sold_out_orders,
             'salesByDay' => $salesByDay,
             'salesByWeek' => $salesByWeek,
-            'salesByMonth' => $salesByMonth
+            'salesByMonth' => $salesByMonth,
+            'monthlySales' => $monthlySales,
         ]);
 
     } else {

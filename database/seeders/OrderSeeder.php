@@ -42,6 +42,8 @@ class OrderSeeder extends Seeder
                         'size_id' => $faker->numberBetween(1, 2),
                         'qty' => $faker->numberBetween(1, 10),
                         'total_price' => $faker->numberBetween(50, 500),
+                        'created_at' => $faker->dateTimeBetween('-1 year', 'now'),
+                        'updated_at' => $faker->dateTimeBetween('-1 year', 'now'),
                     ],
                     // Add more products as needed
                 ]);

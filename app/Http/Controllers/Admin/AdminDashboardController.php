@@ -57,6 +57,12 @@ class AdminDashboardController extends Controller
         ->groupBy(DB::raw('MONTH(created_at)'))
         ->get();
 
+        // monthly sales
+         $monthlySales = DB::table('order_products')
+        ->select(DB::raw('SUM(total_price) as total_price'), DB::raw('MONTH(created_at) as month'))
+        ->groupBy(DB::raw('MONTH(created_at)'))
+        ->get();
+
         // Pass this variable to the view
         return response()->json([
             'orders' => $orders,
@@ -65,7 +71,8 @@ class AdminDashboardController extends Controller
             'sold_out_orders' => $sold_out_orders,
             'salesByDay' => $salesByDay,
             'salesByWeek' => $salesByWeek,
-            'salesByMonth' => $salesByMonth
+            'salesByMonth' => $salesByMonth, 
+            'monthlySales' => $monthlySales,
         ]);
     } else {
         return response()->json([
