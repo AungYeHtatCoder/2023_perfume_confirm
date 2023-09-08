@@ -14,8 +14,9 @@
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="{{ asset('admin_app/app-assets/vendors/js/charts/chartist.min.js') }}"></script>
-<script src="{{ asset('admin_app/app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}"></script>
+<!-- <script src="{{ asset('admin_app/app-assets/vendors/js/charts/chartist.min.js') }}"></script>
+<script src="{{ asset('admin_app/app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}"></script> -->
+
 <script src="{{ asset('admin_app/app-assets/vendors/js/charts/raphael-min.js') }}"></script>
 <script src="{{ asset('admin_app/app-assets/vendors/js/charts/morris.min.js') }}"></script>
 <script src="{{ asset('admin_app/app-assets/vendors/js/timeline/horizontal-timeline.js') }}"></script>

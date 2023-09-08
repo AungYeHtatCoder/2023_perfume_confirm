@@ -119,7 +119,7 @@
       <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
        <li class="dropdown-menu-header">
         <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6>
-        <span class="notification-tag badge badge-danger float-right m-0">5 New</span>
+        <span class="notification-tag badge badge-danger float-right m-0">NewOrder</span>
        </li>
        <li class="scrollable-container media-list w-100" id="notification-list">
         <!-- Notifications will be prepended here -->

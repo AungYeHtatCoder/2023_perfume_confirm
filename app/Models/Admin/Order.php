@@ -3,8 +3,9 @@
 namespace App\Models\Admin;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Admin\OrderProduct;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
@@ -24,4 +25,11 @@ class Order extends Model
     public function order_products(){
         return $this->hasMany(OrderProduct::class);
     }
+
+    public function products()
+{
+    return $this->belongsToMany('App\Models\Admin\Product', 'order_products')
+                ->withPivot('size_id', 'qty', 'total_price');
+}
+
 }

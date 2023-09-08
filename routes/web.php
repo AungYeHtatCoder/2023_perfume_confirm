@@ -1,11 +1,12 @@
 <?php
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\ScentController;
 use App\Http\Controllers\Admin\UsersController;
@@ -14,7 +15,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
-use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Customer\CustomerProfileController;
 use App\Http\Controllers\Customer\ProductBandSearchController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
@@ -69,6 +70,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::post('/orders/statusChange/{id}', [OrderController::class, 'statusChange']); //status Change
     Route::get('/fetch-order-notifications', [App\Http\Controllers\Admin\OrderNotificationController::class, 'OrderfetchNotifications'])->name('orderfetchNotifications');
     Route::delete('/delete-notification/{id}', [App\Http\Controllers\Admin\OrderNotificationController::class, 'destroy'])->name('deleteNotification');
+
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard-month', [AdminDashboardController::class, 'LineForMonth'])->name('dashboard-month');
 
 
 });

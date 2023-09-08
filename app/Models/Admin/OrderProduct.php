@@ -2,8 +2,11 @@
 
 namespace App\Models\Admin;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Admin\Size;
+use App\Models\Admin\Order;
+use App\Models\Admin\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class OrderProduct extends Model
 {
@@ -17,6 +20,10 @@ class OrderProduct extends Model
     }
 
     public function products(){
+        return $this->belongsTo(Product::class);
+    }
+
+    public function product(){
         return $this->belongsTo(Product::class);
     }
 

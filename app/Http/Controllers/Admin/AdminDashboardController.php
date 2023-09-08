@@ -1,33 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin\Order;
 use App\Models\Admin\Size;
 use App\Models\Admin\Brand;
-use Illuminate\Http\Request;
 use App\Models\Admin\Product;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-class HomeController extends Controller
+
+class AdminDashboardController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * Display a listing of the resource.
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index(Request $request)
+   public function index(Request $request)
     {
         //return view('admin.dashboard');
          if (auth()->user()->hasRole('Admin')) {
@@ -68,7 +58,7 @@ class HomeController extends Controller
         ->get();
 
         // Pass this variable to the view
-        return view('admin.dashboard', [
+        return response()->json([
             'orders' => $orders,
             'soldProductsCount' => $soldProductsCount,
             'progressPercentage' => $progressPercentage,
@@ -77,10 +67,82 @@ class HomeController extends Controller
             'salesByWeek' => $salesByWeek,
             'salesByMonth' => $salesByMonth
         ]);
-
     } else {
-        
-        return view('frontend.profile');
+        return response()->json([
+            'message' => 'You are not authorized to view this data.'
+        ], 401); // 401 is the HTTP status code for unauthorized access
     }
+}
+
+public function LineForMonth(Request $request)
+    {
+        //return view('admin.dashboard');
+         if (auth()->user()->hasRole('Admin')) {
+    // Get this week's sales
+    $salesByWeek = DB::table('orders')
+        ->select(DB::raw('sum(sub_total) as total_sales'), DB::raw('WEEK(created_at) as week'))
+        ->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+        ->groupBy(DB::raw('WEEK(created_at)'))
+        ->get();
+
+        // Pass this variable to the view
+        return response()->json([
+            'salesByWeek' => $salesByWeek
+        ]);
+    } else {
+        return response()->json([
+            'message' => 'You are not authorized to view this data.'
+        ], 401); // 401 is the HTTP status code for unauthorized access
+    }
+}
+
+
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

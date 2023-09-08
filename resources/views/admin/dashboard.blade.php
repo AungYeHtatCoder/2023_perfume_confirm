@@ -43,7 +43,8 @@
      <div class="card-body">
       <div class="media d-flex">
        <div class="media-body text-left">
-        <h3 class="info">850</h3>
+        <h3 class="info">{{ $soldProductsCount }} %</h3>
+        <h3 class="info">{{ count($sold_out_orders) }}</h3>
         <h6>Products Sold</h6>
        </div>
        <div>
@@ -51,9 +52,10 @@
        </div>
       </div>
       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-       <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 80%" aria-valuenow="80"
-        aria-valuemin="0" aria-valuemax="100"></div>
+       <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: {{ $progressPercentage }}%"
+        aria-valuenow="{{ $progressPercentage }}" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
+
      </div>
     </div>
    </div>
@@ -64,16 +66,18 @@
      <div class="card-body">
       <div class="media d-flex">
        <div class="media-body text-left">
-        <h3 class="warning">$748</h3>
-        <h6>Net Profit</h6>
+        <h4 class="primary">Today Income</h4>
+        <h3 class="warning" id="today_income"></h3>
+        <h6 id="income_date">Net Profit</h6>
        </div>
+
        <div>
         <i class="icon-pie-chart warning font-large-2 float-right"></i>
        </div>
       </div>
       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
        <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 65%" aria-valuenow="65"
-        aria-valuemin="0" aria-valuemax="100"></div>
+        aria-valuemin="0" aria-valuemax="100" id="income_progressbar"></div>
       </div>
      </div>
     </div>
@@ -85,22 +89,24 @@
      <div class="card-body">
       <div class="media d-flex">
        <div class="media-body text-left">
-        <h3 class="success">146</h3>
-        <h6>New Customers</h6>
+        <h4 class="info">Week Income</h4>
+        <h3 class="success" id="week_income"></h3> <!-- Note the id here -->
+        <h6 id="week_income_date">Week of:</h6> <!-- Changed the label here -->
        </div>
        <div>
         <i class="icon-user-follow success font-large-2 float-right"></i>
        </div>
       </div>
       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-       <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 75%" aria-valuenow="75"
-        aria-valuemin="0" aria-valuemax="100"></div>
+       <div id="week_income_progressbar" class="progress-bar bg-gradient-x-success" role="progressbar"
+        style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div> <!-- Note the id here -->
       </div>
      </div>
+
     </div>
    </div>
   </div>
-  <div class="col-xl-3 col-lg-6 col-12">
+  <!-- <div class="col-xl-3 col-lg-6 col-12">
    <div class="card pull-up">
     <div class="card-content">
      <div class="card-body">
@@ -120,12 +126,13 @@
      </div>
     </div>
    </div>
-  </div>
+  </div> -->
  </div>
  <!--/ eCommerce statistic -->
 
  <!-- Products sell and New Orders -->
  <div class="row match-height">
+  <!-- today -->
   <div class="col-xl-8 col-12" id="ecommerceChartView">
    <div class="card card-shadow">
     <div class="card-header card-header-transparent py-20">
@@ -134,22 +141,66 @@
       <div class="dropdown-menu animate" role="menu">
        <a class="dropdown-item" href="#" role="menuitem">Sales</a>
        <a class="dropdown-item" href="#" role="menuitem">Total sales</a>
-       <a class="dropdown-item" href="#" role="menuitem">profit</a>
+       <a class="dropdown-item" href="#" role="menuitem">Profit</a>
+      </div>
+     </div>
+    </div>
+    <div class="widget-content tab-content bg-white p-20">
+     <div class="ct-chart tab-pane active scoreLineShadow">
+      <canvas id="scoreLineToDay" width="100%" height="50"></canvas>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- week  -->
+  <div class="col-xl-8 col-12" id="ecommerceChartView">
+   <div class="card card-shadow">
+    <div class="card-header card-header-transparent py-20">
+     <div class="btn-group dropdown">
+      <a href="#" class="text-body dropdown-toggle blue-grey-700" data-toggle="dropdown">PRODUCTS SALES By Week</a>
+      <div class="dropdown-menu animate" role="menu">
       </div>
      </div>
      <ul class="nav nav-pills nav-pills-rounded chart-action float-right btn-group" role="group">
-      <li class="nav-item"><a class="active nav-link" data-toggle="tab" href="#scoreLineToDay">Day</a></li>
       <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToWeek">Week</a></li>
+     </ul>
+    </div>
+    <div class="widget-content tab-content bg-white p-20">
+     <div class="ct-chart tab-pane active scoreLineShadow">
+      <canvas id="scoreLineToWeek" width="100%" height="50">
+     </div>
+
+    </div>
+   </div>
+  </div>
+  <!-- week end -->
+
+  <!-- month  -->
+  <div class="col-xl-8 col-12" id="ecommerceChartView">
+   <div class="card card-shadow">
+    <div class="card-header card-header-transparent py-20">
+     <div class="btn-group dropdown">
+      <a href="#" class="text-body dropdown-toggle blue-grey-700" data-toggle="dropdown">PRODUCTS SALES By Month</a>
+      <div class="dropdown-menu animate" role="menu">
+       <!-- <a class="dropdown-item" href="#" role="menuitem">Sales</a>
+       <a class="dropdown-item" href="#" role="menuitem">Total sales</a>
+       <a class="dropdown-item" href="#" role="menuitem">profit</a> -->
+      </div>
+     </div>
+     <ul class="nav nav-pills nav-pills-rounded chart-action float-right btn-group" role="group">
       <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToMonth">Month</a></li>
      </ul>
     </div>
     <div class="widget-content tab-content bg-white p-20">
-     <div class="ct-chart tab-pane active scoreLineShadow" id="scoreLineToDay"></div>
-     <div class="ct-chart tab-pane scoreLineShadow" id="scoreLineToWeek"></div>
-     <div class="ct-chart tab-pane scoreLineShadow" id="scoreLineToMonth"></div>
+     <div class="ct-chart tab-pane active scoreLineShadow">
+      <canvas id="scoreLineToMonth" width="100%" height="50">
+     </div>
+
     </div>
    </div>
   </div>
+  <!-- month  -->
+  <!-- new order start -->
   <div class="col-xl-4 col-lg-12">
    <div class="card">
     <div class="card-header">
@@ -173,125 +224,31 @@
          </tr>
         </thead>
         <tbody>
+         @foreach ($orders as $order)
+         @if($order->status === 'pending')
          <tr>
-          <td class="text-truncate">iPhone X</td>
+          <td class="text-truncate">
+           @foreach($order->products as $product)
+
+           {{ $product->name }}
+           @endforeach
+
+          </td>
           <td class="text-truncate p-1">
            <ul class="list-unstyled users-list m-0">
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="John Doe"
+            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="{{ $order->user->name }}"
              class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-19.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Katherine Nichols"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-18.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Joseph Weaver"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-17.png') }}" alt="Avatar">
-            </li>
-            <li class="avatar avatar-sm">
-             <span class="badge badge-info">+4 more</span>
+             <img class="media-object rounded-circle" src="{{ asset('assets/img/profile/'.$order->user->profile) }}"
+              alt="Avatar">
             </li>
            </ul>
           </td>
-          <td class="text-truncate">$8999</td>
-         </tr>
-         <tr>
-          <td class="text-truncate">Pixel 2</td>
-          <td class="text-truncate p-1">
-           <ul class="list-unstyled users-list m-0">
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Alice Scott"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-16.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Charles Miller"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-15.png') }}" alt="Avatar">
-            </li>
-           </ul>
+          <td class="text-truncate">
+           {{ $order->sub_total }} MMK
           </td>
-          <td class="text-truncate">$5550</td>
          </tr>
-         <tr>
-          <td class="text-truncate">OnePlus</td>
-          <td class="text-truncate p-1">
-           <ul class="list-unstyled users-list m-0">
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Christine Ramos"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-11.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Thomas Brewer"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-10.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Alice Chapman"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-9.png') }}" alt="Avatar">
-            </li>
-            <li class="avatar avatar-sm">
-             <span class="badge badge-info">+3 more</span>
-            </li>
-           </ul>
-          </td>
-          <td class="text-truncate">$9000</td>
-         </tr>
-         <tr>
-          <td class="text-truncate">Galaxy</td>
-          <td class="text-truncate p-1">
-           <ul class="list-unstyled users-list m-0">
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Ryan Schneider"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-14.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Tiffany Oliver"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-13.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Joan Reid"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-12.png') }}" alt="Avatar">
-            </li>
-           </ul>
-          </td>
-          <td class="text-truncate">$7500</td>
-         </tr>
-         <tr>
-          <td class="text-truncate">Moto Z2</td>
-          <td class="text-truncate p-1">
-           <ul class="list-unstyled users-list m-0">
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-8.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-7.png') }}" alt="Avatar">
-            </li>
-            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Rebecca Jones"
-             class="avatar avatar-sm pull-up">
-             <img class="media-object rounded-circle"
-              src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-6.png') }}" alt="Avatar">
-            </li>
-            <li class="avatar avatar-sm">
-             <span class="badge badge-info">+1 more</span>
-            </li>
-           </ul>
-          </td>
-          <td class="text-truncate">$8500</td>
-         </tr>
+         @endif
+         @endforeach
         </tbody>
        </table>
       </div>
@@ -299,6 +256,7 @@
     </div>
    </div>
   </div>
+  <!-- new order end -->
  </div>
  <!--/ Products sell and New Orders -->
 
@@ -317,7 +275,7 @@
      </div>
     </div>
     <div class="card-content">
-     <div class="table-responsive">
+     <!-- <div class="table-responsive">
       <table id="recent-orders" class="table table-hover table-xl mb-0">
        <thead>
         <tr>
@@ -522,7 +480,7 @@
         </tr>
        </tbody>
       </table>
-     </div>
+     </div> -->
     </div>
    </div>
   </div>
@@ -531,7 +489,7 @@
 
  <!--Recent Orders & Monthly Sales -->
  <div class="row match-height">
-  <div class="col-xl-8 col-lg-12">
+  <!-- <div class="col-xl-8 col-lg-12">
    <div class="card">
     <div class="card-content ">
      <div id="cost-revenue" class="height-250 position-relative"></div>
@@ -591,12 +549,12 @@
      </div>
     </div>
    </div>
-  </div>
+  </div> -->
  </div>
  <!--/Recent Orders & Monthly Sales -->
 
  <!-- Basic Horizontal Timeline -->
- <div class="row match-height">
+ <!-- <div class="row match-height">
   <div class="col-xl-4 col-lg-12">
    <div class="card">
     <div class="card-header">
@@ -649,175 +607,233 @@
            <span class="filling-line" aria-hidden="true"></span>
           </div>
           <!-- .events -->
-         </div>
-         <!-- .events-wrapper -->
-         <ul class="cd-timeline-navigation">
-          <li><a href="#0" class="prev inactive">Prev</a></li>
-          <li><a href="#0" class="next">Next</a></li>
-         </ul>
-         <!-- .cd-timeline-navigation -->
-        </div>
-        <!-- .timeline -->
-        <div class="events-content">
-         <ol>
-          <li class="selected" data-date="16/01/2015">
-           <blockquote class="blockquote border-0">
-            <div class="media">
-             <div class="media-left">
-              <img class="media-object img-xl mr-1"
-               src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-5.png') }}"
-               alt="Generic placeholder image">
-             </div>
-             <div class="media-body">
-              Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-             </div>
-            </div>
-            <footer class="blockquote-footer text-right">Steve Jobs
-             <cite title="Source Title">Entrepreneur</cite>
-            </footer>
-           </blockquote>
-           <p class="lead mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-            quia velit nulla adipisci? Consequuntur aspernatur at.
-           </p>
-          </li>
-          <li data-date="28/02/2015">
-           <blockquote class="blockquote border-0">
-            <div class="media">
-             <div class="media-left">
-              <img class="media-object img-xl mr-1"
-               src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-6.png') }}"
-               alt="Generic placeholder image">
-             </div>
-             <div class="media-body">
-              Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-             </div>
-            </div>
-            <footer class="blockquote-footer text-right">Steve Jobs
-             <cite title="Source Title">Entrepreneur</cite>
-            </footer>
-           </blockquote>
-           <p class="lead mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-            quia velit nulla adipisci? Consequuntur aspernatur at.
-           </p>
-          </li>
-          <li data-date="20/04/2015">
-           <blockquote class="blockquote border-0">
-            <div class="media">
-             <div class="media-left">
-              <img class="media-object img-xl mr-1"
-               src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-7.png') }}"
-               alt="Generic placeholder image">
-             </div>
-             <div class="media-body">
-              Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-             </div>
-            </div>
-            <footer class="blockquote-footer text-right">Steve Jobs
-             <cite title="Source Title">Entrepreneur</cite>
-            </footer>
-           </blockquote>
-           <p class="lead mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-            quia velit nulla adipisci? Consequuntur aspernatur at.
-           </p>
-          </li>
-          <li data-date="20/05/2015">
-           <blockquote class="blockquote border-0">
-            <div class="media">
-             <div class="media-left">
-              <img class="media-object img-xl mr-1"
-               src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-8.png') }}"
-               alt="Generic placeholder image">
-             </div>
-             <div class="media-body">
-              Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-             </div>
-            </div>
-            <footer class="blockquote-footer text-right">Steve Jobs
-             <cite title="Source Title">Entrepreneur</cite>
-            </footer>
-           </blockquote>
-           <p class="lead mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-            quia velit nulla adipisci? Consequuntur aspernatur at.
-           </p>
-          </li>
-          <li data-date="09/07/2015">
-           <blockquote class="blockquote border-0">
-            <div class="media">
-             <div class="media-left">
-              <img class="media-object img-xl mr-1"
-               src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-9.png') }}"
-               alt="Generic placeholder image">
-             </div>
-             <div class="media-body">
-              Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-             </div>
-            </div>
-            <footer class="blockquote-footer text-right">Steve Jobs
-             <cite title="Source Title">Entrepreneur</cite>
-            </footer>
-           </blockquote>
-           <p class="lead mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-            quia velit nulla adipisci? Consequuntur aspernatur at.
-           </p>
-          </li>
-          <li data-date="30/08/2015">
-           <blockquote class="blockquote border-0">
-            <div class="media">
-             <div class="media-left">
-              <img class="media-object img-xl mr-1"
-               src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-6.png') }}"
-               alt="Generic placeholder image">
-             </div>
-             <div class="media-body">
-              Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-             </div>
-            </div>
-            <footer class="blockquote-footer text-right">Steve Jobs
-             <cite title="Source Title">Entrepreneur</cite>
-            </footer>
-           </blockquote>
-           <p class="lead mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-            quia velit nulla adipisci? Consequuntur aspernatur at.
-           </p>
-          </li>
-          <li data-date="15/09/2015">
-           <blockquote class="blockquote border-0">
-            <div class="media">
-             <div class="media-left">
-              <img class="media-object img-xl mr-1"
-               src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-7.png') }}"
-               alt="Generic placeholder image">
-             </div>
-             <div class="media-body">
-              Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-             </div>
-            </div>
-            <footer class="blockquote-footer text-right">Steve Jobs
-             <cite title="Source Title">Entrepreneur</cite>
-            </footer>
-           </blockquote>
-           <p class="lead mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-            quia velit nulla adipisci? Consequuntur aspernatur at.
-           </p>
-          </li>
-         </ol>
-        </div>
-        <!-- .events-content -->
-       </section>
-      </div>
+</div>
+<!-- .events-wrapper -->
+<ul class="cd-timeline-navigation">
+ <li><a href="#0" class="prev inactive">Prev</a></li>
+ <li><a href="#0" class="next">Next</a></li>
+</ul>
+<!-- .cd-timeline-navigation -->
+</div>
+<!-- .timeline -->
+<div class="events-content">
+ <ol>
+  <li class="selected" data-date="16/01/2015">
+   <blockquote class="blockquote border-0">
+    <div class="media">
+     <div class="media-left">
+      <img class="media-object img-xl mr-1"
+       src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-5.png') }}" alt="Generic placeholder image">
+     </div>
+     <div class="media-body">
+      Sometimes life is going to hit you in the head with a brick. Don't lose faith.
      </div>
     </div>
-   </div>
-  </div>
- </div>
- <!--/ Basic Horizontal Timeline -->
+    <footer class="blockquote-footer text-right">Steve Jobs
+     <cite title="Source Title">Entrepreneur</cite>
+    </footer>
+   </blockquote>
+   <p class="lead mt-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
+    quia velit nulla adipisci? Consequuntur aspernatur at.
+   </p>
+  </li>
+  <li data-date="28/02/2015">
+   <blockquote class="blockquote border-0">
+    <div class="media">
+     <div class="media-left">
+      <img class="media-object img-xl mr-1"
+       src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-6.png') }}" alt="Generic placeholder image">
+     </div>
+     <div class="media-body">
+      Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+     </div>
+    </div>
+    <footer class="blockquote-footer text-right">Steve Jobs
+     <cite title="Source Title">Entrepreneur</cite>
+    </footer>
+   </blockquote>
+   <p class="lead mt-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
+    quia velit nulla adipisci? Consequuntur aspernatur at.
+   </p>
+  </li>
+  <li data-date="20/04/2015">
+   <blockquote class="blockquote border-0">
+    <div class="media">
+     <div class="media-left">
+      <img class="media-object img-xl mr-1"
+       src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-7.png') }}" alt="Generic placeholder image">
+     </div>
+     <div class="media-body">
+      Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+     </div>
+    </div>
+    <footer class="blockquote-footer text-right">Steve Jobs
+     <cite title="Source Title">Entrepreneur</cite>
+    </footer>
+   </blockquote>
+   <p class="lead mt-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
+    quia velit nulla adipisci? Consequuntur aspernatur at.
+   </p>
+  </li>
+  <li data-date="20/05/2015">
+   <blockquote class="blockquote border-0">
+    <div class="media">
+     <div class="media-left">
+      <img class="media-object img-xl mr-1"
+       src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-8.png') }}" alt="Generic placeholder image">
+     </div>
+     <div class="media-body">
+      Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+     </div>
+    </div>
+    <footer class="blockquote-footer text-right">Steve Jobs
+     <cite title="Source Title">Entrepreneur</cite>
+    </footer>
+   </blockquote>
+   <p class="lead mt-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
+    quia velit nulla adipisci? Consequuntur aspernatur at.
+   </p>
+  </li>
+  <li data-date="09/07/2015">
+   <blockquote class="blockquote border-0">
+    <div class="media">
+     <div class="media-left">
+      <img class="media-object img-xl mr-1"
+       src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-9.png') }}" alt="Generic placeholder image">
+     </div>
+     <div class="media-body">
+      Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+     </div>
+    </div>
+    <footer class="blockquote-footer text-right">Steve Jobs
+     <cite title="Source Title">Entrepreneur</cite>
+    </footer>
+   </blockquote>
+   <p class="lead mt-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
+    quia velit nulla adipisci? Consequuntur aspernatur at.
+   </p>
+  </li>
+  <li data-date="30/08/2015">
+   <blockquote class="blockquote border-0">
+    <div class="media">
+     <div class="media-left">
+      <img class="media-object img-xl mr-1"
+       src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-6.png') }}" alt="Generic placeholder image">
+     </div>
+     <div class="media-body">
+      Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+     </div>
+    </div>
+    <footer class="blockquote-footer text-right">Steve Jobs
+     <cite title="Source Title">Entrepreneur</cite>
+    </footer>
+   </blockquote>
+   <p class="lead mt-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
+    quia velit nulla adipisci? Consequuntur aspernatur at.
+   </p>
+  </li>
+  <li data-date="15/09/2015">
+   <blockquote class="blockquote border-0">
+    <div class="media">
+     <div class="media-left">
+      <img class="media-object img-xl mr-1"
+       src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-7.png') }}" alt="Generic placeholder image">
+     </div>
+     <div class="media-body">
+      Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+     </div>
+    </div>
+    <footer class="blockquote-footer text-right">Steve Jobs
+     <cite title="Source Title">Entrepreneur</cite>
+    </footer>
+   </blockquote>
+   <p class="lead mt-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
+    quia velit nulla adipisci? Consequuntur aspernatur at.
+   </p>
+  </li>
+ </ol>
+</div>
+<!-- .events-content -->
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> -->
+<!--/ Basic Horizontal Timeline -->
 </div>
 <!-- dashboard main content end -->
+@endsection
+@section('scripts')
+@include('layouts.chart')
+@include('layouts.today_chart')
+<script>
+// Your target income
+const week_targetIncome = 1000000; // 1 million MMK
+
+fetch('/admin/dashboard')
+ .then(response => response.json())
+ .then(data => {
+  const salesByDay = data.salesByDay;
+  const Salelabels = salesByDay.map(sale => sale.date);
+  const DaysalesData = salesByDay.map(sale => parseInt(sale.total_sales));
+
+  // Calculate total income for the day
+  const totalIncome = DaysalesData.reduce((a, b) => a + b, 0);
+  document.getElementById("today_income").innerHTML = totalIncome + " MMK";
+
+  // Set the income date
+  document.getElementById("income_date").innerHTML = Salelabels[0];
+
+  // Calculate the percentage of the income towards the goal
+  const incomePercentage = Math.min((totalIncome / week_targetIncome) * 100, 100);
+
+  // Set the width of the progress bar based on the calculated percentage
+  document.getElementById("income_progressbar").style.width = incomePercentage + '%';
+  document.getElementById("income_progressbar").setAttribute('aria-valuenow', incomePercentage);
+
+
+
+ })
+
+ .catch(error => console.error('Error fetching data:', error));
+</script>
+<script>
+// Your weekly income target. Define it if not defined already.
+const targetIncome = 1000000; // 1 million MMK for the example
+
+// Fetching sales by week
+fetch('/admin/dashboard')
+ .then(response => response.json())
+ .then(data => {
+  const salesByWeek = data.salesByWeek;
+  const Weeklabels = salesByWeek.map(sale => sale.week);
+  const WeeksalesData = salesByWeek.map(sale => parseInt(sale.total_sales));
+
+  // Calculate total income for the week
+  const totalWeekIncome = WeeksalesData.reduce((a, b) => a + b, 0);
+  document.getElementById("week_income").innerHTML = totalWeekIncome + " MMK";
+
+  // Set the income date (Week number here)
+  document.getElementById("week_income_date").innerHTML = "Week of: " + Weeklabels[0];
+
+  // Calculate the percentage of the income towards the goal
+  const weekIncomePercentage = Math.min((totalWeekIncome / targetIncome) * 100, 100);
+
+  // Update the progress bar based on the calculated percentage
+  document.getElementById("week_income_progressbar").style.width = weekIncomePercentage + '%';
+  document.getElementById("week_income_progressbar").setAttribute('aria-valuenow', weekIncomePercentage);
+ })
+ .catch(error => console.error('Error fetching data:', error));
+</script>
+
+
 @endsection
