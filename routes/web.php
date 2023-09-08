@@ -73,6 +73,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard-month', [AdminDashboardController::class, 'LineForMonth'])->name('dashboard-month');
+    Route::get('/dashboard-day-month', [AdminDashboardController::class, 'DayForMonth'])->name('dashboard-day-month');
 
 
 });

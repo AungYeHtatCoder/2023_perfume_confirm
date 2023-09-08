@@ -103,6 +103,23 @@ public function LineForMonth(Request $request)
     }
 }
 
+    public function DayForMonth(Request $request)
+    {
+         if (auth()->user()->hasRole('Admin')) {
+    $results = DB::table('order_products')
+    ->select(DB::raw('sum(total_price) as total_price, DAY(created_at) as day, MONTHNAME(created_at) as month'))
+    ->groupBy(DB::raw('DAY(created_at), MONTHNAME(created_at), created_at'))
+    ->get();
+
+     return response()->json([
+            'results' => $results
+        ]);
+    } else {
+        return response()->json([
+            'message' => 'You are not authorized to view this data.'
+        ], 401); // 401 is the HTTP status code for unauthorized access
+    }
+}
 
 
     /**

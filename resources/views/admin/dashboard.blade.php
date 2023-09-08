@@ -265,11 +265,20 @@
  <!--/ Recent Transactions -->
 
  <!--Recent Orders & Monthly Sales -->
- <div class="row match-height">
+ <div class="row match-height mt-5">
   <div class="col-xl-8 col-lg-12">
    <div class="card">
+    <div class="card-header">
+     <h4 class="card-title">January Month Sales</h4>
+     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+     <div class="heading-elements">
+      <ul class="list-inline mb-0">
+       <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+      </ul>
+     </div>
+    </div>
     <div class="card-content ">
-     <div id="cost-revenue" class="height-250 position-relative"></div>
+     <canvas id="January_sales" class="height-250 position-relative"></canvas>
     </div>
     <div class="card-footer">
      <div class="row mt-1">
@@ -309,398 +318,461 @@
     </div>
    </div>
   </div>
-  <div class="col-xl-4 col-lg-12">
-   <div class="card">
-    <div class="card-content">
-     <!-- <div class="card-body sales-growth-chart">
-      <div id="monthly_sales" class="height-250"></div>
-     </div> -->
-     <div class="card-content">
-      <div class="card-body sales-growth-chart">
-       <canvas id="monthly_sales" class="height-250"></canvas>
-      </div>
-     </div>
-     <div class="card-footer">
-      <div class="chart-title mb-1 text-center">
-       <h6>Total monthly Sales.</h6>
-      </div>
-      <div class="chart-stats text-center">
-       <a href="#" class="btn btn-sm btn-danger box-shadow-2 mr-1">Statistics <i class="ft-bar-chart"></i></a> <span
-        class="text-muted">for the last year.</span>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
+
   <!--/Recent Orders & Monthly Sales -->
 
   <!-- Basic Horizontal Timeline -->
-  <div class="row match-height">
-   <div class="col-xl-4 col-lg-12">
-    <div class="card">
-     <div class="card-header">
-      <h4 class="card-title">Basic Card</h4>
-     </div>
-     <div class="card-content">
-      <img class="img-fluid" src="{{ asset('admin_app/app-assets/images/carousel/05.jpg') }}" alt="Card image cap">
-      <div class="card-body">
-       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
-       <a href="#" class="card-link">Card link</a>
-       <a href="#" class="card-link">Another link</a>
-      </div>
-     </div>
-     <div class="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
-      <span class="float-left">3 hours ago</span>
-      <span class="float-right">
-       <a href="#" class="card-link">Read More <i class="fa fa-angle-right"></i></a>
-      </span>
-     </div>
+
+  <!--/ Basic Horizontal Timeline -->
+ </div>
+ <!-- second  -->
+ <div class="row match-height">
+  <div class="col-xl-8 col-lg-12">
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      February Month Sales
+     </h1>
     </div>
+    <div class="card-content ">
+     <canvas id="February_sales" class="height-250 position-relative"></canvas>
+    </div>
+
    </div>
-   <div class="col-xl-8 col-lg-12">
-    <div class="card">
-     <div class="card-header">
-      <h4 class="card-title">Horizontal Timeline</h4>
-      <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-      <div class="heading-elements">
-       <ul class="list-inline mb-0">
-        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-       </ul>
+  </div>
+
+  <!--/Recent Orders & Monthly Sales -->
+
+  <!-- Basic Horizontal Timeline -->
+
+  <!--/ Basic Horizontal Timeline -->
+ </div>
+ <!-- second end -->
+ <!-- third -->
+ <div class="row match-height">
+  <div class="col-xl-8 col-lg-12">
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      March Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="March_sales" class="height-250 position-relative"></canvas>
+    </div>
+
+   </div>
+
+   <!-- first card -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      April Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="April_sales" class="height-250 position-relative"></canvas>
+    </div>
+
+   </div>
+   <!-- first card -->
+   <!-- second -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      May Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="May_sales" class="height-250 position-relative"></canvas>
+    </div>
+    <div class="card-footer">
+     <div class="row mt-1">
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Products</h6>
+       <h2 class="block font-weight-normal">18.6 k</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 70%" aria-valuenow="70"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
       </div>
-     </div>
-     <div class="card-content">
-      <div class="card-body">
-       <div class="card-text">
-        <section class="cd-horizontal-timeline">
-         <div class="timeline">
-          <div class="events-wrapper">
-           <div class="events">
-            <ol>
-             <li><a href="#0" data-date="16/01/2015" class="selected">16 Jan</a></li>
-             <li><a href="#0" data-date="28/02/2015">28 Feb</a></li>
-             <li><a href="#0" data-date="20/04/2015">20 Mar</a></li>
-             <li><a href="#0" data-date="20/05/2015">20 May</a></li>
-             <li><a href="#0" data-date="09/07/2015">09 Jul</a></li>
-             <li><a href="#0" data-date="30/08/2015">30 Aug</a></li>
-             <li><a href="#0" data-date="15/09/2015">15 Sep</a></li>
-            </ol>
-            <span class="filling-line" aria-hidden="true"></span>
-           </div>
-           <!-- .events -->
-          </div>
-          <!-- .events-wrapper -->
-          <ul class="cd-timeline-navigation">
-           <li><a href="#0" class="prev inactive">Prev</a></li>
-           <li><a href="#0" class="next">Next</a></li>
-          </ul>
-          <!-- .cd-timeline-navigation -->
-         </div>
-         <!-- .timeline -->
-         <div class="events-content">
-          <ol>
-           <li class="selected" data-date="16/01/2015">
-            <blockquote class="blockquote border-0">
-             <div class="media">
-              <div class="media-left">
-               <img class="media-object img-xl mr-1"
-                src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-5.png') }}"
-                alt="Generic placeholder image">
-              </div>
-              <div class="media-body">
-               Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-              </div>
-             </div>
-             <footer class="blockquote-footer text-right">Steve Jobs
-              <cite title="Source Title">Entrepreneur</cite>
-             </footer>
-            </blockquote>
-            <p class="lead mt-2">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-             quia velit nulla adipisci? Consequuntur aspernatur at.
-            </p>
-           </li>
-           <li data-date="28/02/2015">
-            <blockquote class="blockquote border-0">
-             <div class="media">
-              <div class="media-left">
-               <img class="media-object img-xl mr-1"
-                src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-6.png') }}"
-                alt="Generic placeholder image">
-              </div>
-              <div class="media-body">
-               Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-              </div>
-             </div>
-             <footer class="blockquote-footer text-right">Steve Jobs
-              <cite title="Source Title">Entrepreneur</cite>
-             </footer>
-            </blockquote>
-            <p class="lead mt-2">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-             quia velit nulla adipisci? Consequuntur aspernatur at.
-            </p>
-           </li>
-           <li data-date="20/04/2015">
-            <blockquote class="blockquote border-0">
-             <div class="media">
-              <div class="media-left">
-               <img class="media-object img-xl mr-1"
-                src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-7.png') }}"
-                alt="Generic placeholder image">
-              </div>
-              <div class="media-body">
-               Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-              </div>
-             </div>
-             <footer class="blockquote-footer text-right">Steve Jobs
-              <cite title="Source Title">Entrepreneur</cite>
-             </footer>
-            </blockquote>
-            <p class="lead mt-2">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-             quia velit nulla adipisci? Consequuntur aspernatur at.
-            </p>
-           </li>
-           <li data-date="20/05/2015">
-            <blockquote class="blockquote border-0">
-             <div class="media">
-              <div class="media-left">
-               <img class="media-object img-xl mr-1"
-                src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-8.png') }}"
-                alt="Generic placeholder image">
-              </div>
-              <div class="media-body">
-               Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-              </div>
-             </div>
-             <footer class="blockquote-footer text-right">Steve Jobs
-              <cite title="Source Title">Entrepreneur</cite>
-             </footer>
-            </blockquote>
-            <p class="lead mt-2">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-             quia velit nulla adipisci? Consequuntur aspernatur at.
-            </p>
-           </li>
-           <li data-date="09/07/2015">
-            <blockquote class="blockquote border-0">
-             <div class="media">
-              <div class="media-left">
-               <img class="media-object img-xl mr-1"
-                src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-9.png') }}"
-                alt="Generic placeholder image">
-              </div>
-              <div class="media-body">
-               Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-              </div>
-             </div>
-             <footer class="blockquote-footer text-right">Steve Jobs
-              <cite title="Source Title">Entrepreneur</cite>
-             </footer>
-            </blockquote>
-            <p class="lead mt-2">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-             quia velit nulla adipisci? Consequuntur aspernatur at.
-            </p>
-           </li>
-           <li data-date="30/08/2015">
-            <blockquote class="blockquote border-0">
-             <div class="media">
-              <div class="media-left">
-               <img class="media-object img-xl mr-1"
-                src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-6.png') }}"
-                alt="Generic placeholder image">
-              </div>
-              <div class="media-body">
-               Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-              </div>
-             </div>
-             <footer class="blockquote-footer text-right">Steve Jobs
-              <cite title="Source Title">Entrepreneur</cite>
-             </footer>
-            </blockquote>
-            <p class="lead mt-2">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-             quia velit nulla adipisci? Consequuntur aspernatur at.
-            </p>
-           </li>
-           <li data-date="15/09/2015">
-            <blockquote class="blockquote border-0">
-             <div class="media">
-              <div class="media-left">
-               <img class="media-object img-xl mr-1"
-                src="{{ asset('admin_app/app-assets/images/portrait/small/avatar-s-7.png') }}"
-                alt="Generic placeholder image">
-              </div>
-              <div class="media-body">
-               Sometimes life is going to hit you in the head with a brick. Don't lose faith.
-              </div>
-             </div>
-             <footer class="blockquote-footer text-right">Steve Jobs
-              <cite title="Source Title">Entrepreneur</cite>
-             </footer>
-            </blockquote>
-            <p class="lead mt-2">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa,
-             quia velit nulla adipisci? Consequuntur aspernatur at.
-            </p>
-           </li>
-          </ol>
-         </div>
-         <!-- .events-content -->
-        </section>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Sales</h6>
+       <h2 class="block font-weight-normal">64.54 M</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 60%" aria-valuenow="60"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Cost</h6>
+       <h2 class="block font-weight-normal">24.38 B</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 40%" aria-valuenow="40"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Revenue</h6>
+       <h2 class="block font-weight-normal">36.72 M</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 90%" aria-valuenow="90"
+         aria-valuemin="0" aria-valuemax="100"></div>
        </div>
       </div>
      </div>
     </div>
    </div>
-  </div> -->
-  <!--/ Basic Horizontal Timeline -->
+   <!-- second end -->
+   <!-- third -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      June Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="June_sales" class="height-250 position-relative"></canvas>
+    </div>
+    <div class="card-footer">
+     <div class="row mt-1">
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Products</h6>
+       <h2 class="block font-weight-normal">18.6 k</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 70%" aria-valuenow="70"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Sales</h6>
+       <h2 class="block font-weight-normal">64.54 M</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 60%" aria-valuenow="60"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Cost</h6>
+       <h2 class="block font-weight-normal">24.38 B</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 40%" aria-valuenow="40"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Revenue</h6>
+       <h2 class="block font-weight-normal">36.72 M</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 90%" aria-valuenow="90"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- third end -->
+   <!-- forth -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      July Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="July_sales" class="height-250 position-relative"></canvas>
+    </div>
+    <div class="card-footer">
+     <div class="row mt-1">
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Products</h6>
+       <h2 class="block font-weight-normal">18.6 k</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 70%" aria-valuenow="70"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Sales</h6>
+       <h2 class="block font-weight-normal">64.54 M</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 60%" aria-valuenow="60"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Cost</h6>
+       <h2 class="block font-weight-normal">24.38 B</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 40%" aria-valuenow="40"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+      <div class="col-3 text-center">
+       <h6 class="text-muted">Total Revenue</h6>
+       <h2 class="block font-weight-normal">36.72 M</h2>
+       <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+        <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 90%" aria-valuenow="90"
+         aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- forth end -->
+   <!-- fifth -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      August Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="August_sales" class="height-250 position-relative"></canvas>
+    </div>
+
+   </div>
+   <!-- fith end -->
+   <!-- sixth  -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      September Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="September_sales" class="height-250 position-relative"></canvas>
+    </div>
+
+   </div>
+   <!-- sixth end -->
+   <!-- sevent -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      October Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="October_sales" class="height-250 position-relative"></canvas>
+    </div>
+
+   </div>
+   <!-- sevent end -->
+   <!-- eight -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      November Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="November_sales" class="height-250 position-relative"></canvas>
+    </div>
+
+   </div>
+   <!-- eight end -->
+   <!-- nine -->
+   <div class="card">
+    <div class="card-header">
+     <h1>
+      December Month Sales
+     </h1>
+    </div>
+    <div class="card-content ">
+     <canvas id="December_sales" class="height-250 position-relative"></canvas>
+    </div>
+
+   </div>
+   <!-- nine end -->
+  </div>
  </div>
- <!-- dashboard main content end -->
- @endsection
- @section('scripts')
- @include('layouts.chart')
- @include('layouts.today_chart')
- <script>
- // Your target income
- const week_targetIncome = 1000000; // 1 million MMK
+</div>
+<!-- third -->
+<!-- dashboard main content end -->
+@endsection
+@section('scripts')
+@include('layouts.chart')
+@include('layouts.today_chart')
+<script>
+// Your target income
+const week_targetIncome = 1000000; // 1 million MMK
 
- fetch('/admin/dashboard')
-  .then(response => response.json())
-  .then(data => {
-   const salesByDay = data.salesByDay;
-   const Salelabels = salesByDay.map(sale => sale.date);
-   const DaysalesData = salesByDay.map(sale => parseInt(sale.total_sales));
+fetch('/admin/dashboard')
+ .then(response => response.json())
+ .then(data => {
+  const salesByDay = data.salesByDay;
+  const Salelabels = salesByDay.map(sale => sale.date);
+  const DaysalesData = salesByDay.map(sale => parseInt(sale.total_sales));
 
-   // Calculate total income for the day
-   const totalIncome = DaysalesData.reduce((a, b) => a + b, 0);
-   document.getElementById("today_income").innerHTML = totalIncome + " MMK";
+  // Calculate total income for the day
+  const totalIncome = DaysalesData.reduce((a, b) => a + b, 0);
+  document.getElementById("today_income").innerHTML = totalIncome + " MMK";
 
-   // Set the income date
-   document.getElementById("income_date").innerHTML = Salelabels[0];
+  // Set the income date
+  document.getElementById("income_date").innerHTML = Salelabels[0];
 
-   // Calculate the percentage of the income towards the goal
-   const incomePercentage = Math.min((totalIncome / week_targetIncome) * 100, 100);
+  // Calculate the percentage of the income towards the goal
+  const incomePercentage = Math.min((totalIncome / week_targetIncome) * 100, 100);
 
-   // Set the width of the progress bar based on the calculated percentage
-   document.getElementById("income_progressbar").style.width = incomePercentage + '%';
-   document.getElementById("income_progressbar").setAttribute('aria-valuenow', incomePercentage);
+  // Set the width of the progress bar based on the calculated percentage
+  document.getElementById("income_progressbar").style.width = incomePercentage + '%';
+  document.getElementById("income_progressbar").setAttribute('aria-valuenow', incomePercentage);
 
 
 
-  })
+ })
 
-  .catch(error => console.error('Error fetching data:', error));
- </script>
- <script>
- // Your weekly income target. Define it if not defined already.
- const targetIncome = 1000000; // 1 million MMK for the example
+ .catch(error => console.error('Error fetching data:', error));
+</script>
+<script>
+// Your weekly income target. Define it if not defined already.
+const targetIncome = 1000000; // 1 million MMK for the example
 
- // Fetching sales by week
- fetch('/admin/dashboard')
-  .then(response => response.json())
-  .then(data => {
-   const salesByWeek = data.salesByWeek;
-   const Weeklabels = salesByWeek.map(sale => sale.week);
-   const WeeksalesData = salesByWeek.map(sale => parseInt(sale.total_sales));
+// Fetching sales by week
+fetch('/admin/dashboard')
+ .then(response => response.json())
+ .then(data => {
+  const salesByWeek = data.salesByWeek;
+  const Weeklabels = salesByWeek.map(sale => sale.week);
+  const WeeksalesData = salesByWeek.map(sale => parseInt(sale.total_sales));
 
-   // Calculate total income for the week
-   const totalWeekIncome = WeeksalesData.reduce((a, b) => a + b, 0);
-   document.getElementById("week_income").innerHTML = totalWeekIncome + " MMK";
+  // Calculate total income for the week
+  const totalWeekIncome = WeeksalesData.reduce((a, b) => a + b, 0);
+  document.getElementById("week_income").innerHTML = totalWeekIncome + " MMK";
 
-   // Set the income date (Week number here)
-   document.getElementById("week_income_date").innerHTML = "Week of: " + Weeklabels[0];
+  // Set the income date (Week number here)
+  document.getElementById("week_income_date").innerHTML = "Week of: " + Weeklabels[0];
 
-   // Calculate the percentage of the income towards the goal
-   const weekIncomePercentage = Math.min((totalWeekIncome / targetIncome) * 100, 100);
+  // Calculate the percentage of the income towards the goal
+  const weekIncomePercentage = Math.min((totalWeekIncome / targetIncome) * 100, 100);
 
-   // Update the progress bar based on the calculated percentage
-   document.getElementById("week_income_progressbar").style.width = weekIncomePercentage + '%';
-   document.getElementById("week_income_progressbar").setAttribute('aria-valuenow', weekIncomePercentage);
-  })
-  .catch(error => console.error('Error fetching data:', error));
- </script>
- <script>
- // Fetch the sales data from the backend
- //  fetch('/admin/dashboard')
- //   .then(response => response.json())
- //   .then(data => {
- //    const monthlySalesData = data.monthlySales || [];
- //    console.log(monthlySalesData)
- //    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
- //     "November", "December"
- //    ];
- //    const salesData = new Array(12).fill(0);
+  // Update the progress bar based on the calculated percentage
+  document.getElementById("week_income_progressbar").style.width = weekIncomePercentage + '%';
+  document.getElementById("week_income_progressbar").setAttribute('aria-valuenow', weekIncomePercentage);
+ })
+ .catch(error => console.error('Error fetching data:', error));
+</script>
+<script>
+// Fetch the sales data from the backend
+//  fetch('/admin/dashboard')
+//   .then(response => response.json())
+//   .then(data => {
+//    const monthlySalesData = data.monthlySales || [];
+//    console.log(monthlySalesData)
+//    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+//     "November", "December"
+//    ];
+//    const salesData = new Array(12).fill(0);
 
- //    // Ensure the data is in the correct format
- //    monthlySalesData.forEach(d => {
- //     if (d.month && d.total_price) {
- //      salesData[d.month - 1] = parseInt(d.total_price, 10);
- //     }
- //    });
+//    // Ensure the data is in the correct format
+//    monthlySalesData.forEach(d => {
+//     if (d.month && d.total_price) {
+//      salesData[d.month - 1] = parseInt(d.total_price, 10);
+//     }
+//    });
 
- //    const canvas = document.getElementById('monthly_sales');
- //    if (canvas) {
- //     const ctx = canvas.getContext('2d');
- //     new Chart(ctx, {
- //      type: 'bar', // You can use other types such as 'bar'
- //      data: {
- //       labels: months,
- //       datasets: [{
- //        label: 'Monthly Sales',
- //        data: salesData
- //       }]
- //      }
- //     });
- //    } else {
- //     console.error('Element with ID "monthly_sales" not found.');
- //    }
- //   })
- //   .catch(error => {
- //    console.error('Fetch Error:', error);
- //   });
+//    const canvas = document.getElementById('monthly_sales');
+//    if (canvas) {
+//     const ctx = canvas.getContext('2d');
+//     new Chart(ctx, {
+//      type: 'bar', // You can use other types such as 'bar'
+//      data: {
+//       labels: months,
+//       datasets: [{
+//        label: 'Monthly Sales',
+//        data: salesData
+//       }]
+//      }
+//     });
+//    } else {
+//     console.error('Element with ID "monthly_sales" not found.');
+//    }
+//   })
+//   .catch(error => {
+//    console.error('Fetch Error:', error);
+//   });
 
- // Fetch the sales data from the backend
- fetch('/admin/dashboard')
-  .then(response => response.json())
-  .then(data => {
-   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-    "November", "December"
-   ];
-   const salesData = new Array(12).fill(0);
+// Fetch the sales data from the backend
+fetch('/admin/dashboard')
+ .then(response => response.json())
+ .then(data => {
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+   "November", "December"
+  ];
+  const salesData = new Array(12).fill(0);
 
-   // Assuming your JSON object returns 'monthlySales' as a key for your sales data
-   const monthlySalesData = data.monthlySales;
+  // Assuming your JSON object returns 'monthlySales' as a key for your sales data
+  const monthlySalesData = data.monthlySales;
 
-   monthlySalesData.forEach(d => {
-    if (d.month !== null && d.month !== undefined && d.total_price) {
-     salesData[d.month - 1] = parseInt(d.total_price, 10);
-    } else {
-     console.log("Skipped a record due to missing month or total_price", d);
+  monthlySalesData.forEach(d => {
+   if (d.month !== null && d.month !== undefined && d.total_price) {
+    salesData[d.month - 1] = parseInt(d.total_price, 10);
+   } else {
+    console.log("Skipped a record due to missing month or total_price", d);
+   }
+  });
+
+  const ctx = document.getElementById('monthly_sales').getContext('2d');
+  new Chart(ctx, {
+   type: 'bar',
+   data: {
+    labels: months,
+    datasets: [{
+     label: 'Monthly Sales',
+     data: salesData,
+     backgroundColor: 'rgba(75, 192, 192, 0.5)', // Semi-transparent turquoise
+     borderColor: 'rgba(75, 192, 192, 1)', // Turquoise
+     borderWidth: 1 // Border width
+    }]
+   }
+  });
+ })
+ .catch(error => {
+  console.log("An error occurred:", error);
+ });
+</script>
+
+<script>
+fetch('/admin/dashboard-day-month')
+ .then(response => response.json())
+ .then(data => {
+  // Now using data.results instead of data.dailySales
+  const dailySales = data.results;
+  const salesData = {}; // To store the daily total_price per month
+
+  dailySales.forEach(d => {
+   if (d.day && d.month && d.total_price) {
+    if (!salesData[d.month]) {
+     salesData[d.month] = new Array(31).fill(0); // Initialize month with 31 days
     }
-   });
+    salesData[d.month][d.day - 1] = parseInt(d.total_price); // -1 because array index starts from 0
+   }
+  });
 
-   const ctx = document.getElementById('monthly_sales').getContext('2d');
+  // Loop through salesData to create one chart per month
+  Object.keys(salesData).forEach(month => {
+   const ctx = document.getElementById(`${month}_sales`).getContext('2d');
    new Chart(ctx, {
     type: 'bar',
     data: {
-     labels: months,
+     labels: Array.from({
+      length: 31
+     }, (_, i) => `Day ${i + 1}`), // ['Day 1', 'Day 2', ...]
      datasets: [{
-      label: 'Monthly Sales',
-      data: salesData,
-      backgroundColor: 'rgba(75, 192, 192, 0.5)', // Semi-transparent turquoise
-      borderColor: 'rgba(75, 192, 192, 1)', // Turquoise
-      borderWidth: 1 // Border width
+      label: `Daily Sales for ${month}`,
+      data: salesData[month],
+      backgroundColor: 'rgba(0, 123, 255, 0.5)',
+      borderColor: 'rgba(0, 123, 255, 1)',
+      borderWidth: 1
      }]
     }
    });
-  })
-  .catch(error => {
-   console.log("An error occurred:", error);
   });
- </script>
+ })
+ .catch(error => {
+  console.error("An error occurred:", error);
+ });
+</script>
 
-
- @endsection
+@endsection
