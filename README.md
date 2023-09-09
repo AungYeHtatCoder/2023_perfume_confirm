@@ -53,6 +53,20 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 -   1 - go to xampp/php/php.ini and open php.ini and then remove semicoma ;extension=gd and ;extension=zip
 -   notic = remove only semicoma. after remove semicom like this 'extension=gd and extension=zip and then reinstall 'composer require maatwebsite/excel
     '
+-   php artisan generate:erd output.svg --format=svg
+-   php artisan generate:erd
+
+## laravel debugbar
+
+-   composer require barryvdh/laravel-debugbar
+
+## laravel er diragram
+
+-   composer require beyondcode/laravel-er-diagram-generator --dev
+-   bootstrap/app.php =
+    \\ Register Service Providers
+    $app->register(BeyondCode\ErdGenerator\ErdGeneratorServiceProvider::class);
+-   php artisan vendor:publish - -provider=BeyondCode\\ErdGenerator\\ErdGeneratorServiceProvider
 
 ## Learning Laravel
 

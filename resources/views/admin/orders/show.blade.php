@@ -75,76 +75,77 @@
           </div>
          </div>
          <div class="card-content collpase show">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-                <h3 class="mb-2">Customer -
-                    @foreach ($users as $user)
-                    {{ $order->user_id === $user->id ? $user->name : "" }}
-                    @endforeach
-                    <small>({{ date('M d, Y', strtotime($order->created_at)) }})</small>
-                </h3>
+          <div class="card-body" id="printSection">
+           <div class="d-flex justify-content-between">
+            <h3 class="mb-2">Customer -
+             @foreach ($users as $user)
+             {{ $order->user_id === $user->id ? $user->name : "" }}
+             @endforeach
+             <small>({{ date('M d, Y', strtotime($order->created_at)) }})</small>
+            </h3>
 
-                <div class="">
-                    <button class="btn btn-sm btn-outline-secondary" id="print">Print</button>
-                </div>
+            <div class="">
+             <button class="btn btn-sm btn-outline-primary" id="print">Print Order Bochar </button>
             </div>
+           </div>
 
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Product</th>
-                        <th>Size</th>
-                        <th>Qty</th>
-                        <th>Unit Price</th>
-                        <th>Total Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($order->order_products as $key => $order_product)
-                    <tr>
-                        <td>{{ ++$key }}</td>
-                        <td>
-                            @foreach ($products as $p)
-                            {{ $p->id === $order_product->product_id ? $p->name : "" }}
-                            @endforeach
-                        </td>
-                        <td>
-                            @foreach ($sizes as $s)
-                            {{ $s->id === $order_product->size_id ? $s->name : "" }}
-                            @endforeach
-                        </td>
-                        <td>
-                            {{ $order_product->qty }}
-                        </td>
-                        <td>
-                            @php
-                                $product = App\Models\Admin\Product::find($order_product->product_id);
-                            @endphp
-                            @foreach ($product->sizes as $s)
-                            @if ($s->id === $order_product->size_id)
-                            {{ $s->pivot->discount_price ? number_format($s->pivot->discount_price) : number_format($s->pivot->normal_price) }} MMK
-                            @endif
-                            @endforeach
-                        </td>
-                        <td>
-                            {{ number_format($order_product->total_price) }} MMK
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="5">
-                            <b>Grand Total</b>
-                        </td>
-                        <td>
-                            <b>{{ number_format($order->sub_total) }} MMK</b>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
+           <table class="table">
+            <thead>
+             <tr>
+              <th>No</th>
+              <th>Product</th>
+              <th>Size</th>
+              <th>Qty</th>
+              <th>Unit Price</th>
+              <th>Total Price</th>
+             </tr>
+            </thead>
+            <tbody>
+             @foreach ($order->order_products as $key => $order_product)
+             <tr>
+              <td>{{ ++$key }}</td>
+              <td>
+               @foreach ($products as $p)
+               {{ $p->id === $order_product->product_id ? $p->name : "" }}
+               @endforeach
+              </td>
+              <td>
+               @foreach ($sizes as $s)
+               {{ $s->id === $order_product->size_id ? $s->name : "" }}
+               @endforeach
+              </td>
+              <td>
+               {{ $order_product->qty }}
+              </td>
+              <td>
+               @php
+               $product = App\Models\Admin\Product::find($order_product->product_id);
+               @endphp
+               @foreach ($product->sizes as $s)
+               @if ($s->id === $order_product->size_id)
+               {{ $s->pivot->discount_price ? number_format($s->pivot->discount_price) : number_format($s->pivot->normal_price) }}
+               MMK
+               @endif
+               @endforeach
+              </td>
+              <td>
+               {{ number_format($order_product->total_price) }} MMK
+              </td>
+             </tr>
+             @endforeach
+            </tbody>
+            <tfoot>
+             <tr>
+              <td colspan="5">
+               <b>Grand Total</b>
+              </td>
+              <td>
+               <b>{{ number_format($order->sub_total) }} MMK</b>
+              </td>
+             </tr>
+            </tfoot>
+           </table>
           </div>
          </div>
         </div>
@@ -166,10 +167,23 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <script>
-    // When the button with id "printButton" is clicked, call the printPage function
-    $("#print").on("click", function() {
-      window.print();
-    });
+// When the button with id "print" is clicked, call the printPage function
+$("#print").on("click", function() {
+ printData();
+});
+
+function printData() {
+ var divToPrint = document.getElementById("printSection");
+ var newWindow = window.open("", "_blank", "width=800,height=600");
+ newWindow.document.open();
+ newWindow.document.write('<html><head><title>Print</title></head>');
+ newWindow.document.write('<body>');
+ newWindow.document.write(divToPrint.outerHTML);
+ newWindow.document.write('</body></html>');
+ newWindow.document.close();
+ newWindow.print();
+}
 </script>
+
 
 @endsection
