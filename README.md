@@ -33,6 +33,27 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## php artisan migrate
 
+## add excle export file library
+
+-   composer require maatwebsite/excel
+    /\*
+    'providers' => [
+    // ...
+    Maatwebsite\Excel\ExcelServiceProvider::class,
+    ],
+
+'aliases' => [
+// ...
+'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+],
+\*/
+
+-   php artisan make:export OrdersExport --model=Order
+-   you must do to use excle in your laravel project
+-   1 - go to xampp/php/php.ini and open php.ini and then remove semicoma ;extension=gd and ;extension=zip
+-   notic = remove only semicoma. after remove semicom like this 'extension=gd and extension=zip and then reinstall 'composer require maatwebsite/excel
+    '
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.

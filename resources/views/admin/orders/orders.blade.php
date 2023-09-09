@@ -47,7 +47,7 @@
     <div class="card-header">
      <h4 class="card-title">
       {{-- <a href="{{ route('admin.brand_categories.create') }}" class="btn btn-primary btn-round">New Brand Category
-       Create</a> --}}
+      Create</a> --}}
      </h4>
      <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
      <div class="heading-elements">
@@ -61,7 +61,8 @@
     </div>
     <div class="card-content collapse show">
      <div class="card-body card-dashboard">
-      <p class="card-text">The Responsive
+      <p class="card-text">
+       <a href="{{ route('admin.export') }}" class="btn btn-primary">Order Data Download Excle File</a>
       </p>
 
       @if (session('success'))
@@ -90,29 +91,30 @@
         <tr>
          <td>{{ ++$key }}</td>
          <td>
-            @foreach ($users as $user)
-            {{ $order->user_id === $user->id ? $user->name : "" }}
-            @endforeach
-        </td>
+          @foreach ($users as $user)
+          {{ $order->user_id === $user->id ? $user->name : "" }}
+          @endforeach
+         </td>
          <td>{{ number_format($order->sub_total) }} MMK</td>
          <td>{{ $order->payment_method }}</td>
          <td>
-            @if ($order->payment_photo)
-            <img src="{{ asset('assets/img/payments/' . $order->payment_photo) }}" width="100px" alt="">
-            @endif
-        </td>
-        <td>
-            <span class="badge badge-{{ $order->status === "completed" ? "success" : "warning" }}">{{ $order->status }}</span>
-            <form action="{{ url('/admin/orders/statusChange/'.$order->id) }}" method="post">
-                @csrf
-                <select name="status" id="" class="form-select mt-1">
-                    <option value="pending">Pending</option>
-                    <option value="delivering">Delivering</option>
-                    <option value="completed">Completed</option>
-                </select>
-                <button class="btn btn-sm btn-primary mt-1" type="submit">Change</button>
-            </form>
-        </td>
+          @if ($order->payment_photo)
+          <img src="{{ asset('assets/img/payments/' . $order->payment_photo) }}" width="100px" alt="">
+          @endif
+         </td>
+         <td>
+          <span
+           class="badge badge-{{ $order->status === "completed" ? "success" : "warning" }}">{{ $order->status }}</span>
+          <form action="{{ url('/admin/orders/statusChange/'.$order->id) }}" method="post">
+           @csrf
+           <select name="status" id="" class="form-select mt-1">
+            <option value="pending">Pending</option>
+            <option value="delivering">Delivering</option>
+            <option value="completed">Completed</option>
+           </select>
+           <button class="btn btn-sm btn-primary mt-1" type="submit">Change</button>
+          </form>
+         </td>
          <td>{{ $order->created_at }}</td>
          <td>{{ $order->updated_at }}</td>
          <td>

@@ -74,17 +74,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard-month', [AdminDashboardController::class, 'LineForMonth'])->name('dashboard-month');
     Route::get('/dashboard-day-month', [AdminDashboardController::class, 'DayForMonth'])->name('dashboard-day-month');
-
+    Route::get('export', [App\Http\Controllers\Admin\OrderController::class, 'export'])->name('export');
 
 });
 
 //product popular change
  Route::post('/change-popular/{id}', [ProductController::class, 'changeProductPopular'])->name('changePopular');
-
  //product popular change
  Route::post('change-feature/{id}', [ProductController::class, 'changeFeature']);
-
-
 // Customer Routes goes here
     Route::get('/', [WelcomeController::class, 'index'])->name('home');
     Route::get('/checkout', [WelcomeController::class, 'checkout']);
@@ -120,7 +117,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     // customer auth routes goes here
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {
         // Other Customer routes Add Here
-
         // customer profile update route
     Route::put('/change-password', [CustomerProfileController::class, 'CustomerchangePassword'])->name('customerchangePassword');
     // PhoneAddressChange route with auth id route with put method

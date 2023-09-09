@@ -23,7 +23,6 @@ return new class extends Migration
             $table->integer('popular')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
-
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

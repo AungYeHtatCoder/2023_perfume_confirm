@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('qty')->default(1);
             $table->integer('total_price');
             $table->timestamps();
-
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('size_id')->references('id')->on('sizes')->onDelete('cascade');

@@ -13,7 +13,8 @@ use App\Models\Admin\OrderProduct;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\OrdersExport;
 class OrderController extends Controller
 {
 
@@ -136,6 +137,11 @@ class OrderController extends Controller
         }else{
             return redirect()->back()->with('error', 'Please Login!');
         }
+    }
+
+    public function export() 
+    {
+        return Excel::download(new OrdersExport, 'orders.xlsx');
     }
 
 }
