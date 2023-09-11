@@ -7,7 +7,6 @@
      <div class="col-lg-12">
       <div class="section__text-wrap">
        <h1 class="section__heading u-c-secondary u-s-m-b-12">NEW ARRIVALS</h1>
-
        <span class="section__span u-c-silver">GET UP FOR NEW ARRIVALS</span>
       </div>
      </div>
@@ -105,10 +104,7 @@
 
 
  <!-- new photo section -->
- <div class="container d-flex justify-content-center new_photo_section row">
-
-
-
+ {{-- <div class="container d-flex justify-content-center new_photo_section row">
   <div class="col-md-5 col-sm-12 photo_texts">
    <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
     standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
@@ -122,7 +118,7 @@
    <img src="{{ asset('user_app/assets/images/banners/new_photo_1.png')}}" class="photo1" alt="photo1" />
   </div>
 
- </div>
+ </div> --}}
 
 
  <!-- end new photo section -->

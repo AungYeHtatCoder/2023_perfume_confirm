@@ -17,6 +17,7 @@
         "@ckeditor/ckeditor5-build-classic": "^39.0.1",
         "jquery": "^3.7.1",
         "laravel-echo": "^1.15.3",
-        "pusher-js": "^8.3.0"
+        "pusher-js": "^8.3.0",
+        "query": "^0.2.0"
     }
 }
