@@ -21,11 +21,11 @@ class AdminDashboardController extends Controller
     {
         //return view('admin.dashboard');
          if (auth()->user()->hasRole('Admin')) {
-        // order limit 10 
+        // order limit 10
         $sold_out_orders = Order::all();
         $orders = Order::orderBy('id', 'desc')->limit(10)->get();
 
-        
+
         // Count the number of products sold in orders with status 'completed'
         $soldProductsCount = 0;
         $completedOrders = Order::where('status', 'completed')->with('products')->get();
@@ -63,6 +63,8 @@ class AdminDashboardController extends Controller
         ->groupBy(DB::raw('MONTH(created_at)'))
         ->get();
 
+
+
         // Pass this variable to the view
         return response()->json([
             'orders' => $orders,
@@ -71,7 +73,7 @@ class AdminDashboardController extends Controller
             'sold_out_orders' => $sold_out_orders,
             'salesByDay' => $salesByDay,
             'salesByWeek' => $salesByWeek,
-            'salesByMonth' => $salesByMonth, 
+            'salesByMonth' => $salesByMonth,
             'monthlySales' => $monthlySales,
         ]);
     } else {
