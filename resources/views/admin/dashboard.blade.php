@@ -185,7 +185,7 @@
       <div class="dropdown-menu animate" role="menu">
        <a class="dropdown-item" href="#" role="menuitem">Sales</a>
        <a class="dropdown-item" href="#" role="menuitem">Total sales</a>
-       <a class="dropdown-item" href="#" role="menuitem">profit</a> 
+       <a class="dropdown-item" href="#" role="menuitem">profit</a>
       </div>
      </div>
      <ul class="nav nav-pills nav-pills-rounded chart-action float-right btn-group" role="group">

@@ -88,11 +88,11 @@
    </li>
    @endcan
 
-   @can('product_access')
+   {{-- @can('product_access')
    <li><a class="menu-item" href="{{ route('admin.customer-show-product') }}"><i></i><span
       data-i18n="Basic Forms">AllProduct</span></a>
    </li>
-   @endcan
+   @endcan --}}
 
 
   </ul>
@@ -138,7 +138,7 @@
  @endcan
  <!-- brand category  -->
 
- <li class=" nav-item"><a href="ecommerce-product-detail.html"><i class="la la-list"></i><span class="menu-title"
+ {{-- <li class=" nav-item"><a href="ecommerce-product-detail.html"><i class="la la-list"></i><span class="menu-title"
     data-i18n="Product Detail">Product Detail</span></a>
  </li>
  <li class=" nav-item"><a href="ecommerce-shopping-cart.html"><i class="la la-shopping-cart"></i><span
@@ -146,11 +146,11 @@
  </li>
  <li class=" nav-item"><a href="ecommerce-checkout.html"><i class="la la-credit-card"></i><span class="menu-title"
     data-i18n="Checkout">Checkout</span></a>
- </li>
+ </li> --}}
  <li class=" nav-item"><a href="{{ url('/admin/orders/') }}"><i class="la la-check-circle-o"></i><span class="menu-title"
     data-i18n="Order">Orders</span></a>
  </li>
- <li class=" nav-item"><a href="#"><i class="la la-clipboard"></i><span class="menu-title"
+ {{-- <li class=" nav-item"><a href="#"><i class="la la-clipboard"></i><span class="menu-title"
     data-i18n="Invoice">Invoice</span></a>
   <ul class="menu-content">
    <li><a class="menu-item" href="invoice-summary.html"><i></i><span data-i18n="Invoice Summary">Invoice
@@ -162,7 +162,7 @@
    <li><a class="menu-item" href="invoice-list.html"><i></i><span data-i18n="Invoice List">Invoice List</span></a>
    </li>
   </ul>
- </li>
+ </li> --}}
 
  {{-- <li class=" nav-item"><a href="#"><i class="la la-unlock"></i><span class="menu-title"
     data-i18n="Authentication">Authentication</span></a>
