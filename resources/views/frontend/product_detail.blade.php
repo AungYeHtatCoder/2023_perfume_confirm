@@ -87,10 +87,10 @@
                                     <ul class="nav nav-tabs" id="myTabs">
                                         <span class="pd-detail__text">Size : </span>
                                         <!-- <li class="nav-item"> -->
-                                           <li> <button type="button" class="active btn btn-outline-primary" data-toggle="tab" href="#tab1">10 ml</button></li>
+                                           <li> <button type="button" class="active btn btn-outline-info" data-toggle="tab" href="#tab1">10 ml</button></li>
                                         <!-- </li> -->
                                         <!-- <li class="nav-item"> -->
-                                            <li><button class="btn btn-outline-primary" data-toggle="tab" href="#tab2">30 ml</button></li>
+                                            <li><button class="btn btn-outline-info" data-toggle="tab" href="#tab2">30 ml</button></li>
                                         <!-- </li> -->
                                     </ul>
                             
