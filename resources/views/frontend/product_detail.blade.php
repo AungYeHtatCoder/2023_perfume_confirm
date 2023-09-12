@@ -82,52 +82,34 @@
 
        </div>
 
-       <div class="container mt-3">
-        <!-- Nav Tabs -->
-        <ul class="nav nav-tabs" id="myTabs">
-         <span class="pd-detail__text">Size : </span>
-         <!-- <li class="nav-item"> -->
-         @foreach($product->sizes as $size)
-         <li> <button type="button"
-           class="btn btn-outline-primary {{ $product->sizes[0]->id === $size->id ? 'active' : ''}}" data-toggle="tab"
-           href="#tab{{$size->id}}">{{ $size->name }}</button>
-         </li>
-         @endforeach
+        <div class="container mt-3">
+                                    <!-- Nav Tabs -->
+                                    <ul class="nav nav-tabs" id="myTabs">
+                                        <span class="pd-detail__text">Size : </span>
+                                        <!-- <li class="nav-item"> -->
+                                           <li> <button type="button" class="active btn btn-outline-primary" data-toggle="tab" href="#tab1">10 ml</button></li>
+                                        <!-- </li> -->
+                                        <!-- <li class="nav-item"> -->
+                                            <li><button class="btn btn-outline-primary" data-toggle="tab" href="#tab2">30 ml</button></li>
+                                        <!-- </li> -->
+                                    </ul>
+                            
+                                     <!-- Tab Content -->
+                                     <div class="tab-content mt-3">
+                                        <!-- Tab 1 Content -->
+                                        <div class="tab-pane fade show active" id="tab1">
+                                           
 
-         <!-- </li> -->
-         <!-- <li class="nav-item"> -->
-         <!-- <li><button class="btn btn-outline-primary" data-toggle="tab" href="#tab2">30 ml</button></li> -->
-         <!-- </li> -->
-        </ul>
+                                            <div class="pd-detail__price">7000 Kyats</div>
 
-        <!-- Tab Content -->
-        <div class="tab-content mt-3">
-         <!-- Tab 1 Content -->
-         @foreach($product->sizes as $size)
-         <div class="tab-pane fade show {{ $product->sizes[0]->id === $size->id ? 'active' : ''}}"
-          id="tab{{ $size->id }}">
-          @if($size->pivot->discount_price <= 0 || NULL) <div class="pd-detail__price">
-           {{ number_format($size->pivot->normal_price)}} MMK
-         </div>
-         @else
-         <div class="pd-detail__price">{{ number_format($size->pivot->discount_price) }} MMK</div>
-         @endif
-         @if($size->pivot->discount_price <= 0 || NULL) <div class="pd-detail__price">
-          {{ "" }}
-        </div>
-        @else
-        <small>Normal Price -</small><small style="text-decoration: line-through; color: red;">
-         {{ number_format($size->pivot->normal_price) }}
-         MMK</small>
-        @endif
-        <div class="u-s-m-b-15 u-s-m-t-15">
-         <div class="pd-detail__inline">
-
-
-          <span class="pd-detail__{{ $size->pivot->qty > 0 ? 'stock' : 'left'}}">
-           {{ $size->pivot->qty > 0 ? 'In Stock' : 'Out of Stock'}}</span>
-         </div>
-        </div>
+                                            <div class="u-s-m-b-15">
+                                                <div class="pd-detail__inline">
+                                        
+                                                 <span class="pd-detail__stock">200 in stock</span>
+                                        
+                                                 <span class="pd-detail__left">Only 2 left</span>
+                                                </div>
+                                            </div>
 
         <div>
 

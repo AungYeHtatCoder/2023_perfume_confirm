@@ -1,5 +1,7 @@
-body {
-  width: 100vw;
+body{
+  /* width: 100vw; */
+  /* overflow-x: hidden; */
+
 }
 
 /* new banner section */
@@ -974,13 +976,13 @@ body {
 .btn--e-brand {
   color: #ffffff;
   border: 1px solid transparent;
-  background-color: #ff4500;
+  background-color: rgba(24,152,127,1.00);
   transition: background-color .5s ease-in;
 }
 
-.btn--e-brand:hover {
-  background-color: #fa4400;
-}
+/* .btn--e-brand:hover {
+  background-color: rgba(24,152,127,1.00);
+} */
 
 .btn--e-brand-b-2 {
   color: #ffffff;
@@ -1041,14 +1043,14 @@ body {
 }
 
 .btn--e-transparent-hover-brand-b-2 {
-  color: #ff4500;
-  border: 2px solid #ff4500;
+  color: rgba(24,152,127,1.00);
+  border: 2px solid rgba(24,152,127,1.00);
   background-color: transparent;
   transition: background-color .1s ease-in, border-color .1s ease-in;
 }
 
 .btn--e-transparent-hover-brand-b-2:hover {
-  background-color: #ff4500;
+  background-color: rgba(24,152,127,1.00);
   color: #ffffff;
 }
 
@@ -1083,22 +1085,22 @@ body {
 }
 
 .btn--e-white-brand-shadow:hover {
-  border-color: #ff4500;
-  background-color: #ff4500;
+  border-color: rgba(24,152,127,1.00);
+  background-color: rgba(24,152,127,1.00);
   color: #ffffff;
 }
 
 .btn--e-brand-shadow {
-  border: 1px solid #ff4500;
+  border: 1px solid rgba(24,152,127,1.00);
   box-shadow: 1px 2px 8px 0 rgba(36, 37, 38, 0.08);
-  background-color: #ff4500;
+  background-color: rgba(24,152,127,1.00);
   color: #ffffff;
   transition: background-color .3s linear, border-color .3s linear;
 }
 
 .btn--e-brand-shadow:hover {
-  border-color: #fa4400;
-  background-color: #fa4400;
+  border-color: rgba(24,152,127,1.00);
+  background-color: rgba(24,152,127,1.00);
 }
 
 /* Countdown Component */
@@ -3596,7 +3598,7 @@ hr {
   text-align: center;
 }
 
-.about .about__p-wrap {
+/* .about .about__p-wrap {
   position: relative;
   margin-bottom: 20px;
 }
@@ -3619,7 +3621,7 @@ hr {
   bottom: -10px;
   right: -8px;
   border-bottom-width: 1px;
-}
+} */
 
 .about__p {
   color: #333333;
@@ -3813,8 +3815,7 @@ hr {
   /* color: #ff4500; */
   background: linear-gradient(45deg, #ff00cc, #3333ff);
   background-clip: text;
-  -webkit-background-clip: text;
-  /* For Safari/WebKit browsers */
+  -webkit-background-clip: text; /* For Safari/WebKit browsers */
   color: transparent;
   font-size: 48px;
 }
@@ -7317,12 +7318,12 @@ hr {
 
 .is-list-active .product-m__quick-look>a {
   font-size: 16px;
-  color: #ff4500;
+  color: rgba(24,152,127,1.00);
   transition: color 110ms ease-in-out;
 }
 
 .is-list-active .product-m__quick-look>a:hover {
-  color: #fa4400;
+  color:rgba(24,152,127,1.00);
 }
 
 .is-list-active .product-m__content {

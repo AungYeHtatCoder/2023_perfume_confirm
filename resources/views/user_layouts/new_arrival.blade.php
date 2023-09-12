@@ -62,9 +62,9 @@
             @endguest
            </li>
 
-          </ul>
-         </div>
-        </div>
+                            </ul>
+                        </div>
+                    </div>
 
         <span class="product-o__category">
          <a href="{{ url('/brand/'.$product->brand->id) }}">{{ $product->brand->brand_name }}</a>
@@ -119,6 +119,7 @@
   </div>
 
  </div> --}}
+
 
 
  <!-- end new photo section -->
