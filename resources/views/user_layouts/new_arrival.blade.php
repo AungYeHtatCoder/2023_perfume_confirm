@@ -100,7 +100,7 @@
   <!--====== End - Section Content ======-->
  </div>
 
-
+ <hr>
 
 
  <!-- new photo section -->
@@ -121,5 +121,5 @@
  </div> --}}
 
 
-
+ <hr>
  <!-- end new photo section -->
