@@ -82,16 +82,13 @@
 
        </div>
 
-        <div class="container mt-3">
+        {{-- <div class="container mt-3">
                                     <!-- Nav Tabs -->
                                     <ul class="nav nav-tabs" id="myTabs">
                                         <span class="pd-detail__text">Size : </span>
-                                        <!-- <li class="nav-item"> -->
                                            <li> <button type="button" class="active btn btn-outline-primary" data-toggle="tab" href="#tab1">10 ml</button></li>
-                                        <!-- </li> -->
-                                        <!-- <li class="nav-item"> -->
-                                            <li><button class="btn btn-outline-primary" data-toggle="tab" href="#tab2">30 ml</button></li>
-                                        <!-- </li> -->
+                                            <li><button class="btn btn-outline-primary" data-toggle="tab" href="#tab2">30 ml</button>
+                                            </li>
                                     </ul>
                             
                                      <!-- Tab Content -->
@@ -111,7 +108,7 @@
                                                 </div>
                                             </div>
 
-        <div>
+        <div> --}}
 
          <p>{!! $product->description !!}</p>
         </div>
