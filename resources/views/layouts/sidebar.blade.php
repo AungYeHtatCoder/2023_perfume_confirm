@@ -87,6 +87,14 @@
       data-i18n="Basic Forms">Product</span></a>
    </li>
    @endcan
+
+   @can('product_access')
+   <li><a class="menu-item" href="{{ route('admin.customer-show-product') }}"><i></i><span
+      data-i18n="Basic Forms">AllProduct</span></a>
+   </li>
+   @endcan
+
+
   </ul>
  </li>
  @endcan
@@ -139,8 +147,8 @@
  <li class=" nav-item"><a href="ecommerce-checkout.html"><i class="la la-credit-card"></i><span class="menu-title"
     data-i18n="Checkout">Checkout</span></a>
  </li>
- <li class=" nav-item"><a href="ecommerce-order.html"><i class="la la-check-circle-o"></i><span class="menu-title"
-    data-i18n="Order">Order</span></a>
+ <li class=" nav-item"><a href="{{ url('/admin/orders/') }}"><i class="la la-check-circle-o"></i><span class="menu-title"
+    data-i18n="Order">Orders</span></a>
  </li>
  <li class=" nav-item"><a href="#"><i class="la la-clipboard"></i><span class="menu-title"
     data-i18n="Invoice">Invoice</span></a>

@@ -58,14 +58,17 @@
            <div class="product-o__action-wrap">
             <ul class="product-o__action-list">
              <li>
-              <a data-modal="modal" data-modal-id="#quick-look-top-trending-{{ $product->id }}" data-tooltip="tooltip"
-               data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a>
+              <a href="{{url('/product_detail/'.$product->id)}}" title="Product Detail">
+               <i style="color: white" class="fas fa-search-plus"></i>
+              </a>
+              <!-- <a data-modal="modal" data-modal-id="#quick-look-top-trending-{{ $product->id }}" data-tooltip="tooltip"
+               data-placement="top" title="Quick View"><i style="color: white" class="fas fa-search-plus"></i></a> -->
              </li>
              <li>
               @auth
               <a
                onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();">
-               <i class="fas fa-plus-circle"></i>
+               <i style="color: white" class="fas fa-plus-circle"></i>
               </a>
               <form action="{{ url('/add-to-cart/'.$product->id) }}" id="addToCart-form-{{ $product->id }}"
                method="post" class="d-none">
@@ -78,8 +81,8 @@
               @endauth
 
               @guest
-              <a href="{{ url('/login') }}">
-               <i class="fas fa-plus-circle"></i>
+              <a href="{{ url('/signin') }}">
+               <i style="color: white" class="fas fa-plus-circle"></i>
               </a>
               @endguest
              </li>
@@ -106,21 +109,34 @@
        </div>
 
           <span class="product-o__category">
-           <a href="shop-side-version-2.html">{{ $product->brand->brand_name }}</a>
+           <small>{{ $product->brand->brand_name }}</small>
           </span>
 
           <span class="product-o__name">
-           <a href="product-detail.html">{{ $product->name }}</a>
+           <a href="{{ url('/product_detail/'.$product->id) }}">{{ $product->name }}</a>
           </span>
 
-          <span class="product-o__price">{{ $product->normal_price }}
-           <span class="product-o__discount">{{ $product->discount_price }}</span>
+    @foreach ($product->sizes as $size)
+        @if ($size->pivot->discount_price <= 0 || NULL) <span
+         style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>
+         {{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+         <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
+         </span>
+         @else
+         <span
+          style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+         <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
+          <span class="product-o__discount"
+           style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
+         </span>
+         @endif
+         @endforeach
           </span>
          </div>
         </div>
 
         <!-- @endforeach -->
-        @endforeach
+    @endforeach
        </div>
 
       </div>
@@ -140,25 +156,26 @@
 
 
 
-  <!-- new banner section -->
-  <div class="new_banner_section row">
+ <!-- new banner section -->
+ <div class="new_banner_section row">
   <div class="col-md-1">
 
   </div>
 
-<div class="col-md-5 col-sm-12">
-    <img src="{{ asset('user_app/assets/images/banners/new_banner__6.png')}}" alt="banner">
-</div>
+  <div class="col-md-5 col-sm-12">
+   <img src="{{ asset('user_app/assets/images/banners/new_banner__6.png')}}" alt="banner">
+  </div>
 
-<div class="col-md-5 col-sm-12 banner_texts">
-    <h2>Our original perfume</h2><br/>
-    <p>The new fragrance</p><br/>
-    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><br/>
+  <div class="col-md-5 col-sm-12 banner_texts">
+   <h2>Our original perfume</h2><br />
+   <p>The new fragrance</p><br />
+   <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua.</span><br />
 
-    <a href="#" type="button">SHOP NOW</a>
-</div>
+   <a href="{{ url('/shop') }}" type="button">SHOP NOW</a>
+  </div>
 
-</div>
+ </div>
 
 
-<!-- end banner section -->
+ <!-- end banner section -->

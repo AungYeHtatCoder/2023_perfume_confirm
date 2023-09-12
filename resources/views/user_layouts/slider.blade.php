@@ -12,12 +12,7 @@
 
         <span class="content-span-3 u-c-secondary">Find perfume on best prices, Also Discover most selling
          products of perfume</span>
-
-        <span class="content-span-4 u-c-secondary">Starting At
-
-         <span class="u-c-secondary">$1050.00</span></span>
-
-        <a class="shop-now-link btn--e-brand" href="shop-side-version-2.html">SHOP NOW</a>
+        <a class="shop-now-link btn--e-brand" href="{{ url('/shop') }}">SHOP NOW</a>
        </div>
       </div>
      </div>

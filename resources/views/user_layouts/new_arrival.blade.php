@@ -7,7 +7,6 @@
      <div class="col-lg-12">
       <div class="section__text-wrap">
        <h1 class="section__heading u-c-secondary u-s-m-b-12">NEW ARRIVALS</h1>
-
        <span class="section__span u-c-silver">GET UP FOR NEW ARRIVALS</span>
       </div>
      </div>
@@ -22,83 +21,78 @@
    <div class="container">
     <div class="slider-fouc">
      <div class="owl-carousel product-slider" data-item="4">
-        {{-- new arrival data --}}
-        @foreach ($newArrival as $product)
-            <div class="u-s-m-b-30">
-                <div class="product-o product-o--hover-on">
-                    <div class="product-o__wrap">
-                        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{{ url('/product-detail/'.$product->id) }}">
-                            <img class="aspect__img" src="{{ asset('assets/img/products/'.$product->image)}}"
-                            alt="">
-                        </a>
-                        <div class="product-o__action-wrap">
-                            <ul class="product-o__action-list">
-                                <li>
-                                    <a data-modal="modal" data-modal-id="#quick-look-new-arrival-{{ $product->id }}" data-tooltip="tooltip" data-placement="top"
-                                    title="Quick View">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    @auth
-                                        <a onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();">
-                                            <i class="fas fa-plus-circle"></i>
-                                        </a>
-                                        <form
-                                            action="{{ url('/add-to-cart/'.$product->id) }}"
-                                            id="addToCart-form-{{ $product->id }}"
-                                            method="post"
-                                            class="d-none"
-                                        >
-                                            @csrf
-                                            <input type="hidden" name="size_id" value="{{ $product->sizes[0]->id }}">
-                                            <input type="hidden" name="unit_price" value="{{ $product->sizes[0]->pivot->discount_price <= 0 ? $product->sizes[0]->pivot->normal_price : $product->sizes[0]->pivot->discount_price }}">
-                                            <input type="hidden" name="qty" value="1">
-                                        </form>
-                                    @endauth
+      {{-- new arrival data --}}
+      @foreach ($newArrival as $product)
+      <div class="u-s-m-b-30">
+       <div class="product-o product-o--hover-on">
+        <div class="product-o__wrap">
+         <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{{ url('/product-detail/'.$product->id) }}">
+          <img class="aspect__img" src="{{ asset('assets/img/products/'.$product->image)}}" alt="">
+         </a>
+         <div class="product-o__action-wrap">
+          <ul class="product-o__action-list">
+           <li>
+            <a href="{{url('/product_detail/'.$product->id)}}" title="Product Detail">
+             <i style="color: white" class="fas fa-search-plus"></i>
+            </a>
+            <!-- <a data-modal="modal" data-modal-id="#quick-look-new-arrival-{{ $product->id }}" data-tooltip="tooltip"
+             data-placement="top" title="Quick View">
+             <i style="color: white" class="fas fa-search-plus"></i>
+            </a> -->
+           </li>
+           <li>
+            @auth
+            <a onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();">
+             <i style="color: white" class="fas fa-plus-circle"></i>
+            </a>
+            <form action="{{ url('/add-to-cart/'.$product->id) }}" id="addToCart-form-{{ $product->id }}" method="post"
+             class="d-none">
+             @csrf
+             <input type="hidden" name="size_id" value="{{ $product->sizes[0]->id }}">
+             <input type="hidden" name="unit_price"
+              value="{{ $product->sizes[0]->pivot->discount_price <= 0 ? $product->sizes[0]->pivot->normal_price : $product->sizes[0]->pivot->discount_price }}">
+             <input type="hidden" name="qty" value="1">
+            </form>
+            @endauth
 
-                                    @guest
-                                        <a href="{{ url('/login') }}">
-                                            <i class="fas fa-plus-circle"></i>
-                                        </a>
-                                    @endguest
-                                </li>
+            @guest
+            <a href="{{ url('/signin') }}">
+             <i class="fas fa-plus-circle"></i>
+            </a>
+            @endguest
+           </li>
 
                             </ul>
                         </div>
                     </div>
 
-                    <div class="blog-t-w">
-                        <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top">View</a>
+        <span class="product-o__category">
+         <a href="{{ url('/brand/'.$product->brand->id) }}">{{ $product->brand->brand_name }}</a>
+        </span>
 
-                        <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart"
-                        data-tooltip="tooltip" data-placement="top">Add to cart</a>
-                    </div>
-
-                    <span class="product-o__category">
-                        <a href="{{ url('/brand/'.$product->brand->id) }}">{{ $product->brand->brand_name }}</a>
-                    </span>
-
-                    <span class="product-o__name">
-                        <a href="{{ url('/product/'.$product->id) }}">{{ $product->name }}</a>
-                    </span>
-                    <br>
-                    @foreach ($product->sizes as $size)
-                    @if ($size->pivot->discount_price <= 0 || NULL)
-                    <span style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
-                    <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
-                    </span>
-                    @else
-                    <span style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
-                    <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
-                        <span class="product-o__discount" style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
-                    </span>
-                    @endif
-                    @endforeach
-                </div>
-            </div>
-        @endforeach
-        {{-- new arrival data --}}
+        <span class="product-o__name">
+         <a href="{{ url('/product/'.$product->id) }}">{{ $product->name }}</a>
+        </span>
+        <br>
+        @foreach ($product->sizes as $size)
+        @if ($size->pivot->discount_price <= 0 || NULL) <span
+         style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>
+         {{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+         <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
+         </span>
+         @else
+         <span
+          style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+         <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
+          <span class="product-o__discount"
+           style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
+         </span>
+         @endif
+         @endforeach
+       </div>
+      </div>
+      @endforeach
+      {{-- new arrival data --}}
      </div>
     </div>
    </div>
@@ -109,23 +103,23 @@
 
 
 
-  <!-- new photo section -->
-  <div class="container d-flex justify-content-center new_photo_section row">
+ <!-- new photo section -->
+ {{-- <div class="container d-flex justify-content-center new_photo_section row">
+  <div class="col-md-5 col-sm-12 photo_texts">
+   <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+    type specimen book</span>
+
+   <p>' In scents '</p>
+
+  </div>
+
+  <div class="col-md-3 col-sm-12 photos">
+   <img src="{{ asset('user_app/assets/images/banners/new_photo_1.png')}}" class="photo1" alt="photo1" />
+  </div>
+
+ </div> --}}
 
 
 
-<div class="col-md-5 col-sm-12 photo_texts">
-    <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</span>
-
-    <p>' In scents '</p>
-
-</div>
-
-<div class="col-md-3 col-sm-12 photos">
-    <img src="{{ asset('user_app/assets/images/banners/new_photo_1.png')}}" class="photo1" alt="photo1" />
-</div>
-
-</div>
-
-
-<!-- end new photo section -->
+ <!-- end new photo section -->

@@ -5,12 +5,12 @@
 
     <!--====== Secondary Nav ======-->
     <div class="secondary-nav">
-      <div>
+     <div>
       <a href="{{ url('/') }}">
-        <div class="logo">
-            <img src="{{ asset('assets/img/logo.png') }}" width="50px" height="50px" alt="">
-            <h2>In Scents</h2>
-        </div>
+       <div class="logo">
+        <img src="{{ asset('assets/img/logo.png') }}" width="50px" height="50px" alt="">
+        <h2>In Scents</h2>
+       </div>
 
       </a>
      </div>
@@ -67,9 +67,7 @@
        <!--====== List ======-->
        <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
         <li>
-            <form action="">
-                <input type="text" class="input-text input-text--border-radius input-text--style-1" id="main-search" placeholder="Search">
-            </form>
+         @include('user_layouts.search_form')
         </li>
         <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 
@@ -79,38 +77,39 @@
 
          <span class="js-menu-toggle"></span>
          <ul style="width:120px">
-            @auth
-            <li>
-                <a href="{{ url('/dashboard') }}">
-                    <i class="fas fa-user-circle u-s-m-r-6"></i>
-                    <span>Account</span>
-                </a>
-              </li>
-              <li>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="fas fa-lock-open u-s-m-r-6"></i>
-                    <span>Signout</span>
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </li>
-            @endauth
+          @auth
+          <li>
+           <a href="{{ url('/dashboard') }}">
+            <i class="fas fa-user-circle u-s-m-r-6"></i>
+            <span>Account</span>
+           </a>
+          </li>
+          <li>
+           <a href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <i class="fas fa-lock-open u-s-m-r-6"></i>
+            <span>Signout</span>
+           </a>
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+           </form>
+          </li>
+          @endauth
 
-            @guest
-            <li>
-                <a href="{{ url('/signup') }}">
-                    <i class="fas fa-user-plus u-s-m-r-6"></i>
-                    <span>Signup</span>
-                </a>
-              </li>
-              <li>
-                <a href="{{ url('/signin') }}">
-                    <i class="fas fa-lock u-s-m-r-6"></i>
-                    <span>Signin</span>
-                </a>
-            </li>
-            @endguest
+          @guest
+          <li>
+           <a href="{{ url('/signup') }}">
+            <i class="fas fa-user-plus u-s-m-r-6"></i>
+            <span>Signup</span>
+           </a>
+          </li>
+          <li>
+           <a href="{{ url('/signin') }}">
+            <i class="fas fa-lock u-s-m-r-6"></i>
+            <span>Signin</span>
+           </a>
+          </li>
+          @endguest
          </ul>
          <!--====== End - Dropdown ======-->
         </li>
@@ -124,12 +123,14 @@
         <li class="has-dropdown">
 
          <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
-            @auth
-            <span class="total-item-round">{{ $carts->count() }}</span>
-            @endauth
-            @guest
-            <span class="total-item-round">0</span>
-            @endguest
+          @auth
+          <span class="total-item-round">{{ $carts ? $carts->count() : '0' }}</span>
+          @else
+          <span class="total-item-round">0</span>
+          @endauth
+          @guest
+          <span class="total-item-round">0</span>
+          @endguest
 
          </a>
 
@@ -140,44 +141,48 @@
 
           <!--====== Mini Product Container ======-->
           <div class="mini-product-container gl-scroll u-s-m-b-15">
-            @auth
-                <!--====== Card for mini cart ======-->
-                @foreach ($carts as $cart)
-                <div class="card-mini-product">
-                        <div class="mini-product">
-                            <div class="mini-product__image-wrapper">
+           @auth
+           <!--====== Card for mini cart ======-->
+           @foreach ($carts as $cart)
+           <div class="card-mini-product">
+            <div class="mini-product">
+             <div class="mini-product__image-wrapper">
 
-                            <a class="mini-product__link" href="{{ url('/product-detail/'.$cart->products[0]->id) }}">
+              <a class="mini-product__link" href="{{ url('/product-detail/'.$cart->products[0]->id) }}">
 
-                            <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$cart->products[0]->image)}}"
-                                alt=""></a>
-                            </div>
-                            <div class="mini-product__info-wrapper">
+               <img class="u-img-fluid" src="{{ asset('assets/img/products/'.$cart->products[0]->image)}}" alt=""></a>
+             </div>
+             <div class="mini-product__info-wrapper">
 
-                            <span class="mini-product__category">
+              <span class="mini-product__category">
 
-                                <a href="{{ url('/brand/'.$cart->products[0]->brand_id) }}">
-                                    {{ $cart->products[0]->brand->brand_name }}
-                                </a>
-                            </span>
+               <a href="{{ url('/brand/'.$cart->products[0]->brand_id) }}">
+                {{ $cart->products[0]->brand->brand_name }}
+               </a>
+              </span>
 
-                            <span class="mini-product__name">
+              <span class="mini-product__name">
 
-                            <a href="{{ url('/product-detail/'.$cart->products[0]->id) }}">{{ $cart->products[0]->name }}</a></span>
+               <a href="{{ url('/product-detail/'.$cart->products[0]->id) }}">{{ $cart->products[0]->name }}</a></span>
 
-                            <span class="mini-product__quantity">{{ $cart->qty }} x</span>
+              <span class="mini-product__quantity">{{ $cart->qty }} x</span>
 
-                            <span class="mini-product__price">
-                                {{ number_format($cart->unit_price) }} MMK
-                            </span>
-                            </div>
-                        </div>
+              <span class="mini-product__price">
+               {{ number_format($cart->unit_price) }} MMK
+               {{-- @if($cart->sizes[0]->pivot->discount_price <= 0 || NULL)
+                                    {{ number_format($cart->sizes[0]->pivot->normal_price) }} MMK
+               @else
+               {{ number_format($cart->sizes[0]->pivot->discount_price) }} MMK
+               @endif --}}
+              </span>
+             </div>
+            </div>
 
-                        <a href="{{ url('/cart/delete/'.$cart->id) }}" class="mini-product__delete-link far fa-trash-alt"></a>
-                </div>
-                @endforeach
-                <!--====== End - Card for mini cart ======-->
-            @endauth
+            <a href="{{ url('/cart/delete/'.$cart->id) }}" class="mini-product__delete-link far fa-trash-alt"></a>
+           </div>
+           @endforeach
+           <!--====== End - Card for mini cart ======-->
+           @endauth
 
           </div>
           <!--====== End - Mini Product Container ======-->
@@ -190,12 +195,12 @@
             <span class="subtotal-text">SUBTOTAL</span>
 
             <span class="subtotal-value">
-                @auth
-                {{ number_format($carts->sum('total_price')) }} MMK
-                @endauth
-                @guest
-                    0 MMK
-                @endguest
+             @auth
+             {{ number_format($carts->sum('total_price')) }} MMK
+             @endauth
+             @guest
+             0 MMK
+             @endguest
             </span>
            </div>
            <div class="mini-action">

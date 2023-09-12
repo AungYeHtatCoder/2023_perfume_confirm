@@ -1,9 +1,9 @@
 <footer class="footer footer-static footer-light navbar-border navbar-shadow">
  <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span
    class="float-md-left d-block d-md-inline-block">Copyright &copy; 2023 <a class="text-bold-800 grey darken-2"
-    href="https://www.facebook.com/profile.php?id=100092278448519&mibextid=LQQJ4d" target="_blank">Delight Myanmar</a></span><span
-   class="float-md-right d-none d-lg-block">Hand-crafted & Made with<i class="ft-heart pink"></i><span
-    id="scroll-top"></span></span></p>
+    href="https://www.facebook.com/profile.php?id=100092278448519&mibextid=LQQJ4d" target="_blank">Delight
+    Myanmar</a></span><span class="float-md-right d-none d-lg-block">Hand-crafted & Made with<i
+    class="ft-heart pink"></i><span id="scroll-top"></span></span></p>
 </footer>
 <!-- END: Footer-->
 
@@ -14,8 +14,9 @@
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="{{ asset('admin_app/app-assets/vendors/js/charts/chartist.min.js') }}"></script>
-<script src="{{ asset('admin_app/app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}"></script>
+<!-- <script src="{{ asset('admin_app/app-assets/vendors/js/charts/chartist.min.js') }}"></script>
+<script src="{{ asset('admin_app/app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}"></script> -->
+
 <script src="{{ asset('admin_app/app-assets/vendors/js/charts/raphael-min.js') }}"></script>
 <script src="{{ asset('admin_app/app-assets/vendors/js/charts/morris.min.js') }}"></script>
 <script src="{{ asset('admin_app/app-assets/vendors/js/timeline/horizontal-timeline.js') }}"></script>
@@ -24,6 +25,9 @@
 <!-- BEGIN: Theme JS-->
 <script src="{{ asset('admin_app/app-assets/js/core/app-menu.js') }}"></script>
 <script src="{{ asset('admin_app/app-assets/js/core/app.js') }}"></script>
+<!-- order notify js -->
+<!-- <script src="{{ asset('admin_app/app-assets/js/order_notify.js') }}"></script> -->
+
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->

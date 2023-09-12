@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Admin\Size;
 use App\Models\Admin\Brand;
 use App\Models\Admin\Scent;
 use App\Models\Admin\PerfumeSize;
@@ -50,15 +51,26 @@ class Product extends Model
         return $this->hasMany(OrderProduct::class);
     }
 
-// public function perfumeSize()
-// {
-//     return $this->belongsTo(PerfumeSize::class);
-// }
+public function perfumeSize()
+{
+    return $this->belongsTo(PerfumeSize::class);
+}
 
-    // public function scent()
-    // {
-    //     return $this->belongsTo(Scent::class);
-    // }
+    public function scent()
+    {
+        return $this->belongsTo(Scent::class);
+    }
+
+public function orders()
+{
+    return $this->belongsToMany('App\Models\Admin\Order', 'order_products')
+                ->withPivot('size_id', 'qty', 'total_price');
+}
+
+    public static function searchByName($query)
+{
+    return self::where('name', 'LIKE', '%' . $query . '%')->get();
+}
 
 
 }

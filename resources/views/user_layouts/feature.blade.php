@@ -32,27 +32,44 @@
         <div class="product-o__action-wrap">
          <ul class="product-o__action-list">
           <li>
-
-           <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top"
-            title="Quick View"><i class="fas fa-search-plus"></i></a>
+           <a href="{{url('/product_detail/'.$product->id)}}" title="Product Detail">
+            <i style="color: white" class="fas fa-search-plus"></i>
+           </a>
+           <!-- <a data-modal="modal" data-modal-id="#quick-look-top-trending-{{ $product->id }}" data-tooltip="tooltip"
+            style="color: white" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a> -->
           </li>
           <li>
+           @auth
+           <a onclick="event.preventDefault(); document.getElementById('addToCart-form-{{ $product->id }}').submit();">
+            <i style="color: white" class="fas fa-plus-circle"></i>
+           </a>
+           <form action="{{ url('/add-to-cart/'.$product->id) }}" id="addToCart-form-{{ $product->id }}" method="post"
+            class="d-none">
+            @csrf
+            <input type="hidden" name="size_id" value="{{ $product->sizes[0]->id }}">
+            <input type="hidden" name="unit_price"
+             value="{{ $product->sizes[0]->pivot->discount_price <= 0 ? $product->sizes[0]->pivot->normal_price : $product->sizes[0]->pivot->discount_price }}">
+            <input type="hidden" name="qty" value="1">
+           </form>
+           @endauth
 
-           <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top"
-            title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
+           @guest
+           <a href="{{ url('/signin') }}">
+            <i class="fas fa-plus-circle"></i>
+           </a>
+           @endguest
           </li>
-
          </ul>
         </div>
        </div>
 
-       <div class="blog-t-w">
+       <!-- <div class="blog-t-w">
         <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look"
          data-tooltip="tooltip" data-placement="top">View</a>
 
         <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart"
          data-tooltip="tooltip" data-placement="top">Add to cart</a>
-       </div>
+       </div> -->
 
        <span class="product-o__category">
 
@@ -74,12 +91,3 @@
   </div>
   <!--====== End - Section Content ======-->
  </div>
-
-
-
-
-
-
-
-
- 
