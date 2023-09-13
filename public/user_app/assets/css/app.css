@@ -1,6 +1,25 @@
-body {
-  width: 100vw;
+body{
+  /* width: 100vw; */
+  overflow-x: hidden;
+
 }
+
+/* start carousel section */
+.carousel-item{
+  position: relative;
+}
+
+.carousel-caption{
+  width: 800px;
+  height: 50%;
+  padding: 30px;
+  /* background-color: #999; */
+  position: absolute;
+  left: calc(50% - 430px);
+  top: calc(50% - 25%);
+ 
+}
+/* end carousel section */
 
 /* new banner section */
 
