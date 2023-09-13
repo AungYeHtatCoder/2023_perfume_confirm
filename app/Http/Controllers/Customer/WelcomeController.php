@@ -134,7 +134,7 @@ class WelcomeController extends Controller
         $scents = Scent::all();
         $sizes = Size::all();
         $brands = Brand::all();
-        $products = Product::with('scents')->whereHas('scents', function ($query) use 
+        $products = Product::with('scents')->whereHas('scents', function ($query) use
          ($id) {
         $query->where('scent_id', $id);
         })->latest()->paginate(5);
@@ -157,7 +157,7 @@ class WelcomeController extends Controller
         $scents = Scent::all();
         $sizes = Size::all();
         $brands = Brand::all();
-        $products = Product::with('sizes')->whereHas('sizes', function ($query) use 
+        $products = Product::with('sizes')->whereHas('sizes', function ($query) use
          ($id) {
         $query->where('size_id', $id);
         })->latest()->paginate(5);
@@ -180,7 +180,7 @@ class WelcomeController extends Controller
         $scents = Scent::all();
         $sizes = Size::all();
         $brands = Brand::all();
-        $products = Product::with('brand')->whereHas('brand', function ($query) use 
+        $products = Product::with('brand')->whereHas('brand', function ($query) use
          ($id) {
         $query->where('brand_id', $id);
         })->latest()->paginate(5);
@@ -214,7 +214,7 @@ class WelcomeController extends Controller
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
             return view('frontend.product_detail', compact('carts', 'product', 'related_products'));
         }
-        return view('frontend.product_detail', compact('product', 'related_product'));
+        return view('frontend.product_detail', compact('product', 'related_products'));
     }
     public function contact() {
         if(Auth::check()){

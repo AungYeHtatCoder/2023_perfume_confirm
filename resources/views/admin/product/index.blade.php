@@ -20,7 +20,7 @@
 
 <style>
 /* Styles for the toggle switch icon */
-.switch-icon {
+/* .switch-icon {
  position: relative;
  display: inline-block;
  width: 40px;
@@ -33,9 +33,9 @@
 
 .switch-icon.active {
  background-color: blue;
-}
+} */
 
-.toggle-icon {
+/* .toggle-icon {
  position: absolute;
  top: 2px;
  left: 2px;
@@ -44,12 +44,12 @@
  background-color: white;
  border-radius: 50%;
  transition: transform 0.3s ease;
-}
+} */
 
 /* Hide the actual input */
-.hidden-input {
+/* .hidden-input {
  display: none;
-}
+} */
 </style>
 
 @endsection

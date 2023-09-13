@@ -99,7 +99,7 @@ body{
 
 }
 
-.new_photo_section .photo img{
+.new_photo_section .photo img {
   width: 100%;
   object-fit: cover;
 }
@@ -993,13 +993,13 @@ body {
 .btn--e-brand {
   color: #ffffff;
   border: 1px solid transparent;
-  background-color: rgba(24,152,127,1.00);
+  background-color: #ff4500;
   transition: background-color .5s ease-in;
 }
 
-/* .btn--e-brand:hover {
-  background-color: rgba(24,152,127,1.00);
-} */
+.btn--e-brand:hover {
+  background-color: #fa4400;
+}
 
 .btn--e-brand-b-2 {
   color: #ffffff;
@@ -1060,14 +1060,14 @@ body {
 }
 
 .btn--e-transparent-hover-brand-b-2 {
-  color: rgba(24,152,127,1.00);
-  border: 2px solid rgba(24,152,127,1.00);
+  color: #ff4500;
+  border: 2px solid #ff4500;
   background-color: transparent;
   transition: background-color .1s ease-in, border-color .1s ease-in;
 }
 
 .btn--e-transparent-hover-brand-b-2:hover {
-  background-color: rgba(24,152,127,1.00);
+  background-color: #ff4500;
   color: #ffffff;
 }
 
@@ -1102,22 +1102,22 @@ body {
 }
 
 .btn--e-white-brand-shadow:hover {
-  border-color: rgba(24,152,127,1.00);
-  background-color: rgba(24,152,127,1.00);
+  border-color: #ff4500;
+  background-color: #ff4500;
   color: #ffffff;
 }
 
 .btn--e-brand-shadow {
-  border: 1px solid rgba(24,152,127,1.00);
+  border: 1px solid #ff4500;
   box-shadow: 1px 2px 8px 0 rgba(36, 37, 38, 0.08);
-  background-color: rgba(24,152,127,1.00);
+  background-color: #ff4500;
   color: #ffffff;
   transition: background-color .3s linear, border-color .3s linear;
 }
 
 .btn--e-brand-shadow:hover {
-  border-color: rgba(24,152,127,1.00);
-  background-color: rgba(24,152,127,1.00);
+  border-color: #fa4400;
+  background-color: #fa4400;
 }
 
 /* Countdown Component */
@@ -3615,7 +3615,7 @@ hr {
   text-align: center;
 }
 
-/* .about .about__p-wrap {
+.about .about__p-wrap {
   position: relative;
   margin-bottom: 20px;
 }
@@ -3638,7 +3638,7 @@ hr {
   bottom: -10px;
   right: -8px;
   border-bottom-width: 1px;
-} */
+}
 
 .about__p {
   color: #333333;
@@ -3832,7 +3832,8 @@ hr {
   /* color: #ff4500; */
   background: linear-gradient(45deg, #ff00cc, #3333ff);
   background-clip: text;
-  -webkit-background-clip: text; /* For Safari/WebKit browsers */
+  -webkit-background-clip: text;
+  /* For Safari/WebKit browsers */
   color: transparent;
   font-size: 48px;
 }
@@ -7335,12 +7336,12 @@ hr {
 
 .is-list-active .product-m__quick-look>a {
   font-size: 16px;
-  color: rgba(24,152,127,1.00);
+  color: #ff4500;
   transition: color 110ms ease-in-out;
 }
 
 .is-list-active .product-m__quick-look>a:hover {
-  color:rgba(24,152,127,1.00);
+  color: #fa4400;
 }
 
 .is-list-active .product-m__content {

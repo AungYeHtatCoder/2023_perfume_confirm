@@ -36,18 +36,12 @@
          data-filter=".scent-{{ $scent->id }}">{{ $scent->scent_name }}</button>
        </div>
        @endforeach
-
-       <!-- <div class="filter__category-wrapper">
-
-        <button class="btn filter__btn filter__btn--style-1" type="button" data-filter=".womenscent">WOMEN
-         SCENT</button>
-       </div> -->
       </div>
       <div class="filter__grid-wrapper u-s-m-t-30">
        <div class="row">
         {{-- top trending data --}}
         @foreach ($topTrending as $product)
-        <!-- @foreach ($product->scents as $scent) -->
+        @foreach ($product->scents as $scent)
 
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item scent-{{ $scent->id }}">
          <div class="product-o product-o--hover-on product-o--radius">
@@ -90,24 +84,6 @@
            </div>
           </div>
 
-          <!-- <div class="blog-t-w">
-           <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal"
-            data-modal-id="#quick-look-top-trending-{{ $product->id }}" data-tooltip="tooltip"
-            data-placement="top">View</a>
-
-           <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal"
-            data-modal-id="#cart-top-trending-{{ $product->id }}" data-tooltip="tooltip" data-placement="top">Add to
-            cart</a>
-          </div> -->
-
-          <div class="blog-t-w">
-        <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look"
-         data-tooltip="tooltip" data-placement="top">View</a>
-
-        <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart"
-         data-tooltip="tooltip" data-placement="top">Add to cart</a>
-       </div>
-
           <span class="product-o__category">
            <small>{{ $product->brand->brand_name }}</small>
           </span>
@@ -116,27 +92,27 @@
            <a href="{{ url('/product_detail/'.$product->id) }}">{{ $product->name }}</a>
           </span>
 
-    @foreach ($product->sizes as $size)
-        @if ($size->pivot->discount_price <= 0 || NULL) <span
-         style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>
-         {{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
-         <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
-         </span>
-         @else
-         <span
-          style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
-         <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
-          <span class="product-o__discount"
-           style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
-         </span>
-         @endif
-         @endforeach
-          </span>
+          @foreach ($product->sizes as $size)
+          @if ($size->pivot->discount_price <= 0 || NULL) <span
+           style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>
+           {{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+           <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
+           </span>
+           @else
+           <span
+            style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+           <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
+            <span class="product-o__discount"
+             style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
+           </span>
+           @endif
+           @endforeach
+           </span>
          </div>
         </div>
 
-        <!-- @endforeach -->
-    @endforeach
+        @endforeach
+        @endforeach
        </div>
 
       </div>
@@ -176,6 +152,6 @@
   </div>
 
  </div>
-
+ <hr class="mb-10">
 
  <!-- end banner section -->
