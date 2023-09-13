@@ -1,24 +1,25 @@
-body{
+body {
   /* width: 100vw; */
   overflow-x: hidden;
 
 }
 
 /* start carousel section */
-.carousel-item{
+.carousel-item {
   position: relative;
 }
 
-.carousel-caption{
+.carousel-caption {
   width: 800px;
   height: 50%;
-  padding: 30px;
-  /* background-color: #999; */
   position: absolute;
-  left: calc(50% - 430px);
+  text-align: left;
+  padding: 30px;
+  left: calc(35% - 430px);
   top: calc(50% - 25%);
- 
+
 }
+
 /* end carousel section */
 
 /* new banner section */
@@ -870,7 +871,7 @@ body {
  * Includes support for styling links too.
  */
 .u-c-brand {
-  color: #fff !important;
+  color: #ff4500 !important;
 }
 
 .u-c-secondary {
@@ -892,6 +893,7 @@ body {
 .u-c-silver {
   color: #a0a0a0 !important;
 }
+
 
 /*
   * Display Utility
@@ -8371,42 +8373,6 @@ hr {
   background: center center/cover no-repeat;
 }
 
-.hero-slide--1 {
-  background-image: url(../images/slider/banner_bg.jpg);
-}
-
-.hero-slide--2 {
-  background-image: url(../images/slider/banner_1.jpg);
-}
-
-.hero-slide--3 {
-  background-image: url(../images/slider/slider3.jpg);
-}
-
-.hero-slide--4 {
-  background-image: url(../images/slider/slider_4.jpg);
-}
-
-.hero-slide--5 {
-  background-image: url(../images/slider/slider_5.jpg);
-}
-
-.hero-slide--6 {
-  background-image: url(../images/slider/slide-6.jpg);
-}
-
-.hero-slide--7 {
-  background-image: url(../images/slider/slide-7.jpg);
-}
-
-.hero-slide--8 {
-  background-image: url(../images/slider/slide-8.jpg);
-}
-
-.hero-slide--9 {
-  background-image: url(../images/slider/slide-9.jpg);
-}
-
 .owl-carousel .owl-dots {
   position: absolute;
 }
@@ -8580,42 +8546,42 @@ hr {
   display: inline-block;
 }
 
-.owl-item .slider-content--animation * {
+.carousel-item .slider-content--animation * {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
-.owl-item.active .content-span-1 {
+.carousel-item.active .carousel-caption .content-span-1 {
   -webkit-animation-delay: 0.5s;
   animation-delay: 0.5s;
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
 }
 
-.owl-item.active .content-span-2 {
+.carousel-item.active .content-span-2 {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
 }
 
-.owl-item.active .content-span-3 {
+.carousel-item.active .content-span-3 {
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
 }
 
-.owl-item.active .content-span-4 {
+.carousel-item.active .content-span-4 {
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
 }
 
-.owl-item.active .shop-now-link {
+.carousel-item.active .shop-now-link {
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
   -webkit-animation-name: fadeInLeft;
@@ -8626,7 +8592,7 @@ hr {
   position: static;
 }
 
-.product-slider .owl-item:hover, .tab-slider .owl-item:hover {
+.product-slider .carousel-item:hover, .tab-slider .carousel-item:hover {
   z-index: 2;
 }
 

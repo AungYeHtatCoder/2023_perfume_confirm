@@ -1,9 +1,3 @@
-<!-- bootstrap css1 js1 -->
-<!-- Include Bootstrap JS and jQuery -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-
 <script>
 window.ga = function() {
  ga.q.push(arguments)
@@ -42,23 +36,6 @@ showSweetAlert("Success!", "{{ Session::get('success') }}", "success");
 showSweetAlert("Sorry!", "{{ Session::get('error') }}", "error");
 </script>
 @endif
-
-<script>
-// document.addEventListener('DOMContentLoaded', function() {
-//  const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-//  const totalItemElement = document.querySelector('.total-item-round');
-
-//  let totalItems = 0;
-
-//  addToCartButtons.forEach(button => {
-//   console.log('hello');
-//   button.addEventListener('click', function() {
-//    totalItems++;
-//    totalItemElement.textContent = totalItems;
-//   });
-//  });
-// });
-</script>
 
 <script>
 // footer section
