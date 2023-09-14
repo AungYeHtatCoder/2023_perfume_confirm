@@ -98,10 +98,10 @@
 
            <a href="{{ url('/shop') }}">Shop</a>
           </li>
-          <li>
+          {{-- <li>
 
            <a href="shop-side-version-2.html">Store</a>
-          </li>
+          </li> --}}
          </ul>
         </div>
        </div>
