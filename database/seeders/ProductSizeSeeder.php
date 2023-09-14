@@ -18,8 +18,8 @@ class ProductSizeSeeder extends Seeder
             // Loop through each size ID from 1 to 2
             for ($sizeId = 1; $sizeId <= 2; $sizeId++) {
                 
-                $normal_price = rand(1000, 5000);  // Generate a random normal_price
-                $discount_price = rand(500, $normal_price);  // Generate a random discount_price
+                $normal_price = rand(9000, 50000);  // Generate a random normal_price
+                $discount_price = rand(9000, $normal_price);  // Generate a random discount_price
                 $qty = rand(0, 100);  // Generate a random qty
                 
                 DB::table('product_size')->insert([

@@ -27,24 +27,24 @@ class RolesTableSeeder extends Seeder
                 'updated_at' => '2023-08-10 14:00:26',
             ],
 
-            // [
-            //     'id'         => 3,
-            //     'title'      => 'User',
-            //     'created_at' => '2023-08-10 14:00:26',
-            //     'updated_at' => '2023-08-10 14:00:26',
-            // ],
-            // [
-            //     'id'         => 4,
-            //     'title'      => 'Super Admin',
-            //     'created_at' => '2023-08-10 14:00:26',
-            //     'updated_at' => '2023-08-10 14:00:26',
-            // ],
-            // [
-            //     'id'         => 5,
-            //     'title'      => 'Super User',
-            //     'created_at' => '2023-08-10 14:00:26',
-            //     'updated_at' => '2023-08-10 14:00:26',
-            // ],
+            [
+                'id'         => 3,
+                'title'      => 'Diamond',
+                'created_at' => '2023-08-10 14:00:26',
+                'updated_at' => '2023-08-10 14:00:26',
+            ],
+            [
+                'id'         => 4,
+                'title'      => 'Gold',
+                'created_at' => '2023-08-10 14:00:26',
+                'updated_at' => '2023-08-10 14:00:26',
+            ],
+            [
+                'id'         => 5,
+                'title'      => 'Silver',
+                'created_at' => '2023-08-10 14:00:26',
+                'updated_at' => '2023-08-10 14:00:26',
+            ],
             
         ];
 

@@ -75,6 +75,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/dashboard-month', [AdminDashboardController::class, 'LineForMonth'])->name('dashboard-month');
     Route::get('/dashboard-day-month', [AdminDashboardController::class, 'DayForMonth'])->name('dashboard-day-month');
     Route::get('export', [App\Http\Controllers\Admin\OrderController::class, 'export'])->name('export');
+    // get daimond user route
+    Route::get('/diamond-user', [App\Http\Controllers\Admin\DiamondUserController::class, 'index'])->name('diamond-user');
+    // get gold user route
+    Route::get('/gold-user', [App\Http\Controllers\Admin\GoldUserController::class, 'index'])->name('gold-user');
+    // get silver user route
+    Route::get('/silver-user', [App\Http\Controllers\Admin\SilverUserController::class, 'index'])->name('silver-user');
+    // log show route
+    Route::get('/log', [App\Http\Controllers\Admin\LogController::class, 'showLog'])->name('log');
 
 });
 

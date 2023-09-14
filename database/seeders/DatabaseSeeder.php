@@ -30,9 +30,9 @@ class DatabaseSeeder extends Seeder
             BranchSeeder::class,
             ScentSeeder::class,
             SizeSeeder::class,
-            // ProductSeeder::class,
-            // OrderSeeder::class,
-            // ProductSizeSeeder::class,
+            ProductSeeder::class,
+            //OrderSeeder::class,
+            ProductSizeSeeder::class,
         ]);
     }
 }

@@ -563,6 +563,30 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
+            [
+                'id'         => '89',
+                'title'      => 'diamond_access',
+                'created_at' => '2023-02-10 14:00:26',
+                'updated_at' => '2023-02-10 14:00:26',
+            ],
+            [
+                'id'         => '90',
+                'title'      => 'gold_access',
+                'created_at' => '2023-02-10 14:00:26',
+                'updated_at' => '2023-02-10 14:00:26',
+            ],
+            [
+                'id'         => '91',
+                'title'      => 'silver_access',
+                'created_at' => '2023-02-10 14:00:26',
+                'updated_at' => '2023-02-10 14:00:26',
+            ],
+            [
+                'id'         => '92',
+                'title'      => 'default_user_access',
+                'created_at' => '2023-02-10 14:00:26',
+                'updated_at' => '2023-02-10 14:00:26',
+            ],
 
         ];
 

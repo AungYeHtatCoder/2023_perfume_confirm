@@ -99,7 +99,7 @@ class OrderController extends Controller
             }
 
             // Trigger the event for admin notification
-            event(new NewOrderEvent($order));
+           // event(new NewOrderEvent($order));
 
             foreach($carts as $cart){
                 OrderProduct::create([

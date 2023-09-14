@@ -38,6 +38,21 @@
      </span></a>
    </li>
    @endcan
+   @can('user_access')
+   <li><a class="menu-item" href="{{ route('admin.diamond-user') }}"><i></i><span data-i18n="Basic Buttons">Diamond Users
+     </span></a>
+   </li>
+   @endcan
+   @can('user_access')
+   <li><a class="menu-item" href="{{ route('admin.gold-user') }}"><i></i><span data-i18n="Basic Buttons">Gold Users
+     </span></a>
+   </li>
+   @endcan
+   @can('user_access')
+   <li><a class="menu-item" href="{{ route('admin.silver-user') }}"><i></i><span data-i18n="Basic Buttons">Silver Users
+     </span></a>
+   </li>
+   @endcan
    <!-- <li><a class="menu-item" href="#"><i></i><span data-i18n="Basic Buttons">Our
       Clients
      </span></a>

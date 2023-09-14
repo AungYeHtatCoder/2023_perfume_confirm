@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 //use Gate;
 use App\Models\Admin\Permission;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\MassDestroyUserRequest;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class UsersController extends Controller
