@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Customer\CustomerProfileController;
 use App\Http\Controllers\Customer\ProductBandSearchController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
@@ -94,6 +95,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/banners/edit/{id}', [BannerController::class, 'edit']);
     Route::post('/banners/edit/{id}', [BannerController::class, 'update']);
     Route::get('/banners/delete/{id}', [BannerController::class, 'delete']);
+
+    //Home Sections  crud
+    Route::get('/homesections', [HomeSectionController::class, 'index']);
+    Route::get('/homesections/create/', [HomeSectionController::class, 'create']);
+    Route::post('/homesections/create/', [HomeSectionController::class, 'store']);
+    Route::post('/homesections/status/{id}', [HomeSectionController::class, 'status']);
+    Route::get('/homesections/show/{id}', [HomeSectionController::class, 'show']);
+    Route::get('/homesections/edit/{id}', [HomeSectionController::class, 'edit']);
+    Route::post('/homesections/edit/{id}', [HomeSectionController::class, 'update']);
+    Route::get('/homesections/delete/{id}', [HomeSectionController::class, 'delete']);
 });
 
 //product popular change
