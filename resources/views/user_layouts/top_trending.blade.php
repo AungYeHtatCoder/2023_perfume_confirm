@@ -139,14 +139,13 @@
   </div>
 
   <div class="col-md-5 col-sm-12">
-   <img src="{{ asset('user_app/assets/images/banners/new_banner__6.png')}}" alt="banner">
+   <img src="{{ asset('assets/img/homesections/'.$section->image) }}" alt="banner">
   </div>
 
   <div class="col-md-5 col-sm-12 banner_texts">
-   <h2>Our original perfume</h2><br />
-   <p>The new fragrance</p><br />
-   <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua.</span><br />
+   <h2>{{ $section->text_1 }}</h2><br />
+   <p>{{ $section->text_2 }}</p><br />
+   <span>{{ $section->text_3 }}</span><br />
 
    <a href="{{ url('/shop') }}" type="button">SHOP NOW</a>
   </div>

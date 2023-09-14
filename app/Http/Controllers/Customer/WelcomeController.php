@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Banner;
+use App\Models\Admin\HomeSection;
 use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
@@ -20,17 +21,18 @@ class WelcomeController extends Controller
     public function index()
     {
         $banners = Banner::latest()->get();
+        $section = HomeSection::where('status', 1)->first();
         // return $banners;
-        $newArrival = Product::with('sizes')->latest()->take(5)->get();
-        $topTrending = Product::with(['scents', 'sizes'])->where('popular', 1)->get();
+        $newArrival = Product::with('sizes')->where('published', 1)->latest()->take(5)->get();
+        $topTrending = Product::with(['scents', 'sizes'])->where('popular', 1)->where('published', 1)->get();
         $scents = Scent::all();
-        $feature = Product::with('scents')->latest()->take(4)->where('feature', 1)->get();
+        $feature = Product::with('scents')->latest()->take(4)->where('feature', 1)->where('published', 1)->get();
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
-            return view('welcome', compact('newArrival', 'carts', 'topTrending', 'feature', 'scents', 'banners'));
+            return view('welcome', compact('newArrival', 'carts', 'topTrending', 'feature', 'scents', 'banners', 'section'));
         }else{
-            return view('welcome', compact('newArrival', 'feature', 'topTrending', 'scents', 'banners'));
+            return view('welcome', compact('newArrival', 'feature', 'topTrending', 'scents', 'banners', 'section'));
         }
     }
 
