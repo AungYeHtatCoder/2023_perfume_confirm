@@ -49,7 +49,7 @@
       <div class="col-lg-6 col-md-6">
        <div class="outer-footer__content u-s-m-b-40">
 
-        <span class="outer-footer__content-title">Information</span>
+        {{-- <span class="outer-footer__content-title">Information</span>
         <div class="outer-footer__list-wrap">
          <ul>
           <li>
@@ -60,30 +60,41 @@
 
            <a href="dashboard.html">Profile</a>
           </li>
-          
+
           <li>
 
            <a href="shop-side-version-2.html">Shop</a>
           </li>
          </ul>
-        </div>
+        </div> --}}
        </div>
       </div>
       <div class="col-lg-6 col-md-6">
        <div class="outer-footer__content u-s-m-b-40">
         <div class="outer-footer__list-wrap">
 
-         <span class="outer-footer__content-title">Our Company</span>
+         <span class="outer-footer__content-title">Quick Links</span>
          <ul>
           <li>
 
-           <a href="about.html">About us</a>
+           <a href="{{ url('/aboutus') }}">About us</a>
           </li>
           <li>
 
-           <a href="contact.html">Contact Us</a>
+           <a href="{{ url('/contact') }}">Contact Us</a>
           </li>
-          
+          <li>
+
+           <a href="{{ url('/cart') }}">Cart</a>
+          </li>
+          <li>
+
+           <a href="{{ url('/shop') }}">Shop</a>
+          </li>
+          {{-- <li>
+
+           <a href="shop-side-version-2.html">Store</a>
+          </li> --}}
          </ul>
         </div>
        </div>
