@@ -69,7 +69,7 @@
       </div>
       @endif
 
-      <table class="table table-striped table-bordered dataex-res-configuration">
+      {{-- <table class="table table-striped table-bordered dataex-res-configuration">
        <thead>
         <tr>
          <th>ID</th>
@@ -104,7 +104,56 @@
         @endforeach
        </tbody>
 
-      </table>
+      </table> --}}
+      <!-- Check for any users -->
+@if(count($usersWithDiamondRole) > 0)
+
+    <table class="table table-striped table-bordered dataex-res-configuration">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roles</th>
+                <th>Order Count</th>
+                <th>Total Order Price</th>
+                <th>Sub Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($usersWithDiamondRole as $user)
+                <tr>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>
+                      <p class="badge badge-info">
+                      {{ $assignedRoles[$user->id] ?? 'None' }}
+                      </p>
+                    </td>
+
+                    <td>{{ optional($userOrderCounts->firstWhere('id', $user->id))->order_count }}</td>
+                    <td>{{ optional($userOrderStats->firstWhere('id', $user->id))->total_price_sum }}</td>
+                    <td>{{ $userSubTotals[$user->id] ?? '0' }}</td>
+                     <td>
+          <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
+          <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-primary btn-sm">Show</a>
+          <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+           @csrf
+           @method('DELETE')
+           <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+         </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+@else
+
+    <p>No Diamond Users found.</p>
+
+@endif
+
      </div>
     </div>
    </div>
@@ -118,13 +167,13 @@
 {{-- order count --}}
 <div class="content-overlay"></div>
 
-<section id="configuration">
+{{-- <section id="configuration">
  <div class="row">
   <div class="col-12">
    <div class="card">
     <div class="card-header">
      <h4 class="card-title">
-      <a href="{{ route('admin.users.create') }}" class="btn btn-success btn-round">New User (OR) Customer Create</a>
+      <a href="{{ route('admin.users.create') }}" class="btn btn-success btn-round"></a>
      </h4>
      <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
      <div class="heading-elements">
@@ -138,9 +187,9 @@
     </div>
     <div class="card-content collapse show">
      <div class="card-body card-dashboard">
-      <p class="card-text">Diamond User  Order Count
+      <p class="card-text">
       </p>
-      <table class="table table-striped table-bordered dataex-res-configuration">
+      {{-- <table class="table table-striped table-bordered dataex-res-configuration">
        <thead>
         <tr>
          <th>ID</th>
@@ -169,7 +218,7 @@
         @endforeach
        </tbody>
 
-      </table>
+      </table> 
      </div>
     </div>
    </div>
@@ -177,8 +226,8 @@
  </div>
  @include('sweetalert::alert')
 
-</section>
-<!--/ Configurat
+</section> --}}
+
 @endsection
 
 @section('scripts')
