@@ -58,16 +58,9 @@
           </li>
           <li>
 
-           <a href="dashboard.html">Account</a>
+           <a href="dashboard.html">Profile</a>
           </li>
-          <li>
-
-           <a href="shop-side-version-2.html">Manufacturer</a>
-          </li>
-          <li>
-
-           <a href="dash-payment-option.html">Finance</a>
-          </li>
+          
           <li>
 
            <a href="shop-side-version-2.html">Shop</a>
@@ -90,18 +83,7 @@
 
            <a href="contact.html">Contact Us</a>
           </li>
-          <li>
-
-           <a href="index.html">Sitemap</a>
-          </li>
-          <li>
-
-           <a href="dash-my-order.html">Delivery</a>
-          </li>
-          <li>
-
-           <a href="shop-side-version-2.html">Store</a>
-          </li>
+          
          </ul>
         </div>
        </div>

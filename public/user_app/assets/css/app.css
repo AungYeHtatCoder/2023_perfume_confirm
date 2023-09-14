@@ -21,6 +21,66 @@ body{
 }
 /* end carousel section */
 
+/* about_responsive */
+@media(max-width:1200px){
+  .about__container .pic_res>img{
+      width: 700px;
+      /* background-color: #3185FC; */
+      margin: 0 10px;
+      text-align: center;
+  }
+
+  .about__container .text_res>p,.text_res>h2,.text_res>div>p{
+    width: 700px;
+    /* background-color: #3185FC; */
+    margin: 5px 10px;
+    text-align: center;
+  }
+}
+
+@media(max-width:1200px) and (min-width: 768px){
+  .about__container .pic_res>img{
+      width: 80%;
+      /* background-color: #3185FC; */
+      margin: 0 10px;
+  }
+
+  .about__container .text_res>p,.text_res>h2,.text_res>div>p{
+    width: 90%;
+    /* background-color: #3185FC; */
+    margin: 5px 10px;
+    text-align: center;
+  }
+}
+
+@media(max-width:767px) and (min-width:375px) {
+  body{
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  .about__container .pic_res>img{
+      width: 100% !important;
+      height: auto;
+      /* background-color: skyblue; */
+  }
+
+  .about__container .text_res>h2,.text_res>p,.text_res>div>p{
+    width: 300px !important;
+    /* background-color: #3185FC; */
+    margin: 5px 10px;
+    text-align: center;
+    padding: 0;
+  }
+
+.about__container .about__h2{
+  font-size: 30px;
+}
+
+ 
+}
+
+
+
 /* new banner section */
 
 .new_banner_section {
