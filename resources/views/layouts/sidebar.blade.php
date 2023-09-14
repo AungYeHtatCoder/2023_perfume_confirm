@@ -65,19 +65,20 @@
  </li>
  @endcan
 
-
- {{-- <li class=" nav-item"><a href="#"><i class="la la-file-text"></i><span class="menu-title"
-    data-i18n="Form Layouts">ArtManagenment</span></a>
+ <li class=" nav-item"><a href="#"><i class="la la-file-text"></i><span class="menu-title"
+    data-i18n="Form Layouts">User Interface</span></a>
   <ul class="menu-content">
-   <li><a class="menu-item" href=""><i></i><span data-i18n="Basic Forms">Plans</span></a>
+   <li><a class="menu-item" href="{{ url('/admin/banners/') }}"><i></i><span
+      data-i18n="Basic Forms">Banners</span></a>
    </li>
-   <li><a class="menu-item" href=""><i></i><span data-i18n="Basic Forms">Services</span></a>
+   <li><a class="menu-item" href="{{ url('admin/homepage/section/') }}"><i></i><span
+      data-i18n="Basic Forms">HomePage Section</span></a>
    </li>
-   <li><a class="menu-item" href=""><i></i><span data-i18n="Hidden Labels">Service
-      Samples</span></a>
+   <li><a class="menu-item" href="{{ url('admin/aboutpage/section/') }}"><i></i><span
+      data-i18n="Basic Forms">AboutPage Section</span></a>
    </li>
   </ul>
- </li> --}}
+ </li>
  @can('product_management_access')
  <li class=" nav-item"><a href="#"><i class="la la-file-text"></i><span class="menu-title"
     data-i18n="Form Layouts">ProductManagenment</span></a>

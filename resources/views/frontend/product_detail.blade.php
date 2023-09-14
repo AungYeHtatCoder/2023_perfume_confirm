@@ -134,6 +134,7 @@
         <p>{!! $product->description !!}</p>
        </div>
 
+       @auth
        <form class="pd-detail__form" action="{{ url('/add-to-cart/'.$product->id) }}" method="POST">
         @csrf
         <input type="hidden" name="size_id" value="{{ $size->id }}">
@@ -163,6 +164,8 @@
           </div>
          </div>
        </form>
+       @endauth
+
       </div>
       @endforeach
 
@@ -230,7 +233,7 @@
         <div class="product-o product-o--hover-on">
          <div class="product-o__wrap">
 
-          <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+          <a class="aspect aspect--bg-grey aspect--square u-d-block" href="#">
 
            <img class="aspect__img" src="{{ asset('assets/img/products/'.$product->image)}}" alt=""></a>
           <div class="product-o__action-wrap">

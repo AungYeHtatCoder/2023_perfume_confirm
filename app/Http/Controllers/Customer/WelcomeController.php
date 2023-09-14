@@ -9,6 +9,7 @@ use App\Models\Admin\Scent;
 use Illuminate\Http\Request;
 use App\Models\Admin\Product;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Banner;
 use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
@@ -18,6 +19,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+        $banners = Banner::latest()->get();
+        // return $banners;
         $newArrival = Product::with('sizes')->latest()->take(5)->get();
         $topTrending = Product::with(['scents', 'sizes'])->where('popular', 1)->get();
         $scents = Scent::all();
@@ -25,9 +28,9 @@ class WelcomeController extends Controller
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
-            return view('welcome', compact('newArrival', 'carts', 'topTrending', 'feature', 'scents'));
+            return view('welcome', compact('newArrival', 'carts', 'topTrending', 'feature', 'scents', 'banners'));
         }else{
-            return view('welcome', compact('newArrival', 'feature', 'topTrending', 'scents'));
+            return view('welcome', compact('newArrival', 'feature', 'topTrending', 'scents', 'banners'));
         }
     }
 
@@ -205,8 +208,8 @@ class WelcomeController extends Controller
     public function product_detail($id) {
         $product = Product::find($id);
         $related_products = Product::where('brand_id', $product->brand_id)
-    ->where('id', '<>', $product->id)
-    ->get();
+            ->where('id', '<>', $product->id)
+            ->get();
 
         // return $product->sizes[1]->id;
         if(Auth::check()){

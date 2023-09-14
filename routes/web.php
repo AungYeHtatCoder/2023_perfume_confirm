@@ -16,6 +16,7 @@ use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\BrandCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Customer\CustomerProfileController;
 use App\Http\Controllers\Customer\ProductBandSearchController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
@@ -84,6 +85,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     // log show route
     Route::get('/log', [App\Http\Controllers\Admin\LogController::class, 'showLog'])->name('log');
 
+
+    //banner slide crud
+    Route::get('/banners', [BannerController::class, 'index']);
+    Route::get('/banners/create/', [BannerController::class, 'create']);
+    Route::post('/banners/create/', [BannerController::class, 'store']);
+    Route::get('/banners/show/{id}', [BannerController::class, 'show']);
+    Route::get('/banners/edit/{id}', [BannerController::class, 'edit']);
+    Route::post('/banners/edit/{id}', [BannerController::class, 'update']);
+    Route::get('/banners/delete/{id}', [BannerController::class, 'delete']);
 });
 
 //product popular change
