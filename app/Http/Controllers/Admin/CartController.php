@@ -11,15 +11,23 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     public function addToCart(Request $request, $id){
-        $product = Product::find($id);
+        $product = Product::with('sizes')->where('id', $id)->first();
         if(!$product){
             return redirect()->back()->with('error', "Product Not Found!");
         }
+        // return $product;
         $request->validate([
             'size_id' => 'required',
             'qty' => 'required',
             'unit_price' => 'required'
         ]);
+
+        $stockCheck = $product->sizes()->where('size_id', $request->size_id)->first();
+        // return $stockCheck->pivot->qty;
+        if($stockCheck->pivot->qty <= 0){
+            return redirect()->back()->with('error', "Product is Out Of Stock");
+        }
+
         $cartItem = Cart::where('product_id', $id)->where('user_id', Auth::user()->id)->where('size_id', $request->size_id)->first();
         if(!$cartItem){
             $cart = Cart::create([
