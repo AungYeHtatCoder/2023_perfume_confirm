@@ -63,13 +63,13 @@
         </div>
        </div>
 
-       <!-- <div class="blog-t-w">
+       <div class="blog-t-w">
         <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look"
          data-tooltip="tooltip" data-placement="top">View</a>
 
         <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart"
          data-tooltip="tooltip" data-placement="top">Add to cart</a>
-       </div> -->
+       </div>
 
        <span class="product-o__category">
 
