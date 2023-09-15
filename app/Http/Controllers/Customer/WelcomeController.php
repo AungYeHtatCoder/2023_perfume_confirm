@@ -9,6 +9,7 @@ use App\Models\Admin\Scent;
 use Illuminate\Http\Request;
 use App\Models\Admin\Product;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\AboutSection;
 use App\Models\Admin\Banner;
 use App\Models\Admin\HomeSection;
 use Illuminate\Support\Facades\Auth;
@@ -230,12 +231,14 @@ class WelcomeController extends Controller
         return view('frontend.contact');
     }
     public function aboutus() {
+        $section1 = AboutSection::where('one', 1)->first();
+        $section2 = AboutSection::where('two', 1)->first();
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $carts = Cart::where('user_id', $user_id)->with(['products', 'sizes'])->get();
-            return view('frontend.aboutus', compact('carts'));
+            return view('frontend.aboutus', compact('carts', 'section1', 'section2'));
         }
-        return view('frontend.aboutus');
+        return view('frontend.aboutus', compact('section1', 'section2'));
     }
     public function signin() {
         if(Auth::check()){
