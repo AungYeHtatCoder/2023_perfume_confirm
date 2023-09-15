@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\BrandCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\HomeSectionController;
+use App\Http\Controllers\Admin\AboutSectionController;
 use App\Http\Controllers\Customer\CustomerProfileController;
 use App\Http\Controllers\Customer\ProductBandSearchController;
 use App\Http\Controllers\Customer\CustomerProductShowController;
@@ -105,6 +106,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/homesections/edit/{id}', [HomeSectionController::class, 'edit']);
     Route::post('/homesections/edit/{id}', [HomeSectionController::class, 'update']);
     Route::get('/homesections/delete/{id}', [HomeSectionController::class, 'delete']);
+
+    //About Sections  crud
+    Route::get('/aboutsections', [AboutSectionController::class, 'index']);
+    Route::get('/aboutsections/create/', [AboutSectionController::class, 'create']);
+    Route::post('/aboutsections/create/', [AboutSectionController::class, 'store']);
+    Route::post('/aboutsections/one/{id}', [AboutSectionController::class, 'one']);
+    Route::post('/aboutsections/two/{id}', [AboutSectionController::class, 'two']);
+    Route::get('/aboutsections/show/{id}', [AboutSectionController::class, 'show']);
+    Route::get('/aboutsections/edit/{id}', [AboutSectionController::class, 'edit']);
+    Route::post('/aboutsections/edit/{id}', [AboutSectionController::class, 'update']);
+    Route::get('/aboutsections/delete/{id}', [AboutSectionController::class, 'delete']);
 });
 
 //product popular change

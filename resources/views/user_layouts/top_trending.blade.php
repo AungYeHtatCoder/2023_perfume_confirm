@@ -141,6 +141,7 @@
 
 
  <!-- new banner section -->
+@if($section)
  <div class="new_banner_section row">
   <div class="col-md-1">
 
@@ -160,5 +161,6 @@
 
  </div>
  <hr class="mb-10">
+@endif
 
  <!-- end banner section -->
