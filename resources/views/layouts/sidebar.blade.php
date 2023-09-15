@@ -74,7 +74,7 @@
    <li><a class="menu-item" href="{{ url('admin/homesections/') }}"><i></i><span
       data-i18n="Basic Forms">HomePage Section</span></a>
    </li>
-   <li><a class="menu-item" href="{{ url('admin/aboutpage/section/') }}"><i></i><span
+   <li><a class="menu-item" href="{{ url('admin/aboutsections/') }}"><i></i><span
       data-i18n="Basic Forms">AboutPage Section</span></a>
    </li>
   </ul>

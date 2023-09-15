@@ -94,7 +94,7 @@ class HomeSectionController extends Controller
             'text_2' => $request->text_2,
             'text_3' => $request->text_3,
         ]);
-        return redirect('/admin/homesections/')->with('success', "Banner Updated.");
+        return redirect('/admin/homesections/')->with('success', "Home Section Updated.");
     }
 
     public function delete($id){
