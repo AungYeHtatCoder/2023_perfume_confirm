@@ -266,7 +266,7 @@
  <!--/ Recent Transactions -->
 
  <!--Recent Orders & Monthly Sales -->
- <div class="row match-height mt-5">
+ <div class="row match-height" style="margin-top: 250px">
   <div class="col-xl-10 col-lg-12">
    <div class="card">
     <div class="card-header">
