@@ -109,7 +109,7 @@
          <td>
           <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
           <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-primary btn-sm">Show</a>
-          <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+          <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
            @csrf
            @method('DELETE')
            <button type="submit" class="btn btn-danger btn-sm">Delete</button>

@@ -31,6 +31,67 @@ class Order extends Model
     return $this->belongsToMany('App\Models\Admin\Product', 'order_products')
                 ->withPivot('size_id', 'qty', 'total_price');
 }
+
+
+//     protected static function booted()
+// {
+//     static::created(function ($order) {
+//         $user = $order->user;
+
+//         if ($user) {
+//             // Define an array to store the roles to be assigned
+//             $rolesToAssign = [];
+
+//             // Use the sub_total from the order itself
+//             $totalAmount = $order->sub_total;
+
+//             // Assign roles based on the sub_total price
+//             $role = null;
+//             if ($totalAmount >= 200000) {
+//                 $role = 'Diamond';
+//             } elseif ($totalAmount >= 100000) {
+//                 $role = 'Gold';
+//             } elseif ($totalAmount >= 50000) {
+//                 $role = 'Silver';
+//             } else {
+//                 $role = 'User';
+//             }
+
+//             $roleId = Role::where('title', $role)->value('id');
+//             $rolesToAssign[] = $roleId;
+
+//             // Omit the "Admin" role (Role ID 1)
+//             $rolesToAssign = array_diff($rolesToAssign, [1]);
+
+//             // Debug output
+//             info("Total Amount: $totalAmount");
+//             info("Assigned Role: $role");
+
+//             // Sync the roles to the user
+//             if (!empty($rolesToAssign)) {
+//                 $user->roles()->sync($rolesToAssign);
+//             }
+
+//             // Apply discounts based on role
+//             $discount = 0;
+//             if ($role === 'Diamond') {
+//                 $discount = 0.05; // 5% discount
+//             } elseif ($role === 'Gold') {
+//                 $discount = 0.03; // 3% discount
+//             } elseif ($role === 'Silver') {
+//                 $discount = 0.02; // 2% discount
+//             }
+
+//             $totalAmount -= ($totalAmount * $discount);
+//             $order->update(['sub_total' => $totalAmount]);
+
+//             // Debug output for the discount
+//             info("Discount Applied: " . ($discount * 100) . "%");
+//             info("New Total Amount: $totalAmount");
+//         }
+//     });
+// }
+
     protected static function booted()
     {
         static::created(function ($order) {
@@ -58,8 +119,8 @@ class Order extends Model
                 $rolesToAssign = array_diff($rolesToAssign, [1]);
 
                 // Debug output
-                info("Total Amount: $totalAmount");
-                info("Assigned Roles: " . implode(', ', $rolesToAssign));
+                // info("Total Amount: $totalAmount");
+                // info("Assigned Roles: " . implode(', ', $rolesToAssign));
 
                 // Sync the roles to the user
                 if (!empty($rolesToAssign)) {

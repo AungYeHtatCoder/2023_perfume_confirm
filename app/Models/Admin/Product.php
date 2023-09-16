@@ -8,7 +8,7 @@ use App\Models\Admin\Scent;
 use App\Models\Admin\PerfumeSize;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Laravel\Scout\Searchable;
 class Product extends Model
 {
     use HasFactory;

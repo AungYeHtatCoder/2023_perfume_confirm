@@ -113,10 +113,11 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Email</th>
                 <th>Roles</th>
                 <th>Order Count</th>
                 <th>Total Order Price</th>
-                <th>Sub Total</th>
+                
                 <th>Action</th>
             </tr>
         </thead>
@@ -125,6 +126,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
                     <td>
                       <p class="badge badge-info">
                       {{ $assignedRoles[$user->id] ?? 'None' }}
@@ -133,11 +135,11 @@
 
                     <td>{{ optional($userOrderCounts->firstWhere('id', $user->id))->order_count }}</td>
                     <td>{{ optional($userOrderStats->firstWhere('id', $user->id))->total_price_sum }}</td>
-                    <td>{{ $userSubTotals[$user->id] ?? '0' }}</td>
+                    {{-- <td>{{ $userSubTotals[$user->id] ?? '0' }}</td> --}}
                      <td>
           <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
           <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-primary btn-sm">Show</a>
-          <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+          <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
            @csrf
            @method('DELETE')
            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
