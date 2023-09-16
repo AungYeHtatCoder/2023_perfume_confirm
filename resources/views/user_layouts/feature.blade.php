@@ -62,27 +62,29 @@
          </ul>
         </div>
        </div>
-
-       <div class="blog-t-w">
-        <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#quick-look"
-         data-tooltip="tooltip" data-placement="top">View</a>
-
-        <a class="gl-tag btn--e-transparent-hover-brand-b-2" data-modal="modal" data-modal-id="#add-to-cart"
-         data-tooltip="tooltip" data-placement="top">Add to cart</a>
-       </div>
-
        <span class="product-o__category">
-
-        <a href="shop-side-version-2.html">{{ $product->brand->brand_name }}</a></span>
+        <a href="{{ url('/brand/'.$product->brand->id) }}">{{ $product->brand->brand_name }}</a>
+       </span>
 
        <span class="product-o__name">
-
-        <a href="product-detail.html">{{ $product->name }}</a></span>
-
-
-       <span class="product-o__price">{{ $product->normal_price }}
-
-        <span class="product-o__discount">{{ $product->discount_price }}</span></span>
+        <a href="{{ url('/product/'.$product->id) }}">{{ $product->name }}</a>
+       </span>
+       <br>
+       @foreach ($product->sizes as $size)
+       @if ($size->pivot->discount_price <= 0 || NULL) <span
+        style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>
+        {{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+        <span class="product-o__price">{{ number_format($size->pivot->normal_price) }} MMK ({{ $size->name }})
+        </span>
+        @else
+        <span
+         style={{ $size->pivot->qty <= 0 ? "color: red;" : "color:green" }}>{{ $size->pivot->qty <= 0 ? "Out of Stock" : "In Stock" }}</span>
+        <span class="product-o__price">{{ number_format($size->pivot->discount_price) }} MMK ({{ $size->name }})
+         <span class="product-o__discount"
+          style="color: red; font-size: 10px">{{ number_format($size->pivot->normal_price) }} MMK</span>
+        </span>
+        @endif
+        @endforeach
       </div>
      </div>
      @endforeach
